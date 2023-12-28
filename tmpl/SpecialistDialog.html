@@ -1,0 +1,116 @@
+<div id="{{id}}">
+	<div id="{{id}}:cmd-cont">
+		<div id="{{id}}:cmdOk"/>
+		<div id="{{id}}:cmdSave"/>
+		<div id="{{id}}:cmdCancel"/>
+	</div>
+
+	<div class="row">
+		<h1 class="page-header">Карточка мастера</h1>
+	</div>
+
+	<div id="{{id}}:name"/>
+	<div id="{{id}}:users_ref"/>
+	
+	<div class="tabbable">
+		<ul class="nav nav-tabs nav-tabs-highlight">
+			<li class="active">
+				<a href="#profile" data-toggle="tab" aria-expanded="true">Личные данные</a>
+			</li>
+			<li>
+				<a href="#self_employed" data-toggle="tab" aria-expanded="false">Самозанятый</a>
+			</li>
+			<li>
+				<a href="#equipments" data-toggle="tab" aria-expanded="false">Оборудование</a>
+			</li>
+			<li>
+				<a href="#docs_for_sign" data-toggle="tab" aria-expanded="false">Подписание документов</a>
+			</li>
+			<li>
+				<a href="#works" data-toggle="tab" aria-expanded="false">Работы</a>
+			</li>
+			<li>
+				<a href="#salary" data-toggle="tab" aria-expanded="false">Зарплата</a>
+			</li>
+			
+		</ul>
+	</div>
+	
+	<!-- Tab panes -->
+	<div class="tab-content dialogForm">	
+		<div class="tab-pane fade in active" id="profile">
+			<div class="panel panel-body userDialogTab">
+				<div class="panel-heading">
+					<h4 class="panel-title">Личные данные</h4>
+				</div>
+				<div id="{{id}}:birthdate"/>
+				<div id="{{id}}:address_reg"/>
+				<div id="{{id}}:passport"/>
+				<div id="{{id}}:passport_preview"/>
+				<div id="{{id}}:tel"/>
+				<div id="{{id}}:email"/>				
+			</div>
+		</div>
+		<div class="tab-pane fade" id="self_employed">
+			<div class="panel panel-body userDialogTab">
+				<div class="panel-heading">
+					<h4 class="panel-title">Самозанятый</h4>
+				</div>
+				<div id="{{id}}:inn"/>	
+				<div id="{{id}}:banks_ref"/>
+				<div id="{{id}}:bank_acc"/>
+			</div>
+		</div>
+
+		<div class="tab-pane fade" id="equipments">
+			<div class="panel panel-body userDialogTab">
+				<div class="panel-heading">
+					<h4 class="panel-title">Оборудование</h4>
+				</div>
+				<div id="{{id}}:studios_ref"/>	
+				<div id="{{id}}:equipments"/>
+			</div>
+		</div>
+
+		<div class="tab-pane fade" id="docs_for_sign">
+			<div class="panel panel-body userDialogTab">
+				<div class="panel-heading">
+					<h4 class="panel-title">Подписание документов</h4>
+				</div>
+				<div id="{{id}}:specialist_documents"/>	
+			</div>
+		</div>
+
+		<div class="tab-pane fade" id="works">
+			<div class="panel panel-body userDialogTab">
+				<div class="panel-heading">
+					<h4 class="panel-title">Работы</h4>
+				</div>
+				<div id="{{id}}:specialist_transactions"/>	
+			</div>
+		</div>
+		<div class="tab-pane fade" id="salary">
+			<div class="panel panel-body userDialogTab">
+				<div class="panel-heading">
+					<h4 class="panel-title">Зарплата</h4>
+				</div>
+				<div id="{{id}}:specialities_ref"/>	
+				<div id="{{id}}:agent_percent"/>
+
+				<h6>Прочие начисления
+				</h6>
+				<div id="{{id}}:specialist_salary_debets"/>
+				
+				<h6>Прочие удержания
+				</h6>
+				<div id="{{id}}:specialist_salary_kredits"/>
+				
+				<h6>Зарплата
+				</h6>
+				<div id="{{id}}:specialist_period_salary"/>								
+			</div>
+		</div>
+		
+	</div>
+	
+</div>	

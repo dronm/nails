@@ -1,0 +1,49 @@
+https://npd.nalog.ru/check-status/
+
+var r_INN_FL = new RegExp("^[0-9]{12}$");
+
+	// Валидатор ИНН
+	function CheckINN_FL(source, arguments)
+	{
+		if (!r_INN_FL.test(arguments.Value))
+		{
+			arguments.IsValid = false;
+			return;
+		}
+
+		var summ1 =
+			(
+				(
+					07 * parseInt(arguments.Value.charAt(00)) +
+					02 * parseInt(arguments.Value.charAt(01)) +
+					04 * parseInt(arguments.Value.charAt(02)) +
+					10 * parseInt(arguments.Value.charAt(03)) +
+					03 * parseInt(arguments.Value.charAt(04)) +
+					05 * parseInt(arguments.Value.charAt(05)) +
+					09 * parseInt(arguments.Value.charAt(06)) +
+					04 * parseInt(arguments.Value.charAt(07)) +
+					06 * parseInt(arguments.Value.charAt(08)) +
+					08 * parseInt(arguments.Value.charAt(09))
+				) % 11
+			) % 10;
+
+		var summ2 =
+			(
+				(
+					03 * parseInt(arguments.Value.charAt(00)) +
+					07 * parseInt(arguments.Value.charAt(01)) +
+					02 * parseInt(arguments.Value.charAt(02)) +
+					04 * parseInt(arguments.Value.charAt(03)) +
+					10 * parseInt(arguments.Value.charAt(04)) +
+					03 * parseInt(arguments.Value.charAt(05)) +
+					05 * parseInt(arguments.Value.charAt(06)) +
+					09 * parseInt(arguments.Value.charAt(07)) +
+					04 * parseInt(arguments.Value.charAt(08)) +
+					06 * parseInt(arguments.Value.charAt(09)) +
+					08 * parseInt(arguments.Value.charAt(10))
+				) % 11
+			) % 10;
+
+		arguments.IsValid = (parseInt(arguments.Value.charAt(10)) == summ1 && parseInt(arguments.Value.charAt(11)) == summ2);
+	}
+

@@ -1,0 +1,1 @@
+/home/andrey/go/osbe/repo/contact/js20/views/ContactDialog_View.js

@@ -1,0 +1,21 @@
+-- VIEW: public.template_batch_items_list
+
+--DROP VIEW public.template_batch_items_list;
+
+CREATE OR REPLACE VIEW public.template_batch_items_list AS
+	SELECT
+		t.id
+		,t.template_batch_id
+		,templates_ref(templates_ref_t) AS templates_ref
+	FROM public.template_batch_items AS t
+	
+	
+	
+	
+	
+	LEFT JOIN templates AS templates_ref_t ON templates_ref_t.id = t.template_id
+	
+	
+	;
+	
+ALTER VIEW public.template_batch_items_list OWNER TO ;

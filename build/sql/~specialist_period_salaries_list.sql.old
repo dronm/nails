@@ -1,0 +1,21 @@
+-- VIEW: public.specialist_period_salaries_list
+
+--DROP VIEW public.specialist_period_salaries_list;
+
+CREATE OR REPLACE VIEW public.specialist_period_salaries_list AS
+	SELECT
+		t.id
+		,t.date_time
+		,t.period_descr
+		,t.work_total
+		,t.hours
+		,t.debet
+		,t.kredit
+		,t.rent_total
+		,t.total
+	FROM public.specialist_period_salaries AS t
+	
+	ORDER BY period DESC
+	;
+	
+ALTER VIEW public.specialist_period_salaries_list OWNER TO ;

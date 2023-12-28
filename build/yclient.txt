@@ -1,0 +1,3 @@
+https://yclients.com/finances/transactions_search/781898?start_date=01.12.2023&end_date=02.12.2023&balance_is=0&supplier_id=0&type=0&master_id=0&deleted=0&client=&client_id=0&document_number=&page=&editable_length=25
+
+

@@ -1,0 +1,2644 @@
+<?xml version="1.0"?>
+<!DOCTYPE metadata SYSTEM "metadata.dtd">
+<metadata debug="TRUE" owner="nails" dataSchema="public">
+	<versions>
+		<version dateOpen="2023-09-21 17:09:03" dateClose="2023-12-26 18:12:07">1.001 
+		<lastBuild>2023-12-28 16:20:45</lastBuild></version>
+		<version dateOpen="2023-12-28 09:12:45" dateClose="2023-12-28 09:12:45">1.002</version>
+		<version dateOpen="2023-12-28 13:12:56" dateClose="2023-12-28 16:12:20">1.003</version>
+	</versions>
+	<globalFilters>
+		<field id="user_id"/>
+		<field id="specialist_id"/>
+	</globalFilters>
+	<enums>
+		<enum id="locales">
+			<value id="ru">
+				<ru descr="&#x420;&#x443;&#x441;&#x441;&#x43A;&#x438;&#x439;"/>
+			</value>
+		</enum>
+		<enum id="role_types">
+			<value id="admin">
+				<ru descr="&#x410;&#x434;&#x43C;&#x438;&#x43D;&#x438;&#x441;&#x442;&#x440;&#x430;&#x442;&#x43E;&#x440;"/>
+			</value>
+			<value id="specialist">
+				<ru descr="&#x41C;&#x430;&#x441;&#x442;&#x435;&#x440;"/>
+			</value>
+			<value id="accountant">
+				<ru descr="&#x411;&#x443;&#x445;&#x433;&#x430;&#x43B;&#x442;&#x435;&#x440;"/>
+			</value>
+		</enum>
+		<enum id="data_types" descr="&#x422;&#x438;&#x43F;&#x44B; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x445;">
+			<value id="users">
+				<ru descr="&#x41F;&#x43E;&#x43B;&#x44C;&#x437;&#x43E;&#x432;&#x430;&#x442;&#x435;&#x43B;&#x438;"/>
+			</value>
+			<value id="specialists">
+				<ru descr="&#x41C;&#x430;&#x441;&#x442;&#x435;&#x440;&#x430;"/>
+			</value>
+			<value id="specialist_regs">
+				<ru descr="&#x420;&#x435;&#x433;&#x438;&#x441;&#x442;&#x440;&#x430;&#x446;&#x438;&#x44F; &#x43C;&#x430;&#x441;&#x442;&#x435;&#x440;&#x430;"/>
+			</value>
+		</enum>
+		<enum id="mail_types" descr="&#x422;&#x438;&#x43F;&#x44B; &#x43F;&#x438;&#x441;&#x435;&#x43C;">
+			<value id="password_recover">
+				<ru descr="&#x412;&#x43E;&#x441;&#x441;&#x442;&#x430;&#x43D;&#x43E;&#x432;&#x43B;&#x435;&#x43D;&#x438;&#x435; &#x43F;&#x430;&#x440;&#x43E;&#x43B;&#x44F;"/>
+			</value>
+		</enum>
+		<enum id="notif_types" descr="&#x422;&#x438;&#x43F;&#x44B; &#x43F;&#x440;&#x435;&#x434;&#x443;&#x43F;&#x440;&#x435;&#x436;&#x434;&#x435;&#x43D;&#x438;&#x439;">
+			<value id="new_specialist">
+				<ru descr="&#x414;&#x43E;&#x431;&#x430;&#x432;&#x43B;&#x435;&#x43D; &#x441;&#x430;&#x43C;&#x43E;&#x437;&#x430;&#x43D;&#x44F;&#x442;&#x44B;&#x439;"/>
+			</value>
+			<value id="tel_check">
+				<ru descr="&#x41F;&#x440;&#x43E;&#x432;&#x435;&#x440;&#x43A;&#x430; &#x442;&#x435;&#x43B;&#x435;&#x444;&#x43E;&#x43D;&#x430;"/>
+			</value>
+			<value id="email_check">
+				<ru descr="&#x41F;&#x440;&#x43E;&#x432;&#x435;&#x440;&#x43A;&#x430; &#x44D;&#x43B;&#x435;&#x43A;&#x442;&#x440;&#x43E;&#x43D;&#x43D;&#x43E;&#x439; &#x43F;&#x43E;&#x447;&#x442;&#x44B;"/>
+			</value>
+			<value id="docs_for_sign">
+				<ru descr="&#x414;&#x43E;&#x43A;&#x443;&#x43C;&#x435;&#x43D;&#x442;&#x44B; &#x434;&#x43B;&#x44F; &#x43F;&#x43E;&#x434;&#x43F;&#x438;&#x441;&#x430;&#x43D;&#x438;&#x44F;"/>
+			</value>
+			<value id="signed_docs">
+				<ru descr="&#x41F;&#x43E;&#x434;&#x43F;&#x438;&#x441;&#x430;&#x43D;&#x43D;&#x44B;&#x435; &#x434;&#x43E;&#x43A;&#x443;&#x43C;&#x435;&#x43D;&#x442;&#x44B;"/>
+			</value>
+			<value id="new_account">
+				<ru descr="&#x41D;&#x43E;&#x432;&#x44B;&#x439; &#x430;&#x43A;&#x43A;&#x430;&#x443;&#x43D;&#x442;"/>
+			</value>
+		</enum>
+		<enum id="specialist_status_types" descr="&#x421;&#x442;&#x430;&#x442;&#x443;&#x441;&#x44B; &#x43C;&#x430;&#x441;&#x442;&#x435;&#x440;&#x43E;&#x432;">
+			<value id="contract_signing">
+				<ru descr="&#x41F;&#x43E;&#x434;&#x43F;&#x438;&#x441;&#x430;&#x43D;&#x438;&#x435; &#x43A;&#x43E;&#x43D;&#x442;&#x440;&#x430;&#x43A;&#x442;&#x430;"/>
+			</value>
+			<value id="contract_signed">
+				<ru descr="&#x417;&#x430;&#x43A;&#x43B;&#x44E;&#x447;&#x435;&#x43D; &#x43A;&#x43E;&#x43D;&#x442;&#x440;&#x430;&#x43A;&#x442;"/>
+			</value>
+			<value id="contract_terminated">
+				<ru descr="&#x420;&#x430;&#x441;&#x442;&#x43E;&#x440;&#x433;&#x43D;&#x443;&#x442; &#x43A;&#x43E;&#x43D;&#x442;&#x440;&#x430;&#x43A;&#x442;"/>
+			</value>
+		</enum>
+		<enum id="notif_providers" descr="&#x41F;&#x440;&#x43E;&#x432;&#x430;&#x439;&#x434;&#x435;&#x440;&#x44B; &#x443;&#x432;&#x435;&#x434;&#x43E;&#x43C;&#x43B;&#x435;&#x43D;&#x438;&#x439;">
+			<value id="email">
+				<ru descr="&#x42D;&#x43B;&#x435;&#x43A;&#x442;&#x440;&#x43E;&#x43D;&#x43D;&#x430;&#x44F; &#x43F;&#x43E;&#x447;&#x442;&#x430;"/>
+			</value>
+			<value id="sms">
+				<ru descr="&#x421;&#x41C;&#x421;"/>
+			</value>
+			<value id="wa">
+				<ru descr="WhatsUp"/>
+			</value>
+			<value id="tm">
+				<ru descr="Telegram"/>
+			</value>
+			<value id="vb">
+				<ru descr="Viber"/>
+			</value>
+		</enum>
+		<enum id="template_batch_types" descr="&#x422;&#x438;&#x43F;&#x44B; &#x43F;&#x430;&#x43A;&#x435;&#x442;&#x43E;&#x432; &#x448;&#x430;&#x431;&#x43B;&#x43E;&#x43D;&#x43E;&#x432;">
+			<value id="specialist_registration">
+				<ru descr="&#x420;&#x435;&#x433;&#x438;&#x441;&#x442;&#x440;&#x430;&#x446;&#x438;&#x44F; &#x43C;&#x430;&#x441;&#x442;&#x435;&#x440;&#x430;"/>
+			</value>
+			<value id="specialist_salary">
+				<ru descr="&#x420;&#x430;&#x441;&#x447;&#x435;&#x442; &#x437;&#x430;&#x440;&#x43F;&#x43B;&#x430;&#x442;&#x44B;"/>
+			</value>
+		</enum>
+	</enums>
+	<modules/>
+	<models limitConstant="doc_per_page_count">
+		<model id="TimeZoneLocale" parent="ModelSQL" dataTable="time_zone_locales" virtual="FALSE">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE" required="TRUE" alias="&#x41A;&#x43E;&#x434;"/>
+			<field id="descr" dataType="String" required="TRUE" length="100"/>
+			<field id="name" dataType="String" required="TRUE" length="50"/>
+			<field id="hour_dif" dataType="Float" length="5" precision="1" required="TRUE"/>
+		</model>
+		<model id="User" parent="ModelSQL" dataTable="users" virtual="FALSE">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE" dbRequired="TRUE"/>
+			<field id="name" dataType="String" required="TRUE" length="100"/>
+			<field id="name_full" dataType="Text"/>
+			<field id="role_id" dataType="Enum" enumId="role_types" required="TRUE"/>
+			<field id="pwd" dataType="Password" length="32"/>
+			<field id="create_dt" dataType="DateTimeTZ" defaultValue="CURRENT_TIMESTAMP"/>
+			<field id="banned" dataType="Bool" defaultValue="FALSE"/>
+			<field id="time_zone_locale_id" dataType="Int" refTable="time_zone_locales" refField="id"/>
+			<field id="locale_id" dataType="Enum" enumId="locales"/>
+			<index id="users_name_index" unique="TRUE">
+				<expression>lower(name)</expression>
+			</index>
+			<index id="users_role_id_idx">
+				<field id="role_id"/>
+			</index>
+		</model>
+		<model id="UserList" parent="ModelSQL" dataTable="users_list" virtual="TRUE">
+			<defaultOrder>
+				<field id="name"/>
+			</defaultOrder>
+			<field id="id" dataType="Int" primaryKey="TRUE"/>
+			<field id="name" dataType="String"/>
+			<field id="name_full" dataType="String"/>
+			<field id="role_id" dataType="Enum" enumId="role_types"/>
+			<field id="photo" dataType="JSON"/>
+			<field id="tel" dataType="String"/>
+			<field id="email" dataType="String"/>
+		</model>
+		<model id="UserDialog" parent="ModelSQL" dataTable="users_dialog" virtual="TRUE">
+			<field id="id" dataType="Int" primaryKey="TRUE" alias="&#x41A;&#x43E;&#x434;"/>
+			<field id="name" dataType="String" alias="&#x418;&#x43C;&#x44F;"/>
+			<field id="name_full" dataType="String"/>
+			<field id="role_id" dataType="String"/>
+			<field id="create_dt" dataType="DateTimeTZ"/>
+			<field id="banned" dataType="Bool"/>
+			<field id="time_zone_locales_ref" dataType="JSON"/>
+			<field id="locale_id" dataType="String"/>
+			<field id="photo" dataType="JSON"/>
+		</model>
+		<model id="UserLogin" parent="ModelSQL" dataTable="users_login" virtual="TRUE">
+			<field id="id" dataType="Int" primaryKey="TRUE" alias="&#x41A;&#x43E;&#x434;"/>
+			<field id="name" dataType="String" alias="&#x418;&#x43C;&#x44F;"/>
+			<field id="name_full" dataType="String"/>
+			<field id="role_id" dataType="String"/>
+			<field id="create_dt" dataType="DateTimeTZ"/>
+			<field id="banned" dataType="Bool"/>
+			<field id="time_zone_locales_ref" dataType="JSON"/>
+			<field id="locale_id" dataType="String"/>
+			<field id="pwd" dataType="String"/>
+			<field id="ban_hash" dataType="String"/>
+			<field id="photo" dataType="Text"/>
+		</model>
+		<model id="UserProfile" parent="ModelSQL" dataTable="users_profile" virtual="TRUE">
+			<field id="id" dataType="Int" primaryKey="TRUE" alias="&#x41A;&#x43E;&#x434;"/>
+			<field id="name" dataType="String" alias="&#x418;&#x43C;&#x44F;"/>
+			<field id="name_full" dataType="String"/>
+			<field id="locale_id" dataType="String"/>
+			<field id="time_zone_locales_ref" dataType="JSON"/>
+			<field id="photo" dataType="JSON"/>
+		</model>
+		<model id="SessionVal" parent="ModelSQL" dataTable="session_vals" virtual="FALSE">
+			<field id="id" dataType="String" length="36" primaryKey="TRUE" autoInc="FALSE" dbRequired="TRUE"/>
+			<field id="accessed_time" dataType="DateTimeTZ" defaultValue="CURRENT_TIMESTAMP"/>
+			<field id="create_time" dataType="DateTimeTZ" defaultValue="CURRENT_TIMESTAMP"/>
+			<field id="val" dataType="Bytea"/>
+			<!--
+			<index id="session_vals_accessed_time_idx">
+				<field id="accessed_time"/>
+			</index>			
+			<index id="session_vals_create_time_idx">
+				<field id="create_time"/>
+			</index>
+			-->
+		</model>
+		<model id="Login" parent="ModelSQL" dataTable="logins" virtual="FALSE">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE" required="FALSE"/>
+			<field id="date_time_in" dataType="DateTimeTZ"/>
+			<field id="date_time_out" dataType="DateTimeTZ"/>
+			<field id="ip" dataType="String" length="15"/>
+			<field id="session_id" dataType="String" length="128"/>
+			<field id="user_id" dataType="Int"/>
+			<field id="pub_key" dataType="String" length="15"/>
+			<field id="set_date_time" dataType="DateTimeTZ"/>
+			<field id="headers" dataType="JSONB"/>
+			<field id="user_agent" dataType="JSONB"/>
+			<index id="logins_session_idx">
+				<field id="session_id"/>
+			</index>
+			<index id="logins_user_idx">
+				<field id="user_id"/>
+			</index>
+			<index id="logins_pub_key_idx">
+				<field id="pub_key"/>
+			</index>
+		</model>
+		<model id="LoginList" parent="ModelSQL" dataTable="logins_list" virtual="TRUE">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE" required="FALSE" sysCol="TRUE"/>
+			<field id="date_time_in" dataType="DateTimeTZ" alias="&#x414;&#x430;&#x442;&#x430; &#x432;&#x445;&#x43E;&#x434;&#x430;"/>
+			<field id="date_time_out" dataType="DateTimeTZ" alias="&#x414;&#x430;&#x442;&#x430; &#x432;&#x44B;&#x445;&#x43E;&#x434;&#x430;"/>
+			<field id="ip" dataType="String" length="15" alias="IP &#x430;&#x434;&#x440;&#x435;&#x441;"/>
+			<field id="user_id" dataType="Int" sysCol="TRUE"/>
+			<field id="users_ref" dataType="JSON" alias="&#x41F;&#x43E;&#x43B;&#x44C;&#x437;&#x43E;&#x432;&#x430;&#x442;&#x435;&#x43B;&#x44C;"/>
+			<field id="pub_key" dataType="String" length="15" sysCol="TRUE"/>
+			<field id="set_date_time" dataType="DateTimeTZ" alias="&#x412;&#x440;&#x435;&#x43C;&#x44F; &#x43F;&#x43E;&#x441;&#x43B;&#x435;&#x434;&#x43D;&#x435;&#x433;&#x43E; &#x43E;&#x431;&#x440;&#x430;&#x449;&#x435;&#x43D;&#x438;&#x44F;"/>
+			<field id="user_agent_descr" dataType="String"/>
+			<field id="user_agent" dataType="JSON"/>
+			<field id="headers" dataType="JSON"/>
+		</model>
+		<model id="LoginDeviceList" parent="ModelSQLBeton" dataTable="login_devices_list" virtual="TRUE">
+			<field id="user_id" dataType="Int" sysCol="TRUE" primaryKey="TRUE"/>
+			<field id="user_agent" dataType="Text" primaryKey="TRUE"/>
+			<field id="user_descr" dataType="String" alias="&#x418;&#x43C;&#x44F; &#x43F;&#x43E;&#x43B;&#x44C;&#x437;&#x43E;&#x432;&#x430;&#x442;&#x435;&#x43B;&#x44F;"/>
+			<field id="date_time_in" dataType="DateTimeTZ" alias="&#x414;&#x430;&#x442;&#x430; &#x432;&#x445;&#x43E;&#x434;&#x430;"/>
+			<field id="banned" dataType="Bool" alias="&#x412;&#x445;&#x43E;&#x434; &#x437;&#x430;&#x43F;&#x440;&#x435;&#x449;&#x435;&#x43D;"/>
+			<field id="ban_hash" dataType="String"/>
+		</model>
+		<model id="LoginDeviceBan" parent="ModelSQLBeton" dataTable="login_device_bans" virtual="FALSE">
+			<field id="user_id" dataType="Int" sysCol="TRUE" primaryKey="TRUE"/>
+			<field id="hash" dataType="String" length="32" primaryKey="TRUE"/>
+			<field id="create_dt" dataType="DateTimeTZ" alias="&#x414;&#x430;&#x442;&#x430; &#x441;&#x43E;&#x437;&#x434;&#x430;&#x43D;&#x438;&#x44F;" defaultValue="CURRENT_TIMESTAMP"/>
+		</model>
+		<model id="ConstantList" parent="ModelSQL" dataTable="constants_list_view" virtual="TRUE">
+			<defaultOrder>
+				<field id="name"/>
+			</defaultOrder>
+			<field id="id" dataType="String" primaryKey="TRUE"/>
+			<field id="name" dataType="String"/>
+			<field id="descr" dataType="Text"/>
+			<field id="val" dataType="Text"/>
+			<field id="val_type" dataType="Text"/>
+			<field id="ctrl_class" dataType="Text"/>
+			<field id="ctrl_options" dataType="JSON"/>
+			<field id="view_class" dataType="Text"/>
+			<field id="view_options" dataType="JSON"/>
+		</model>
+		<model id="View" parent="ModelSQL" dataTable="views" virtual="FALSE">
+			<defaultOrder>
+				<field id="section"/>
+				<field id="descr"/>
+			</defaultOrder>
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE" required="FALSE" alias="&#x41A;&#x43E;&#x434;"/>
+			<field id="c" dataType="Text"/>
+			<field id="f" dataType="Text"/>
+			<field id="t" dataType="Text"/>
+			<field id="section" dataType="Text" required="TRUE"/>
+			<field id="descr" dataType="Text" required="TRUE"/>
+			<field id="limited" dataType="Bool"/>
+			<index id="views_section_descr_idx" unique="TRUE">
+				<field id="section"/>
+				<field id="descr"/>
+			</index>
+		</model>
+		<model id="ViewList" parent="ModelSQL" dataTable="views_list" virtual="TRUE">
+			<defaultOrder>
+				<field id="user_descr"/>
+			</defaultOrder>
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE" required="FALSE" alias="&#x41A;&#x43E;&#x434;"/>
+			<field id="c" dataType="Text"/>
+			<field id="f" dataType="Text"/>
+			<field id="t" dataType="Text"/>
+			<field id="href" dataType="Text"/>
+			<field id="user_descr" dataType="Text"/>
+			<field id="section" dataType="Text"/>
+		</model>
+		<model id="ViewSectionList" parent="ModelSQL" dataTable="views_section_list" virtual="TRUE">
+			<field id="section" dataType="Text"/>
+		</model>
+		<model id="MainMenuConstructor" parent="ModelSQL" dataTable="main_menus" virtual="FALSE">
+			<defaultOrder>
+				<field id="role_id"/>
+			</defaultOrder>
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE" required="FALSE" alias="&#x41A;&#x43E;&#x434;"/>
+			<field id="role_id" dataType="Enum" enumId="role_types" required="TRUE"/>
+			<field id="user_id" dataType="Int" refTable="users" refField="id"/>
+			<field id="content" dataType="Text" required="TRUE" alias="&#x421;&#x43E;&#x434;&#x435;&#x440;&#x436;&#x430;&#x43D;&#x438;&#x435;"/>
+			<field id="model_content" dataType="Text" required="FALSE" alias="&#x421;&#x43E;&#x434;&#x435;&#x440;&#x436;&#x430;&#x43D;&#x438;&#x435; &#x434;&#x43B;&#x44F; &#x43C;&#x43E;&#x434;&#x435;&#x43B;&#x438;,&#x437;&#x430;&#x43F;&#x43E;&#x43B;&#x43D;&#x44F;&#x435;&#x442;&#x441;&#x44F; &#x43F;&#x440;&#x438; &#x437;&#x430;&#x43F;&#x438;&#x441;&#x438; &#x438;&#x437; &#x43A;&#x43E;&#x43D;&#x442;&#x440;&#x43E;&#x43B;&#x43B;&#x435;&#x440;&#x430;!"/>
+			<index id="main_menus_role_user_idx" unique="TRUE">
+				<field id="role_id"/>
+				<field id="user_id"/>
+			</index>
+		</model>
+		<model id="MainMenuConstructorList" parent="ModelSQL" dataTable="main_menus_list" virtual="TRUE">
+			<field id="id" dataType="Int" primaryKey="TRUE" sysCol="TRUE"/>
+			<field id="role_id" dataType="String"/>
+			<field id="user_id" dataType="String"/>
+			<field id="user_descr" dataType="String"/>
+		</model>
+		<model id="MainMenuConstructorDialog" parent="ModelSQL" dataTable="main_menus_dialog" virtual="TRUE">
+			<field id="id" dataType="Int" primaryKey="TRUE" sysCol="TRUE"/>
+			<field id="role_id" dataType="String"/>
+			<field id="user_id" dataType="String"/>
+			<field id="user_descr" dataType="String"/>
+			<field id="content" dataType="Text"/>
+		</model>
+		<model id="MainMenuContent" parentJS="ModelXMLTree" parent="Model" virtual="TRUE" server="FALSE">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="descr" dataType="String"/>
+			<field id="viewid" dataType="Int"/>
+			<field id="viewdescr" dataType="String"/>
+			<field id="default" dataType="Bool"/>
+			<field id="glyphclass" dataType="String"/>
+		</model>
+		<model id="VariantStorage" parent="ModelSQL" dataTable="variant_storages" virtual="FALSE">
+			<field id="id" dataType="Int" primaryKey="TRUE" required="TRUE" autoInc="TRUE"/>
+			<field id="user_id" dataType="Int" refTable="users" refField="id"/>
+			<field id="storage_name" dataType="Text" required="TRUE"/>
+			<field id="variant_name" dataType="Text" required="TRUE"/>
+			<field id="default_variant" dataType="Bool"/>
+			<field id="filter_data" dataType="JSONB"/>
+			<field id="col_visib_data" dataType="Text"/>
+			<field id="col_order_data" dataType="Text"/>
+			<index id="variant_storages_user_idx" unique="TRUE">
+				<field id="user_id"/>
+				<field id="storage_name"/>
+			</index>
+		</model>
+		<model id="VariantStorageList" parent="ModelSQL" dataTable="variant_storages_list" virtual="TRUE">
+			<field id="id" dataType="Int" primaryKey="TRUE"/>
+			<field id="user_id" dataType="Int" refTable="users" refField="id"/>
+			<field id="storage_name" dataType="Text"/>
+			<field id="default_variant" dataType="Bool"/>
+			<field id="variant_name" dataType="Text"/>
+		</model>
+		<model id="About" parent="ModelSQL" virtual="TRUE">
+			<field id="author" dataType="String"/>
+			<field id="tech_mail" dataType="String"/>
+			<field id="app_name" dataType="String"/>
+			<field id="fw_version" dataType="String"/>
+			<field id="app_version" dataType="String"/>
+			<field id="db_name" dataType="String"/>
+		</model>
+		<model id="MailTemplate" parent="ModelSQL" dataTable="mail_templates" virtual="FALSE">
+			<defaultOrder>
+				<field id="mail_type"/>
+			</defaultOrder>
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE" required="FALSE"/>
+			<field id="mail_type" dataType="Enum" primaryKey="FALSE" enumId="mail_types" autoInc="FALSE" required="TRUE" alias="&#x422;&#x438;&#x43F; email"/>
+			<field id="template" dataType="Text" required="TRUE" alias="&#x428;&#x430;&#x431;&#x43B;&#x43E;&#x43D;"/>
+			<field id="comment_text" dataType="Text" required="TRUE" alias="&#x41A;&#x43E;&#x43C;&#x43C;&#x435;&#x43D;&#x442;&#x430;&#x440;&#x438;&#x439;"/>
+			<field id="mes_subject" dataType="Text" required="TRUE" alias="&#x422;&#x435;&#x43C;&#x430;"/>
+			<field id="fields" dataType="JSON" required="TRUE" alias="&#x41F;&#x43E;&#x43B;&#x44F;"/>
+			<index id="mail_templates_type_idx" unique="TRUE">
+				<field id="mail_type"/>
+			</index>
+		</model>
+		<model id="MailTemplateList" parent="ModelSQL" dataTable="mail_templates_list" virtual="TRUE">
+			<field id="id" dataType="Int" primaryKey="TRUE"/>
+			<field id="mail_type" dataType="String"/>
+			<field id="template" dataType="Text"/>
+		</model>
+		<model id="NotifTemplate" parent="ModelSQL" dataTable="notif_templates" virtual="FALSE">
+			<defaultOrder>
+				<field id="notif_provider"/>
+				<field id="notif_type"/>
+			</defaultOrder>
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE" required="FALSE"/>
+			<field id="notif_provider" dataType="Enum" enumId="notif_providers" autoInc="FALSE" required="TRUE" alias="&#x421;&#x43F;&#x43E;&#x441;&#x43E;&#x431; &#x434;&#x43E;&#x441;&#x442;&#x430;&#x432;&#x43A;&#x438;"/>
+			<field id="notif_type" dataType="Enum" enumId="notif_types" autoInc="FALSE" required="TRUE" alias="&#x422;&#x438;&#x43F; &#x441;&#x43E;&#x43E;&#x431;&#x449;&#x435;&#x43D;&#x438;&#x44F;"/>
+			<field id="template" dataType="Text" required="TRUE" alias="&#x428;&#x430;&#x431;&#x43B;&#x43E;&#x43D;"/>
+			<field id="comment_text" dataType="Text" required="TRUE" alias="&#x41A;&#x43E;&#x43C;&#x43C;&#x435;&#x43D;&#x442;&#x430;&#x440;&#x438;&#x439;"/>
+			<field id="fields" dataType="JSON" required="TRUE" alias="&#x41F;&#x43E;&#x43B;&#x44F;"/>
+			<field id="provider_values" dataType="JSON" alias="&#x421;&#x43F;&#x435;&#x446;&#x438;&#x444;&#x438;&#x447;&#x43D;&#x44B;&#x435; &#x434;&#x43B;&#x44F; &#x43F;&#x440;&#x43E;&#x432;&#x430;&#x439;&#x434;&#x435;&#x440;&#x430; &#x43F;&#x43E;&#x43B;&#x44F;, &#x43D;&#x430;&#x43F;&#x440;&#x438;&#x43C;&#x435;&#x440; subject &#x434;&#x43B;&#x44F; &#x43F;&#x438;&#x441;&#x435;&#x43C;, &#x444;&#x438;&#x447;&#x438; &#x43E;&#x444;&#x43E;&#x440;&#x43C;&#x43B;&#x435;&#x43D;&#x438;&#x44F; &#x434;&#x43B;&#x44F; &#x43C;&#x435;&#x441;&#x435;&#x43D;&#x434;&#x436;&#x435;&#x440;&#x43E;&#x432;"/>
+			<index id="notif_templates_type_idx" unique="TRUE">
+				<field id="notif_provider"/>
+				<field id="notif_type"/>
+			</index>
+		</model>
+		<model id="NotifTemplateList" parent="ModelSQL" dataTable="notif_templates_list" virtual="TRUE">
+			<field id="id" dataType="Int" primaryKey="TRUE"/>
+			<field id="notif_provider" dataType="String"/>
+			<field id="notif_type" dataType="String"/>
+			<field id="template" dataType="Text"/>
+		</model>
+		<model id="ReportTemplateField" parentJS="ModelJSON" virtual="TRUE" server="FALSE">
+			<field id="id" dataType="String" length="50" primaryKey="TRUE"/>
+			<field id="descr" dataType="String"/>
+		</model>
+		<model id="DocumentTemplate" parent="ModelSQL" dataTable="document_templates" virtual="FALSE">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE" alias="&#x41A;&#x43E;&#x434;"/>
+			<field id="name" dataType="Text" alias="&#x41E;&#x43F;&#x438;&#x441;&#x430;&#x43D;&#x438;&#x435; &#x448;&#x430;&#x431;&#x43B;&#x43E;&#x43D;&#x430;"/>
+			<field id="sql_query" dataType="Text"/>
+			<field id="fields" dataType="JSONB"/>
+			<field id="need_signing" dataType="Bool"/>
+			<field id="sign_image_name" dataType="Text"/>
+		</model>
+		<model id="DocumentTemplateDialog" parent="ModelSQL" dataTable="document_templates_dialog" virtual="TRUE">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE" alias="&#x41A;&#x43E;&#x434;"/>
+			<field id="name" dataType="Text" alias="&#x41E;&#x43F;&#x438;&#x441;&#x430;&#x43D;&#x438;&#x435; &#x448;&#x430;&#x431;&#x43B;&#x43E;&#x43D;&#x430;"/>
+			<field id="sql_query" dataType="Text"/>
+			<field id="fields" dataType="JSONB"/>
+			<field id="file_preview" dataType="JSON"/>
+			<field id="need_signing" dataType="Bool"/>
+			<field id="sign_image_name" dataType="Text"/>
+		</model>
+		<model id="DocumentTemplateList" parent="ModelSQL" dataTable="document_templates_list" virtual="TRUE">
+			<field id="id" dataType="Int" primaryKey="TRUE"/>
+			<field id="name" dataType="String"/>
+			<field id="file_preview" dataType="JSON"/>
+			<field id="need_signing" dataType="Bool"/>
+		</model>
+		<model id="Attachment" parent="ModelSQL" dataTable="attachments" virtual="FALSE" alias="&#x412;&#x43B;&#x43E;&#x436;&#x435;&#x43D;&#x438;&#x44F; &#x434;&#x43E;&#x43A;&#x443;&#x43C;&#x435;&#x43D;&#x442;&#x43E;&#x432;" package="DocAttachments">
+			<field id="id" dataType="Int" primaryKey="TRUE" required="FALSE" autoInc="TRUE"/>
+			<field id="date_time" dataType="DateTimeTZ" defaultValue="CURRENT_TIMESTAMP"/>
+			<field id="ref" dataType="JSONB"/>
+			<field id="content_info" dataType="JSONB"/>
+			<field id="content_data" dataType="Bytea"/>
+			<field id="content_preview" dataType="Bytea"/>
+			<index id="attachments_idx" unique="TRUE">
+				<expression>(ref-&gt;&gt;'dataType'),((ref-&gt;'keys'-&gt;&gt;'id')::int)</expression>
+				<expression>(content_info-&gt;&gt;'id')</expression>
+			</index>
+		</model>
+		<model id="AttachmentList" parent="ModelSQL" dataTable="attachments_list" virtual="TRUE" alias="&#x412;&#x43B;&#x43E;&#x436;&#x435;&#x43D;&#x438;&#x44F; &#x434;&#x43E;&#x43A;&#x443;&#x43C;&#x435;&#x43D;&#x442;&#x43E;&#x432;" package="DocAttachments">
+			<defaultOrder>
+				<field id="date_time" sortDirect="DESC"/>
+			</defaultOrder>
+			<field id="id" dataType="Int" primaryKey="TRUE" required="FALSE" autoInc="TRUE"/>
+			<field id="date_time" dataType="DateTimeTZ"/>
+			<field id="ref" dataType="JSONB"/>
+			<field id="content_info" dataType="JSONB"/>
+			<field id="content_preview" dataType="String"/>
+		</model>
+		<model id="Firm" parent="ModelSQL" dataTable="firms" virtual="FALSE" alias="&#x41E;&#x440;&#x433;&#x430;&#x43D;&#x438;&#x437;&#x430;&#x446;&#x438;&#x438;">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="name" dataType="Text" required="TRUE"/>
+			<field id="inn" dataType="String" length="12"/>
+			<field id="name_full" dataType="Text" alias="&#x41F;&#x43E;&#x43B;&#x43D;&#x43E;&#x435; &#x43D;&#x430;&#x438;&#x43C;&#x435;&#x43D;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435;"/>
+			<field id="legal_address" dataType="Text" alias="&#x410;&#x434;&#x440;&#x435;&#x441; &#x44E;&#x440;&#x438;&#x434;&#x438;&#x447;&#x435;&#x441;&#x43A;&#x438;&#x439;"/>
+			<field id="post_address" dataType="Text" alias="&#x410;&#x434;&#x440;&#x435;&#x441; &#x43F;&#x43E;&#x447;&#x442;&#x43E;&#x432;&#x44B;&#x439;"/>
+			<field id="kpp" dataType="String" length="10" alias="&#x41A;&#x41F;&#x41F;"/>
+			<field id="ogrn" dataType="String" length="15"/>
+			<field id="okpo" dataType="String" length="20"/>
+			<field id="okved" dataType="Text"/>
+			<field id="bank_acc" dataType="String" length="20" alias="&#x420;&#x430;&#x441;&#x447;&#x435;&#x442;&#x43D;&#x44B;&#x439; &#x441;&#x447;&#x435;&#x442;"/>
+			<field id="bank_bik" dataType="String" length="9" alias="&#x411;&#x430;&#x43D;&#x43A;"/>
+			<index id="firms_name_idx" unique="TRUE">
+				<expression>lower(name)</expression>
+			</index>
+			<index id="firms_inn_idx">
+				<field id="inn"/>
+			</index>
+			<index id="firms_ogrn_idx" unique="TRUE">
+				<field id="ogrn"/>
+			</index>
+		</model>
+		<model id="FirmList" parent="ModelSQL" dataTable="firms_list" virtual="TRUE" alias="&#x41E;&#x440;&#x433;&#x430;&#x43D;&#x438;&#x437;&#x430;&#x446;&#x438;&#x438;">
+			<defaultOrder>
+				<field id="name"/>
+			</defaultOrder>
+			<field id="id" dataType="Int" primaryKey="TRUE"/>
+			<field id="name" dataType="Text"/>
+			<field id="inn" dataType="String"/>
+			<field id="ogrn" dataType="String"/>
+		</model>
+		<model id="FirmDialog" parent="ModelSQL" dataTable="firms_dialog" virtual="TRUE" alias="&#x41E;&#x440;&#x433;&#x430;&#x43D;&#x438;&#x437;&#x430;&#x446;&#x438;&#x438;">
+			<field id="id" dataType="Int" primaryKey="TRUE"/>
+			<field id="name" dataType="Text"/>
+			<field id="inn" dataType="String"/>
+			<field id="name_full" dataType="Text"/>
+			<field id="legal_address" dataType="Text"/>
+			<field id="post_address" dataType="Text"/>
+			<field id="kpp" dataType="String"/>
+			<field id="ogrn" dataType="String"/>
+			<field id="okpo" dataType="String"/>
+			<field id="okved" dataType="Text"/>
+			<field id="bank_acc" dataType="Text"/>
+			<field id="banks_ref" dataType="JSON"/>
+		</model>
+		<model id="UserOperation" parent="ModelSQL" dataTable="user_operations" virtual="FALSE">
+			<field id="user_id" dataType="Int" primaryKey="TRUE" required="TRUE" autoInc="FALSE"/>
+			<field id="operation_id" dataType="String" length="36" primaryKey="TRUE" required="TRUE" autoInc="FALSE"/>
+			<field id="operation" dataType="Text"/>
+			<field id="status" dataType="Text"/>
+			<field id="date_time" dataType="DateTimeTZ" defaultValue="CURRENT_TIMESTAMP"/>
+			<field id="error_text" dataType="Text"/>
+			<field id="comment_text" dataType="Text"/>
+			<field id="date_time_end" dataType="DateTimeTZ"/>
+			<field id="end_wal_lsn" dataType="Text"/>
+		</model>
+		<model id="UserOperationDialog" parent="ModelSQL" dataTable="user_operations_dialog" virtual="TRUE">
+			<field id="user_id" dataType="Int" primaryKey="TRUE" required="TRUE" autoInc="FALSE"/>
+			<field id="operation_id" dataType="String" length="36" primaryKey="TRUE" required="TRUE" autoInc="FALSE"/>
+			<field id="operation" dataType="Text"/>
+			<field id="status" dataType="Text"/>
+			<field id="date_time" dataType="DateTimeTZ" defaultValue="CURRENT_TIMESTAMP"/>
+			<field id="error_text" dataType="Text"/>
+			<field id="comment_text" dataType="Text"/>
+			<field id="date_time_end" dataType="DateTimeTZ"/>
+			<field id="end_wal_lsn" dataType="Text"/>
+		</model>
+		<model id="Bank" parent="ModelSQL" dataTable="banks" virtual="FALSE" dataSchema="banks">
+			<defaultOrder>
+				<field id="codegr"/>
+				<field id="bik"/>
+			</defaultOrder>
+			<field id="bik" dataType="String" primaryKey="TRUE" autoInc="FALSE" length="9"/>
+			<field id="codegr" dataType="String" length="9"/>
+			<field id="name" dataType="Text"/>
+			<field id="korshet" dataType="String" length="20"/>
+			<field id="adres" dataType="Text"/>
+			<field id="gor" dataType="Text"/>
+			<field id="tgroup" dataType="Bool"/>
+			<index id="banks_codegr_idx">
+				<field id="codegr"/>
+			</index>
+		</model>
+		<model id="BankList" parent="ModelSQL" dataTable="banks_list" virtual="TRUE" dataSchema="banks">
+			<defaultOrder>
+				<field id="codegr"/>
+				<field id="bik"/>
+			</defaultOrder>
+			<field id="bik" dataType="String" primaryKey="TRUE" autoInc="FALSE" length="9" alias="&#x411;&#x418;&#x41A;"/>
+			<field id="codegr" dataType="String" length="9"/>
+			<field id="gr_descr" dataType="String" length="50" alias="&#x420;&#x435;&#x433;&#x438;&#x43E;&#x43D;"/>
+			<field id="name" dataType="Text" alias="&#x41D;&#x430;&#x438;&#x43C;&#x435;&#x43D;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435;"/>
+			<field id="korshet" dataType="String" length="20" alias="&#x41A;o&#x440;.&#x441;&#x447;&#x435;&#x442;"/>
+			<field id="adres" dataType="Text" alias="&#x410;&#x434;&#x440;&#x435;&#x441;"/>
+			<field id="gor" dataType="Text" alias="&#x413;&#x43E;&#x440;&#x43E;&#x434;"/>
+			<field id="tgroup" dataType="Bool"/>
+		</model>
+		<model id="Post" parent="ModelSQL" dataTable="posts" virtual="FALSE">
+			<defaultOrder>
+				<field id="name"/>
+			</defaultOrder>
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE" sysCol="TRUE"/>
+			<field id="name" dataType="String" required="TRUE" length="250" alias="&#x41D;&#x430;&#x438;&#x43C;&#x435;&#x43D;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435;"/>
+			<index id="posts_name_idx" unique="TRUE">
+				<expression>lower(name)</expression>
+			</index>
+		</model>
+		<model id="Contact" parent="ModelSQL" dataTable="contacts" virtual="FALSE">
+			<defaultOrder>
+				<field id="descr"/>
+			</defaultOrder>
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE" sysCol="TRUE"/>
+			<field id="name" dataType="String" required="TRUE" length="250" alias="&#x41D;&#x430;&#x438;&#x43C;&#x435;&#x43D;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435;"/>
+			<field id="post_id" dataType="Int" refTable="posts" refField="id" alias="&#x414;&#x43E;&#x43B;&#x436;&#x43D;&#x43E;&#x441;&#x442;&#x44C;"/>
+			<field id="email" dataType="String" length="100" required="FALSE" alias="Email"/>
+			<field id="email_confirmed" dataType="Bool" default="FALSE" alias="Email &#x43F;&#x43E;&#x434;&#x442;&#x432;&#x435;&#x440;&#x436;&#x434;&#x435;&#x43D;"/>
+			<field id="tel" dataType="String" length="11" required="FALSE" alias="&#x422;&#x435;&#x43B;&#x435;&#x444;&#x43E;&#x43D;"/>
+			<field id="tel_ext" dataType="String" length="20" alias="&#x414;&#x43E;&#x431;&#x430;&#x432;&#x43E;&#x447;&#x43D;&#x44B;&#x439; &#x43D;&#x43E;&#x43C;&#x435;&#x440;"/>
+			<field id="tel_confirmed" dataType="Bool" default="FALSE" alias="&#x41D;&#x43E;&#x43C;&#x435;&#x440; &#x442;&#x435;&#x43B;&#x435;&#x444;&#x43E;&#x43D;&#x430; &#x43F;&#x43E;&#x434;&#x442;&#x432;&#x435;&#x440;&#x436;&#x434;&#x435;&#x43D;"/>
+			<field id="descr" dataType="Text" alias="&#x41E;&#x43F;&#x438;&#x441;&#x430;&#x43D;&#x438;&#x435; &#x434;&#x43B;&#x44F; &#x43F;&#x43E;&#x438;&#x441;&#x43A;&#x430;"/>
+			<field id="comment_text" dataType="Text" alias="&#x41A;&#x43E;&#x43C;&#x43C;&#x435;&#x43D;&#x442;&#x430;&#x440;&#x438;&#x439;"/>
+			<index id="contacts_descr_idx" unique="TRUE">
+				<expression>lower(descr)</expression>
+			</index>
+			<index id="contacts_tel_idx" unique="TRUE">
+				<field id="tel"/>
+			</index>
+		</model>
+		<model id="ContactList" parent="ModelSQL" dataTable="contacts_list" virtual="TRUE">
+			<defaultOrder>
+				<field id="descr"/>
+			</defaultOrder>
+			<field id="id" dataType="Int" primaryKey="TRUE"/>
+			<field id="name" dataType="String" alias="&#x41D;&#x430;&#x438;&#x43C;&#x435;&#x43D;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435;"/>
+			<field id="posts_ref" dataType="JSON"/>
+			<field id="email" dataType="String" alias="Email"/>
+			<field id="tel" dataType="String" alias="&#x422;&#x435;&#x43B;&#x435;&#x444;&#x43E;&#x43D;"/>
+			<field id="tel_ext" dataType="String" alias="&#x414;&#x43E;&#x431;&#x430;&#x432;&#x43E;&#x447;&#x43D;&#x44B;&#x439; &#x43D;&#x43E;&#x43C;&#x435;&#x440;"/>
+			<field id="descr" dataType="Text" alias="&#x41E;&#x43F;&#x438;&#x441;&#x430;&#x43D;&#x438;&#x435; &#x434;&#x43B;&#x44F; &#x43F;&#x43E;&#x438;&#x441;&#x43A;&#x430;"/>
+			<field id="comment_text" dataType="Text" alias="&#x41A;&#x43E;&#x43C;&#x43C;&#x435;&#x43D;&#x442;&#x430;&#x440;&#x438;&#x439;"/>
+		</model>
+		<model id="ContactDialog" parent="ModelSQL" dataTable="contacts_dialog" virtual="TRUE">
+			<field id="id" dataType="Int" primaryKey="TRUE"/>
+			<field id="name" dataType="String" alias="&#x41D;&#x430;&#x438;&#x43C;&#x435;&#x43D;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435;"/>
+			<field id="posts_ref" dataType="JSON"/>
+			<field id="email" dataType="String" alias="Email"/>
+			<field id="tel" dataType="String" alias="&#x422;&#x435;&#x43B;&#x435;&#x444;&#x43E;&#x43D;"/>
+			<field id="tel_ext" dataType="String" alias="&#x414;&#x43E;&#x431;&#x430;&#x432;&#x43E;&#x447;&#x43D;&#x44B;&#x439; &#x43D;&#x43E;&#x43C;&#x435;&#x440;"/>
+			<field id="comment_text" dataType="Text" alias="&#x41A;&#x43E;&#x43C;&#x43C;&#x435;&#x43D;&#x442;&#x430;&#x440;&#x438;&#x439;"/>
+			<field id="email_confirmed" dataType="Bool" alias="Email &#x43F;&#x43E;&#x434;&#x442;&#x432;&#x435;&#x440;&#x436;&#x434;&#x435;&#x43D;"/>
+			<field id="tel_confirmed" dataType="Bool" alias="&#x41D;&#x43E;&#x43C;&#x435;&#x440; &#x442;&#x435;&#x43B;&#x435;&#x444;&#x43E;&#x43D;&#x430; &#x43F;&#x43E;&#x434;&#x442;&#x432;&#x435;&#x440;&#x436;&#x434;&#x435;&#x43D;"/>
+		</model>
+		<model id="EntityContact" parent="ModelSQL" dataTable="entity_contacts" virtual="FALSE">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE" sysCol="TRUE"/>
+			<field id="entity_type" dataType="Enum" required="TRUE" enumId="data_types"/>
+			<field id="entity_id" dataType="Int" required="TRUE"/>
+			<field id="contact_id" dataType="Int" required="TRUE" refTable="contacts" refField="id"/>
+			<field id="mod_date_time" dataType="DateTimeTZ" dbRequired="TRUE" defaultValue="CURRENT_TIMESTAMP"/>
+			<index id="entity_contacts_id_idx" unique="TRUE">
+				<field id="entity_type"/>
+				<field id="entity_id"/>
+				<field id="contact_id"/>
+			</index>
+			<index id="entity_contacts_contact_idx">
+				<field id="entity_type"/>
+				<field id="contact_id"/>
+			</index>
+		</model>
+		<model id="EntityContactList" parent="ModelSQL" dataTable="entity_contacts_list" virtual="TRUE">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE" sysCol="TRUE"/>
+			<field id="entity_type" dataType="String"/>
+			<field id="entity_id" dataType="Int"/>
+			<field id="entities_ref" dataType="JSON"/>
+			<field id="contact_id" dataType="Int"/>
+			<field id="contact_attrs" dataType="JSON"/>
+			<field id="contacts_ref" dataType="JSON"/>
+			<field id="tm_exists" dataType="Bool"/>
+			<field id="tm_activated" dataType="Bool"/>
+		</model>
+		<model id="StudioEquipment" parentJS="ModelJSON" virtual="TRUE" server="FALSE" alias="&#x421;&#x43F;&#x438;&#x441;&#x43E;&#x43A; &#x43E;&#x431;&#x43E;&#x440;&#x443;&#x434;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x44F; &#x440;&#x430;&#x431;&#x43E;&#x447;&#x435;&#x433;&#x43E; &#x43C;&#x435;&#x441;&#x442;&#x430;">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="name" dataType="Text" alias="&#x41D;&#x430;&#x438;&#x43C;&#x435;&#x43D;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435;"/>
+			<field id="quant" dataType="Int" alias="&#x41A;&#x43E;&#x43B;&#x438;&#x447;&#x435;&#x441;&#x442;&#x432;&#x43E;"/>
+			<field id="measure_unit" dataType="String" alias="&#x415;&#x434;&#x438;&#x43D;&#x438;&#x446;&#x430;"/>
+			<field id="price" dataType="Float" length="15" precision="2" alias="&#x426;&#x435;&#x43D;&#x430;"/>
+			<field id="total" dataType="Float" length="15" precision="2" alias="&#x421;&#x443;&#x43C;&#x43C;&#x430;"/>
+		</model>
+		<model id="Studio" parent="ModelSQL" dataTable="studios" virtual="FALSE">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="name" dataType="Text" required="TRUE"/>
+			<field id="firm_id" dataType="Int" required="TRUE" refTable="firms" refField="id"/>
+			<field id="equipments" dataType="JSONB" alias="&#x421;&#x43F;&#x438;&#x441;&#x43E;&#x43A; &#x43E;&#x431;&#x43E;&#x440;&#x443;&#x434;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x44F; &#x434;&#x43B;&#x44F; &#x43E;&#x434;&#x43D;&#x43E;&#x433;&#x43E; &#x440;&#x430;&#x431;&#x43E;&#x447;&#x435;&#x433;&#x43E; &#x43C;&#x435;&#x441;&#x442;&#x430;"/>
+			<field id="hour_rent_price" dataType="Float" length="15" precision="2" defaultValue="0"/>
+			<index id="firms_name_idx" unique="TRUE">
+				<expression>lower(name)</expression>
+			</index>
+		</model>
+		<model id="StudioDialog" parent="ModelSQL" dataTable="studios_dialog" virtual="TRUE">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="name" dataType="Text" required="TRUE"/>
+			<field id="firm_id" dataType="Int" sysCol="TRUE"/>
+			<field id="firms_ref" dataType="JSON"/>
+			<field id="equipments" dataType="JSONB" alias="&#x421;&#x43F;&#x438;&#x441;&#x43E;&#x43A; &#x43E;&#x431;&#x43E;&#x440;&#x443;&#x434;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x44F; &#x434;&#x43B;&#x44F; &#x43E;&#x434;&#x43D;&#x43E;&#x433;&#x43E; &#x440;&#x430;&#x431;&#x43E;&#x447;&#x435;&#x433;&#x43E; &#x43C;&#x435;&#x441;&#x442;&#x430;"/>
+			<field id="hour_rent_price" dataType="Float" length="15" precision="2"/>
+		</model>
+		<model id="StudioList" parent="ModelSQL" dataTable="studios_list" virtual="TRUE">
+			<defaultOrder>
+				<field id="name"/>
+			</defaultOrder>
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="name" dataType="Text" required="TRUE"/>
+		</model>
+		<model id="Specialist" parent="ModelSQL" dataTable="specialists" virtual="FALSE">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="name" dataType="Text" required="TRUE"/>
+			<field id="inn" dataType="String" length="12" required="TRUE"/>
+			<field id="bank_bik" dataType="String" length="9" alias="&#x411;&#x418;&#x41A; &#x431;&#x430;&#x43D;&#x43A;&#x430;"/>
+			<field id="bank_acc" dataType="String" length="20" alias="&#x411;&#x430;&#x43D;&#x43A;&#x43E;&#x432;&#x441;&#x43A;&#x438;&#x439; &#x441;&#x447;&#x435;&#x442;"/>
+			<field id="studio_id" dataType="Int" required="TRUE" refTable="studios" refField="id"/>
+			<field id="birthdate" dataType="Date" alias="&#x414;&#x430;&#x442;&#x430; &#x440;&#x43E;&#x436;&#x434;&#x435;&#x43D;&#x438;&#x44F;"/>
+			<field id="address_reg" dataType="Text" alias="&#x410;&#x434;&#x440;&#x435;&#x441; &#x440;&#x435;&#x433;&#x438;&#x441;&#x442;&#x440;&#x430;&#x446;&#x438;&#x438;"/>
+			<field id="passport" dataType="JSON" alias="&#x41F;&#x430;&#x441;&#x43F;&#x43E;&#x440;&#x442;"/>
+			<field id="equipments" dataType="JSONB" alias="&#x421;&#x43F;&#x438;&#x441;&#x43E;&#x43A; &#x43E;&#x431;&#x43E;&#x440;&#x443;&#x434;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x44F; &#x434;&#x43B;&#x44F; &#x43E;&#x434;&#x43D;&#x43E;&#x433;&#x43E; &#x440;&#x430;&#x431;&#x43E;&#x447;&#x435;&#x433;&#x43E; &#x43C;&#x435;&#x441;&#x442;&#x430;"/>
+			<field id="user_id" dataType="Int" required="TRUE" refTable="users" refField="id"/>
+			<field id="ycl_staff_id" dataType="Int" refTable="ycl_staff" refField="id"/>
+			<field id="agent_percent" dataType="Float" length="15" precision="2"/>
+			<field id="speciality_id" dataType="Int" refTable="spcialities" refField="id"/>
+			<index id="specialists_inn_idx" unique="TRUE">
+				<field id="inn"/>
+			</index>
+			<index id="specialists_ycl_staff_idx" unique="TRUE">
+				<field id="ycl_staff_id"/>
+			</index>
+		</model>
+		<model id="SpecialistList" parent="ModelSQL" dataTable="specialists_list" virtual="TRUE">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="name" dataType="Text" required="TRUE"/>
+			<field id="inn" dataType="String"/>
+			<field id="tel" dataType="String"/>
+			<field id="email" dataType="String"/>
+			<field id="banks_ref" dataType="JSON"/>
+			<field id="bank_acc" dataType="String" length="20" alias="&#x411;&#x430;&#x43D;&#x43A;&#x43E;&#x432;&#x441;&#x43A;&#x438;&#x439; &#x441;&#x447;&#x435;&#x442;"/>
+			<field id="studio_id" dataType="Int" sysCol="TRUE"/>
+			<field id="studios_ref" dataType="JSON"/>
+			<field id="photo" dataType="JSON"/>
+			<field id="specialities_ref" dataType="JSON"/>
+		</model>
+		<model id="SpecialistDialog" parent="ModelSQL" dataTable="specialists_dialog" virtual="TRUE">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="name" dataType="Text" required="TRUE"/>
+			<field id="inn" dataType="String" length="12" required="TRUE"/>
+			<field id="banks_ref" dataType="JSON"/>
+			<field id="bank_acc" dataType="String" length="20" alias="&#x411;&#x430;&#x43D;&#x43A;&#x43E;&#x432;&#x441;&#x43A;&#x438;&#x439; &#x441;&#x447;&#x435;&#x442;"/>
+			<field id="studio_id" dataType="Int" sysCol="TRUE"/>
+			<field id="studios_ref" dataType="JSON"/>
+			<field id="birthdate" dataType="Date" alias="&#x414;&#x430;&#x442;&#x430; &#x440;&#x43E;&#x436;&#x434;&#x435;&#x43D;&#x438;&#x44F;"/>
+			<field id="address_reg" dataType="Text" alias="&#x410;&#x434;&#x440;&#x435;&#x441; &#x440;&#x435;&#x433;&#x438;&#x441;&#x442;&#x440;&#x430;&#x446;&#x438;&#x438;"/>
+			<field id="passport" dataType="JSON" alias="&#x41F;&#x430;&#x441;&#x43F;&#x43E;&#x440;&#x442;"/>
+			<field id="last_status_type" dataType="String" alias="&#x422;&#x435;&#x43A;&#x443;&#x449;&#x438;&#x439; &#x441;&#x442;&#x430;&#x442;&#x443;&#x441;"/>
+			<field id="equipments" dataType="JSONB" alias="&#x421;&#x43F;&#x438;&#x441;&#x43E;&#x43A; &#x43E;&#x431;&#x43E;&#x440;&#x443;&#x434;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x44F; &#x434;&#x43B;&#x44F; &#x43E;&#x434;&#x43D;&#x43E;&#x433;&#x43E; &#x440;&#x430;&#x431;&#x43E;&#x447;&#x435;&#x433;&#x43E; &#x43C;&#x435;&#x441;&#x442;&#x430;"/>
+			<field id="users_ref" dataType="JSON"/>
+			<field id="passport_preview" dataType="JSONB"/>
+			<field id="tel" dataType="String"/>
+			<field id="email" dataType="String"/>
+			<field id="agent_percent" dataType="Float" length="15" precision="2"/>
+			<field id="specialities_ref" dataType="JSON"/>
+		</model>
+		<model id="SpecialistStatus" parent="ModelSQL" dataTable="specialist_statuses" virtual="FALSE">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="specialist_id" dataType="Int" required="TRUE" refTable="specialists" refField="id"/>
+			<field id="status_type" dataType="Enum" enumId="specialist_status_types" required="TRUE"/>
+			<field id="date_time" dataType="DateTimeTZ" defaultValue="CURRENT_TIMESTAMP" required="TRUE"/>
+			<index id="specialist_statuses_specialist" unique="TRUE">
+				<field id="specialist_id"/>
+				<field id="date_time"/>
+			</index>
+		</model>
+		<model id="SpecialistDocument" parent="ModelSQL" dataTable="specialist_documents" virtual="FALSE">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="specialist_id" dataType="Int" required="TRUE" refTable="specialists" refField="id"/>
+			<field id="template_att_id" dataType="Int" required="TRUE" refTable="attachments" refField="id"/>
+			<field id="document_att_id" dataType="Int" required="TRUE" refTable="attachments" refField="id"/>
+			<field id="sign_img" dataType="Bytea" alias="&#x418;&#x437;&#x43E;&#x431;&#x440;&#x430;&#x436;&#x435;&#x43D;&#x438;&#x435; &#x43F;&#x43E;&#x434;&#x43F;&#x438;&#x441;&#x438;"/>
+			<field id="date_time" dataType="DateTimeTZ" defaultValue="CURRENT_TIMESTAMP" required="TRUE"/>
+			<field id="sign_date_time" dataType="DateTimeTZ"/>
+			<field id="open_date_time" dataType="DateTimeTZ"/>
+			<field id="need_signing" dataType="Bool"/>
+			<field id="name" dataType="Text" alias="&#x41E;&#x43F;&#x438;&#x441;&#x430;&#x43D;&#x438;&#x435;, &#x43F;&#x440;&#x435;&#x434;&#x441;&#x442;&#x430;&#x432;&#x43B;&#x435;&#x43D;&#x438;&#x435;"/>
+			<field id="document_template_id" dataType="Int" required="TRUE" refTable="document_templates" refField="id"/>
+			<index id="specialist_documents_specialist_idx">
+				<field id="specialist_id"/>
+				<field id="date_time"/>
+			</index>
+			<globalFilter id="specialist_id" fieldId="specialist_id"/>
+		</model>
+		<model id="SpecialistDocumentList" parent="ModelSQL" dataTable="specialist_documents_list" virtual="TRUE">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="specialist_id" dataType="Int"/>
+			<field id="specialists_ref" dataType="JSON"/>
+			<field id="document_att_ref" dataType="JSON"/>
+			<field id="date_time" dataType="DateTimeTZ"/>
+			<field id="sign_date_time" dataType="DateTimeTZ"/>
+			<field id="signed" dataType="Bool"/>
+			<field id="open_date_time" dataType="DateTimeTZ"/>
+			<field id="opened" dataType="Bool"/>
+			<field id="need_signing" dataType="Bool"/>
+			<field id="name" dataType="Text" alias="&#x41E;&#x43F;&#x438;&#x441;&#x430;&#x43D;&#x438;&#x435;, &#x43F;&#x440;&#x435;&#x434;&#x441;&#x442;&#x430;&#x432;&#x43B;&#x435;&#x43D;&#x438;&#x435;"/>
+			<globalFilter id="specialist_id" fieldId="specialist_id"/>
+		</model>
+		<model id="SpecialistDocumentForSignList" parent="ModelSQL" dataTable="specialist_documents_for_sign_list" virtual="TRUE">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="specialist_id" dataType="Int"/>
+			<field id="user_id" dataType="Int"/>
+			<field id="specialists_ref" dataType="JSON"/>
+			<field id="document_att_ref" dataType="JSON"/>
+			<field id="date_time" dataType="DateTimeTZ"/>
+			<field id="opened" dataType="Bool"/>
+			<field id="name" dataType="Text" alias="&#x41E;&#x43F;&#x438;&#x441;&#x430;&#x43D;&#x438;&#x435;, &#x43F;&#x440;&#x435;&#x434;&#x441;&#x442;&#x430;&#x432;&#x43B;&#x435;&#x43D;&#x438;&#x435;"/>
+			<globalFilter id="specialist_id" fieldId="specialist_id"/>
+		</model>
+		<model id="SpecialistWork" parent="ModelSQL" dataTable="specialist_works" virtual="FALSE">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="specialist_id" dataType="Int" required="TRUE" refTable="specialists" refField="id"/>
+			<field id="studio_id" dataType="Int" required="TRUE" refTable="studios" refField="id"/>
+			<field id="date_time" dataType="DateTimeTZ" defaultValue="CURRENT_TIMESTAMP" dbRequired="TRUE"/>
+			<field id="admin_rate" dataType="Int"/>
+			<field id="ycl_document_id" dataType="Int"/>
+			<index id="specialist_works_specialist_idx">
+				<field id="specialist_id"/>
+			</index>
+			<index id="specialist_works_studio_idx">
+				<field id="studio_id"/>
+			</index>
+			<index id="specialist_works_date_time_idx">
+				<field id="date_time"/>
+			</index>
+			<index id="specialist_works_ycl_document_id_idx">
+				<field id="ycl_document_id"/>
+			</index>
+			<globalFilter id="specialist_id" fieldId="specialist_id"/>
+		</model>
+		<model id="SpecialistWorkList" parent="ModelSQL" dataTable="specialist_works_list" virtual="TRUE">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="specialist_id" dataType="Int"/>
+			<field id="specialists_ref" dataType="JSON"/>
+			<field id="studio_id" dataType="Int"/>
+			<field id="studios_ref" dataType="JSON"/>
+			<field id="date_time" dataType="DateTimeTZ"/>
+			<field id="photo" dataType="JSON"/>
+			<field id="admin_rate" dataType="Int"/>
+			<field id="amount" dataType="Float"/>
+			<field id="hours" dataType="Float"/>
+			<globalFilter id="specialist_id" fieldId="specialist_id"/>
+		</model>
+		<model id="SpecialistWorkForRateList" parent="ModelSQL" dataTable="specialist_works_for_rate_list" virtual="TRUE">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="specialist_id" dataType="Int"/>
+			<field id="specialists_ref" dataType="JSON"/>
+			<field id="studio_id" dataType="Int"/>
+			<field id="studios_ref" dataType="JSON"/>
+			<field id="date_time" dataType="DateTimeTZ"/>
+			<field id="photo" dataType="JSON"/>
+			<field id="admin_rate" dataType="Int"/>
+			<globalFilter id="specialist_id" fieldId="specialist_id"/>
+		</model>
+		<model id="ConfirmationStatus" parent="ModelSQL" dataTable="confirmation_status" virtual="FALSE" alias="&#x421;&#x43E;&#x441;&#x442;&#x43E;&#x44F;&#x43D;&#x438;&#x435; &#x43F;&#x440;&#x43E;&#x432;&#x435;&#x440;&#x43E;&#x43A;, &#x43D;&#x430;&#x43F;&#x440;&#x438;&#x43C;&#x435;&#x440; emqil, tel">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="ref" dataType="JSONB" required="TRUE" alias="&#x41E;&#x431;&#x44A;&#x435;&#x43A;&#x442; &#x43F;&#x440;&#x43E;&#x432;&#x435;&#x440;&#x43A;&#x438;,"/>
+			<field id="field" dataType="String" length="50" required="TRUE"/>
+			<field id="secret" dataType="Text" required="TRUE"/>
+			<field id="confirmed" dataType="Bool" defaultValue="FALSE" required="TRUE"/>
+			<field id="tries" dataType="Int" defaultValue="0" required="TRUE"/>
+			<field id="try_date_time" dataType="DateTimeTZ"/>
+			<field id="date_time" dataType="DateTimeTZ" defaultValue="CURRENT_TIMESTAMP" required="TRUE"/>
+			<index id="confirmation_status_ref_field_idx" unique="TRUE">
+				<expression>(ref-&gt;&gt;'dataType'),((ref-&gt;'keys'-&gt;&gt;'id')::int)</expression>
+				<field id="field"/>
+			</index>
+		</model>
+		<model id="SpecialistReg" parent="ModelSQL" dataTable="specialist_regs" virtual="FALSE">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="user_operation_id" dataType="String" length="36" required="TRUE"/>
+			<field id="name_full" dataType="Text" required="TRUE"/>
+			<field id="name" dataType="Text" required="TRUE"/>
+			<field id="inn" dataType="String" length="12" required="TRUE"/>
+			<field id="email" dataType="String" length="50" required="TRUE"/>
+			<field id="email_sent" dataType="Bool" defaultValue="FALSE"/>
+			<field id="tel" dataType="String" length="11" required="TRUE"/>
+			<field id="tel_sent" dataType="Bool" defaultValue="FALSE"/>
+			<field id="banks_ref" dataType="JSONB"/>
+			<field id="studio_id" dataType="Int" refTable="studios" refField="id"/>
+			<field id="birthdate" dataType="Date" alias="&#x414;&#x430;&#x442;&#x430; &#x440;&#x43E;&#x436;&#x434;&#x435;&#x43D;&#x438;&#x44F;"/>
+			<field id="address_reg" dataType="Text" alias="&#x410;&#x434;&#x440;&#x435;&#x441; &#x440;&#x435;&#x433;&#x438;&#x441;&#x442;&#x440;&#x430;&#x446;&#x438;&#x438;"/>
+			<field id="passport" dataType="JSON" alias="&#x41F;&#x430;&#x441;&#x43F;&#x43E;&#x440;&#x442;"/>
+			<field id="passport_uploaded" dataType="Bool" defaultValue="FALSE"/>
+			<field id="date_time" dataType="DateTimeTZ" defaultValue="CURRENT_TIMESTAMP" required="TRUE"/>
+			<field id="inn_checked" dataType="Bool" defaultValue="FALSE" required="TRUE"/>
+			<field id="inn_fns_ok" dataType="Bool" defaultValue="FALSE" required="TRUE"/>
+			<index id="specialist_regs_operation_id" unique="TRUE">
+				<field id="user_operation_id"/>
+			</index>
+		</model>
+		<model id="SpecialistRegList" parent="ModelSQL" dataTable="specialist_regs_list" virtual="TRUE">
+			<field id="id" dataType="Int" primaryKey="TRUE"/>
+			<field id="inn" dataType="String"/>
+			<field id="name_full" dataType="String"/>
+			<field id="tel" dataType="String"/>
+			<field id="tel_confirmed" dataType="Bool"/>
+			<field id="tel_sent" dataType="Bool"/>
+			<field id="email" dataType="String"/>
+			<field id="email_confirmed" dataType="Bool"/>
+			<field id="email_sent" dataType="Bool"/>
+			<field id="date_time" dataType="DateTimeTZ"/>
+			<field id="birthdate" dataType="Date"/>
+			<field id="inn_checked" dataType="Bool"/>
+			<field id="inn_fns_ok" dataType="Bool"/>
+			<field id="banks_ref" dataType="JSON"/>
+			<field id="bank_acc" dataType="String"/>
+			<field id="passport_preview" dataType="JSONB"/>
+			<field id="operation_result" dataType="Bool"/>
+		</model>
+		<model id="SpecialistRegDialog" parent="ModelSQL" dataTable="specialist_regs_dialog" virtual="TRUE">
+			<field id="id" dataType="Int"/>
+			<field id="user_operation_id" dataType="String"/>
+			<field id="inn" dataType="String"/>
+			<field id="banks_ref" dataType="JSON"/>
+			<field id="bank_acc" dataType="String"/>
+			<field id="name_full" dataType="String"/>
+			<field id="tel" dataType="String"/>
+			<field id="tel_confirmed" dataType="Bool"/>
+			<field id="tel_sent" dataType="Bool"/>
+			<field id="email" dataType="String"/>
+			<field id="email_confirmed" dataType="Bool"/>
+			<field id="email_sent" dataType="Bool"/>
+			<field id="address_reg" dataType="String"/>
+			<field id="birthdate" dataType="Date"/>
+			<field id="name" dataType="String"/>
+			<field id="passport" dataType="JSONB"/>
+			<field id="passport_uploaded" dataType="Bool"/>
+			<field id="date_time" dataType="DateTimeTZ"/>
+			<field id="inn_checked" dataType="Bool"/>
+			<field id="inn_fns_ok" dataType="Bool"/>
+			<field id="passport_preview" dataType="JSONB"/>
+			<field id="operation_result" dataType="Bool"/>
+		</model>
+		<model id="DocumentTemplateField" parentJS="ModelJSON" virtual="TRUE" server="FALSE">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="field" dataType="String" length="100"/>
+			<field id="comment_text" dataType="Text"/>
+		</model>
+		<model id="SpecialistDocumentOnRegister" parent="ModelSQL" dataTable="specialist_documents_on_register" virtual="FALSE" alias="&#x41A;&#x430;&#x43A;&#x438;&#x435; &#x434;&#x43E;&#x43A;&#x443;&#x43C;&#x435;&#x43D;&#x442;&#x44B; &#x43D;&#x430;&#x43F;&#x440;&#x430;&#x432;&#x43B;&#x44F;&#x442;&#x44C; &#x43C;&#x430;&#x441;&#x442;&#x435;&#x440;&#x443; &#x43F;&#x440;&#x438; &#x440;&#x435;&#x433;&#x438;&#x441;&#x442;&#x440;&#x430;&#x446;&#x438;&#x438;">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="document_template_id" dataType="Int" required="TRUE" refTable="document_templates" refField="id"/>
+			<field id="date_time" dataType="DateTimeTZ" defaultValue="CURRENT_TIMESTAMP" dbRequired="TRUE"/>
+			<field id="need_signing" dataType="Bool"/>
+		</model>
+		<model id="SpecialistDocumentOnRegisterList" parent="ModelSQL" dataTable="specialist_documents_on_register_list" virtual="TRUE" alias="&#x41A;&#x430;&#x43A;&#x438;&#x435; &#x434;&#x43E;&#x43A;&#x443;&#x43C;&#x435;&#x43D;&#x442;&#x44B; &#x43D;&#x430;&#x43F;&#x440;&#x430;&#x432;&#x43B;&#x44F;&#x442;&#x44C; &#x43C;&#x430;&#x441;&#x442;&#x435;&#x440;&#x443; &#x43F;&#x440;&#x438; &#x440;&#x435;&#x433;&#x438;&#x441;&#x442;&#x440;&#x430;&#x446;&#x438;&#x438;">
+			<field id="id" dataType="Int" primaryKey="TRUE"/>
+			<field id="document_templates_ref" dataType="JSON"/>
+			<field id="date_time" dataType="DateTimeTZ"/>
+			<field id="need_signing" dataType="Bool"/>
+		</model>
+		<model id="Speciality" parent="ModelSQL" dataTable="specialities" virtual="FALSE" alias="&#x421;&#x43F;&#x435;&#x446;&#x438;&#x430;&#x43B;&#x44C;&#x43D;&#x43E;&#x441;&#x442;&#x438;">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="name" dataType="Text" required="TRUE"/>
+			<field id="equipments" dataType="JSONB" alias="&#x41E;&#x431;&#x43E;&#x440;&#x443;&#x434;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435;"/>
+			<field id="agent_percent" dataType="Float" length="15" precision="2"/>
+		</model>
+		<model id="SpecialityList" parent="ModelSQL" dataTable="specialities_list" virtual="TRUE" alias="&#x421;&#x43F;&#x435;&#x446;&#x438;&#x430;&#x43B;&#x44C;&#x43D;&#x43E;&#x441;&#x442;&#x438;">
+			<defaultOrder>
+				<field id="name"/>
+			</defaultOrder>
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="name" dataType="Text" required="TRUE"/>
+		</model>
+		<model id="SpecialityDialog" parent="ModelSQL" dataTable="specialities_dialog" virtual="TRUE" alias="&#x421;&#x43F;&#x435;&#x446;&#x438;&#x430;&#x43B;&#x44C;&#x43D;&#x43E;&#x441;&#x442;&#x438;">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="name" dataType="Text" required="TRUE"/>
+			<field id="equipments" dataType="JSONB" alias="&#x41E;&#x431;&#x43E;&#x440;&#x443;&#x434;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435;"/>
+			<field id="agent_percent" dataType="Float" length="15" precision="2"/>
+		</model>
+		<model id="Item" parent="ModelSQL" dataTable="items" virtual="FALSE" alias="&#x41D;&#x43E;&#x43C;&#x435;&#x43D;&#x43A;&#x43B;&#x430;&#x442;&#x443;&#x440;&#x430;">
+			<defaultOrder>
+				<field id="name"/>
+			</defaultOrder>
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="name" dataType="Text" required="TRUE"/>
+			<field id="comment_text" dataType="Text"/>
+			<field id="price" dataType="Float" length="15" precision="2"/>
+			<index id="items_name_idx" unique="TRUE">
+				<expression>lower(name)</expression>
+			</index>
+		</model>
+		<model id="EquipmentType" parent="ModelSQL" dataTable="equipment_types" virtual="FALSE" alias="&#x412;&#x438;&#x434;&#x44B; &#x43E;&#x431;&#x43E;&#x440;&#x443;&#x434;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x44F;">
+			<defaultOrder>
+				<field id="name"/>
+			</defaultOrder>
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="name" dataType="Text" required="TRUE"/>
+		</model>
+		<model id="SpecialityEquipment" parentJS="ModelJSON" virtual="TRUE" server="FALSE" alias="&#x421;&#x43F;&#x438;&#x441;&#x43E;&#x43A; &#x43E;&#x431;&#x43E;&#x440;&#x443;&#x434;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x44F; &#x440;&#x430;&#x431;&#x43E;&#x447;&#x435;&#x433;&#x43E; &#x43C;&#x435;&#x441;&#x442;&#x430; &#x434;&#x43B;&#x44F; &#x441;&#x43F;&#x435;&#x446;&#x438;&#x430;&#x43B;&#x44C;&#x43D;&#x43E;&#x441;&#x442;&#x438;">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="equipment_types_ref" dataType="JSONB" alias="&#x412;&#x438;&#x434; &#x43E;&#x431;&#x43E;&#x440;&#x443;&#x434;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x44F;"/>
+			<field id="quant" dataType="Int" alias="&#x41A;&#x43E;&#x43B;&#x438;&#x447;&#x435;&#x441;&#x442;&#x432;&#x43E;"/>
+			<field id="measure_unit" dataType="String" alias="&#x415;&#x434;&#x438;&#x438;&#x43D;&#x438;&#x446;&#x430;"/>
+		</model>
+		<model id="YClStaff" parent="ModelSQL" dataTable="ycl_staff" virtual="FALSE" alias="&#x421;&#x43E;&#x442;&#x440;&#x443;&#x434;&#x43D;&#x438;&#x43A;&#x438;">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="name" dataType="Text"/>
+			<field id="data" dataType="JSONB"/>
+			<index id="ycl_staff_name_idx">
+				<expression>lower(name)</expression>
+			</index>
+		</model>
+		<model id="YClStaffList" parent="ModelSQL" dataTable="ycl_staff_list" virtual="TRUE" alias="&#x421;&#x43E;&#x442;&#x440;&#x443;&#x434;&#x43D;&#x438;&#x43A;&#x438;">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="name" dataType="Text"/>
+			<field id="specialization" dataType="Text"/>
+			<field id="avatar" dataType="Text"/>
+			<field id="avatar_big" dataType="Text"/>
+			<field id="rating" dataType="Float" length="15" precision="2"/>
+			<field id="votes_count" dataType="Int"/>
+		</model>
+		<model id="YClTransaction" parent="ModelSQL" dataTable="ycl_transactions" virtual="FALSE" alias="&#x424;&#x438;&#x43D;&#x430;&#x43D;&#x441;&#x43E;&#x432;&#x44B;&#x435; &#x442;&#x440;&#x430;&#x43D;&#x437;&#x430;&#x43A;&#x446;&#x438;&#x438;">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="created_at" dataType="DateTimeTZ" required="TRUE" defaultValue="CURRENT_TIMESTAMP"/>
+			<field id="data" dataType="JSONB"/>
+			<field id="specialist_id" dataType="Int" required="TRUE" refTable="specialists" refField="id"/>
+			<field id="document_id" dataType="Int"/>
+			<field id="date_time" dataType="DateTimeTZ"/>
+			<field id="amount" dataType="Float" length="15" precision="2"/>
+			<field id="seance_length" dataType="Int"/>
+			<field id="record_id" dataType="Int"/>
+			<field id="staff_id" dataType="Int"/>
+			<field id="record_inf_updated" dataType="Bool" defaultValue="FALSE"/>
+			<index id="ycl_transactions_specialist_idx">
+				<field id="specialist_id"/>
+			</index>
+			<index id="ycl_transactions_document_idx">
+				<field id="document_id"/>
+			</index>
+			<index id="ycl_transactions_date_time_idx">
+				<field id="date_time"/>
+			</index>
+		</model>
+		<model id="YClTransactionList" parent="ModelSQL" dataTable="ycl_transactions_list" virtual="TRUE" alias="&#x424;&#x438;&#x43D;&#x430;&#x43D;&#x441;&#x43E;&#x432;&#x44B;&#x435; &#x442;&#x440;&#x430;&#x43D;&#x437;&#x430;&#x43A;&#x446;&#x438;&#x438;">
+			<aggFunctions>
+				<aggFunction alias="total_amount" expr="sum(amount)"/>
+			</aggFunctions>
+			<field id="id" dataType="Int" primaryKey="TRUE"/>
+			<field id="document_id" dataType="Int"/>
+			<field id="date" dataType="DateTimeTZ"/>
+			<field id="amount" dataType="Float"/>
+			<field id="seance_length" dataType="Float"/>
+			<field id="client" dataType="String"/>
+			<field id="client_phone" dataType="String"/>
+			<field id="specialists_ref" dataType="JSON"/>
+			<field id="ycl_staff_ref" dataType="JSON"/>
+			<field id="specialist_id" dataType="Int"/>
+		</model>
+		<model id="YClTransactionDocList" parent="ModelSQL" dataTable="ycl_transactions_doc_list" virtual="TRUE" alias="&#x41D;&#x435;&#x440;&#x430;&#x441;&#x43F;&#x440;&#x435;&#x434;&#x435;&#x43B;&#x435;&#x43D;&#x43D;&#x44B;&#x435; &#x43F;&#x43E; &#x440;&#x430;&#x431;&#x43E;&#x442;&#x430;&#x43C; &#x444;&#x438;&#x43D;&#x430;&#x43D;&#x441;&#x43E;&#x432;&#x44B;&#x435; &#x442;&#x440;&#x430;&#x43D;&#x437;&#x430;&#x43A;&#x446;&#x438;&#x438;">
+			<field id="document_id" dataType="Int" primaryKey="TRUE"/>
+			<field id="date" dataType="DateTimeTZ"/>
+			<field id="amount" dataType="Float"/>
+			<field id="client" dataType="String"/>
+			<field id="seance_length" dataType="Int"/>
+			<field id="specialist_id" dataType="Int"/>
+		</model>
+		<model id="YClTransactionDocAllList" parent="ModelSQL" dataTable="ycl_transactions_doc_all_list" virtual="TRUE" alias="&#x424;&#x438;&#x43D;&#x430;&#x43D;&#x441;&#x43E;&#x432;&#x44B;&#x435; &#x442;&#x440;&#x430;&#x43D;&#x437;&#x430;&#x43A;&#x446;&#x438;&#x438;">
+			<defaultOrder>
+				<field id="date" sortDirect="DESC"/>
+			</defaultOrder>
+			<aggFunctions>
+				<aggFunction alias="total_amount" expr="sum(amount)"/>
+				<aggFunction alias="total_len_hour" expr="sum(len_hour)"/>
+			</aggFunctions>
+			<field id="document_id" dataType="Int" primaryKey="TRUE"/>
+			<field id="date" dataType="DateTimeTZ"/>
+			<field id="amount" dataType="Float"/>
+			<field id="client" dataType="String"/>
+			<field id="len_hour" dataType="Float" length="2"/>
+			<field id="specialist_id" dataType="Int"/>
+			<field id="specialists_ref" dataType="JSON"/>
+			<field id="photo" dataType="JSON"/>
+			<field id="admin_rate" dataType="Int"/>
+		</model>
+		<model id="YClVisit" parent="ModelSQL" dataTable="ycl_visits" virtual="FALSE" alias="&#x412;&#x438;&#x437;&#x438;&#x442;&#x44B; (&#x43D;&#x435; &#x438;&#x441;&#x43F;&#x43E;&#x43B;&#x44C;&#x437;&#x443;&#x435;&#x442;&#x441;&#x44F;)">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="created_at" dataType="DateTimeTZ" required="TRUE" defaultValue="CURRENT_TIMESTAMP"/>
+			<field id="data" dataType="JSONB"/>
+			<field id="specialist_id" dataType="Int" required="TRUE" refTable="specialists" refField="id"/>
+			<index id="ycl_visits_specialist_idx">
+				<field id="specialist_id"/>
+				<field id="created_at"/>
+			</index>
+		</model>
+		<model id="SalaryDebet" parent="ModelSQL" dataTable="salary_debets" virtual="FALSE" alias="&#x421;&#x43F;&#x438;&#x441;&#x43E;&#x43A; &#x43D;&#x430;&#x447;&#x438;&#x441;&#x43B;&#x435;&#x43D;&#x438;&#x439;">
+			<defaultOrder>
+				<field id="name"/>
+			</defaultOrder>
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="name" dataType="Text" required="TRUE"/>
+		</model>
+		<model id="SalaryKredit" parent="ModelSQL" dataTable="salary_kredits" virtual="FALSE" alias="&#x421;&#x43F;&#x438;&#x441;&#x43E;&#x43A; &#x443;&#x434;&#x435;&#x440;&#x436;&#x430;&#x43D;&#x438;&#x439;">
+			<defaultOrder>
+				<field id="name"/>
+			</defaultOrder>
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="name" dataType="Text" required="TRUE"/>
+		</model>
+		<model id="SpecialistContractEnd" parent="ModelSQL" dataTable="specialist_contract_ends" virtual="FALSE" alias="&#x423;&#x432;&#x43E;&#x43B;&#x44C;&#x43D;&#x435;&#x43D;&#x438;&#x435;">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="date_time" dataType="DateTimeTZ" defaultValue="CURRENT_TIMESTAMP" dbRequired="TRUE"/>
+			<field id="end_cause" dataType="Text" required="TRUE"/>
+			<field id="end_cause" dataType="Text" required="TRUE"/>
+		</model>
+		<model id="SpecialistSalaryDebet" parent="ModelSQL" dataTable="specialist_salary_debets" virtual="FALSE" alias="&#x421;&#x43F;&#x438;&#x441;&#x43E;&#x43A; &#x43D;&#x430;&#x447;&#x438;&#x441;&#x43B;&#x435;&#x43D;&#x438;&#x439; &#x43F;&#x43E; &#x441;&#x43E;&#x442;&#x440;&#x443;&#x434;&#x43D;&#x438;&#x43A;&#x443;">
+			<defaultOrder>
+				<field id="date_time"/>
+			</defaultOrder>
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="date_time" dataType="DateTimeTZ" defaultValue="CURRENT_TIMESTAMP" dbRequired="TRUE"/>
+			<field id="specialist_id" dataType="Int" required="TRUE" refTable="specialists" refField="id"/>
+			<field id="salary_debet_id" dataType="Int" required="TRUE" refTable="salary_debets" refField="id"/>
+			<field id="total" dataType="Float" length="15" precision="2" required="TRUE"/>
+			<index id="specialist_salary_debets_specialist_idx">
+				<field id="specialist_id"/>
+			</index>
+			<index id="specialist_salary_debets_date_time_idx">
+				<field id="date_time"/>
+			</index>
+		</model>
+		<model id="SpecialistSalaryDebetList" parent="ModelSQL" dataTable="specialist_salary_debets_list" virtual="TRUE" alias="&#x421;&#x43F;&#x438;&#x441;&#x43E;&#x43A; &#x43D;&#x430;&#x447;&#x438;&#x441;&#x43B;&#x435;&#x43D;&#x438;&#x439; &#x43F;&#x43E; &#x441;&#x43E;&#x442;&#x440;&#x443;&#x434;&#x43D;&#x438;&#x43A;&#x443;">
+			<defaultOrder>
+				<field id="date_time" sortDirect="DESC"/>
+			</defaultOrder>
+			<aggFunctions>
+				<aggFunction alias="total_total" expr="sum(total)"/>
+			</aggFunctions>
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="date_time" dataType="DateTimeTZ" defaultValue="CURRENT_TIMESTAMP" dbRequired="TRUE"/>
+			<field id="specialist_id" dataType="Int"/>
+			<field id="specialists_ref" dataType="JSON"/>
+			<field id="salary_debets_ref" dataType="JSON"/>
+			<field id="total" dataType="Float" length="15" precision="2"/>
+		</model>
+		<model id="SpecialistSalaryKredit" parent="ModelSQL" dataTable="specialist_salary_kredits" virtual="FALSE" alias="&#x421;&#x43F;&#x438;&#x441;&#x43E;&#x43A; &#x443;&#x434;&#x435;&#x440;&#x436;&#x430;&#x43D;&#x438;&#x439; &#x43F;&#x43E; &#x441;&#x43E;&#x442;&#x440;&#x443;&#x434;&#x43D;&#x438;&#x43A;&#x443;">
+			<defaultOrder>
+				<field id="date_time"/>
+			</defaultOrder>
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="date_time" dataType="DateTimeTZ" defaultValue="CURRENT_TIMESTAMP" dbRequired="TRUE"/>
+			<field id="specialist_id" dataType="Int" required="TRUE" refTable="specialists" refField="id"/>
+			<field id="salary_kredit_id" dataType="Int" required="TRUE" refTable="salary_kredits" refField="id"/>
+			<field id="total" dataType="Float" length="15" precision="2" required="TRUE"/>
+			<index id="specialist_salary_kredits_specialist_idx">
+				<field id="specialist_id"/>
+			</index>
+			<index id="specialist_salary_kredits_date_time_idx">
+				<field id="date_time"/>
+			</index>
+		</model>
+		<model id="SpecialistSalaryKreditList" parent="ModelSQL" dataTable="specialist_salary_kredits_list" virtual="TRUE" alias="&#x421;&#x43F;&#x438;&#x441;&#x43E;&#x43A; &#x434;&#x435;&#x440;&#x436;&#x430;&#x43D;&#x438;&#x439; &#x43F;&#x43E; &#x441;&#x43E;&#x442;&#x440;&#x443;&#x434;&#x43D;&#x438;&#x43A;&#x443;">
+			<defaultOrder>
+				<field id="date_time" sortDirect="DESC"/>
+			</defaultOrder>
+			<aggFunctions>
+				<aggFunction alias="total_total" expr="sum(total)"/>
+			</aggFunctions>
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="date_time" dataType="DateTimeTZ" defaultValue="CURRENT_TIMESTAMP" dbRequired="TRUE"/>
+			<field id="specialist_id" dataType="Int"/>
+			<field id="specialists_ref" dataType="JSON"/>
+			<field id="salary_kredits_ref" dataType="JSON"/>
+			<field id="total" dataType="Float" length="15" precision="2"/>
+		</model>
+		<model id="SpecialistPeriodSalary" parent="ModelSQL" dataTable="specialist_period_salaries" virtual="FALSE" alias="&#x417;&#x430;&#x440;&#x43F;&#x43B;&#x430;&#x442;&#x430; &#x441;&#x43E;&#x442;&#x440;&#x443;&#x434;&#x43D;&#x438;&#x43A;&#x43E;&#x432;">
+			<defaultOrder>
+				<field id="period" sortDirect="DESC"/>
+			</defaultOrder>
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="date_time" dataType="DateTimeTZ" defaultValue="CURRENT_TIMESTAMP" dbRequired="TRUE"/>
+			<field id="period" dataType="Date" required="TRUE"/>
+			<field id="total" dataType="Float" length="15" precision="2" defaultValue="0"/>
+			<field id="work_total" dataType="Float" length="15" precision="2" defaultValue="0" alias="&#x412;&#x44B;&#x440;&#x447;&#x43A;&#x430;"/>
+			<field id="work_total_salary" dataType="Float" length="15" precision="2" defaultValue="0" alias="&#x412;&#x44B;&#x440;&#x447;&#x43A;&#x430; &#x434;&#x43B;&#x44F; &#x437;/&#x43F;"/>
+			<field id="hours" dataType="Int" alias="&#x412;&#x441;&#x435;&#x433;&#x43E; &#x447;&#x430;&#x441;&#x43E;&#x432;" defaultValue="0"/>
+			<field id="debet" dataType="Float" length="15" precision="2" defaultValue="0" alias="&#x412;&#x441;&#x435;&#x433;&#x43E; &#x434;&#x43E;&#x43F; &#x43D;&#x430;&#x447;&#x438;&#x441;&#x43B;&#x435;&#x43D;&#x438;&#x439;"/>
+			<field id="kredit" dataType="Float" length="15" precision="2" defaultValue="0" alias="&#x412;&#x441;&#x435;&#x433;&#x43E; &#x434;&#x43E;&#x43F; &#x443;&#x434;&#x435;&#x440;&#x436;&#x430;&#x43D;&#x438;&#x439;"/>
+			<field id="rent_total" dataType="Float" length="15" precision="2" defaultValue="0" alias="&#x412;&#x441;&#x435;&#x433;&#x43E; &#x434;&#x43E;&#x43F; &#x443;&#x434;&#x435;&#x440;&#x436;&#x430;&#x43D;&#x438;&#x439;"/>
+			<field id="studio_id" dataType="Int" required="TRUE" refTable="studios" refField="id"/>
+			<index id="specialist_period_salaries_period_idx">
+				<field id="period"/>
+			</index>
+			<index id="specialist_period_salaries_studio_id_idx">
+				<field id="studio_id"/>
+			</index>
+		</model>
+		<model id="SpecialistPeriodSalaryList" parent="ModelSQL" dataTable="specialist_period_salaries_list" virtual="TRUE" alias="&#x417;&#x430;&#x440;&#x43F;&#x43B;&#x430;&#x442;&#x430; &#x441;&#x43E;&#x442;&#x440;&#x443;&#x434;&#x43D;&#x438;&#x43A;&#x43E;&#x432;">
+			<defaultOrder>
+				<field id="period" sortDirect="DESC"/>
+			</defaultOrder>
+			<aggFunctions>
+				<aggFunction alias="total_total" expr="sum(total)"/>
+				<aggFunction alias="total_work_total" expr="sum(work_total)"/>
+				<aggFunction alias="total_work_total_salary" expr="sum(work_total_salary)"/>
+				<aggFunction alias="total_hours" expr="sum(hours)"/>
+				<aggFunction alias="total_debet" expr="sum(debet)"/>
+				<aggFunction alias="total_kredit" expr="sum(kredit)"/>
+				<aggFunction alias="total_rent_total" expr="sum(rent_total)"/>
+			</aggFunctions>
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="date_time" dataType="DateTimeTZ"/>
+			<field id="period" dataType="Date"/>
+			<field id="studio_id" dataType="Int"/>
+			<field id="studios_ref" dataType="JSON"/>
+			<field id="period_descr" dataType="String"/>
+			<field id="work_total" dataType="Float" length="15" precision="2" alias="&#x412;&#x44B;&#x440;&#x447;&#x43A;&#x430;"/>
+			<field id="work_total_salary" dataType="Float" length="15" precision="2" alias="&#x412;&#x44B;&#x440;&#x447;&#x43A;&#x430; &#x434;&#x43B;&#x44F; &#x437;/&#x43F;"/>
+			<field id="hours" dataType="Int" alias="&#x412;&#x441;&#x435;&#x433;&#x43E; &#x447;&#x430;&#x441;&#x43E;&#x432;"/>
+			<field id="debet" dataType="Float" length="15" precision="2" alias="&#x412;&#x441;&#x435;&#x433;&#x43E; &#x434;&#x43E;&#x43F; &#x43D;&#x430;&#x447;&#x438;&#x441;&#x43B;&#x435;&#x43D;&#x438;&#x439;"/>
+			<field id="kredit" dataType="Float" length="15" precision="2" alias="&#x412;&#x441;&#x435;&#x433;&#x43E; &#x434;&#x43E;&#x43F; &#x443;&#x434;&#x435;&#x440;&#x436;&#x430;&#x43D;&#x438;&#x439;"/>
+			<field id="rent_total" dataType="Float" length="15" precision="2" alias="&#x412;&#x441;&#x435;&#x433;&#x43E; &#x434;&#x43E;&#x43F; &#x443;&#x434;&#x435;&#x440;&#x436;&#x430;&#x43D;&#x438;&#x439;"/>
+			<field id="total" dataType="Float" length="15" precision="2" alias="&#x41A; &#x43F;&#x435;&#x440;&#x435;&#x447;&#x438;&#x441;&#x43B;&#x435;&#x43D;&#x438;&#x44E;"/>
+		</model>
+		<model id="SpecialistPeriodSalaryDetail" parent="ModelSQL" dataTable="specialist_period_salary_details" virtual="FALSE" alias="&#x417;&#x430;&#x440;&#x43F;&#x43B;&#x430;&#x442;&#x430; &#x441;&#x43E;&#x442;&#x440;&#x443;&#x434;&#x43D;&#x438;&#x43A;&#x43E;&#x432;">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="specialist_period_salary_id" dataType="Int" required="TRUE" refTable="specialist_period_salaries" refField="id"/>
+			<field id="line_num" dataType="Int" dbRequired="TRUE" alias="&#x41D;&#x43E;&#x43C;&#x435;&#x440;"/>
+			<field id="specialist_id" dataType="Int" required="TRUE" refTable="specialists" refField="id"/>
+			<field id="studio_id" dataType="Int" dbRequired="TRUE" refTable="studios" refField="id"/>
+			<field id="period" dataType="Date" dbRequired="TRUE"/>
+			<field id="hours" dataType="Int" deafultValue="0" alias="&#x427;&#x430;&#x441;&#x43E;&#x432;"/>
+			<field id="agent_percent" dataType="Float" length="15" precision="2"/>
+			<field id="work_total" dataType="Float" length="15" precision="2" deafultValue="0" alias="&#x412;&#x44B;&#x440;&#x443;&#x447;&#x43A;&#x430;"/>
+			<field id="work_total_salary" dataType="Float" length="15" precision="2" deafultValue="0" alias="&#x412;&#x44B;&#x440;&#x443;&#x447;&#x43A;&#x430; &#x434;&#x43B;&#x44F; &#x437;&#x43F;"/>
+			<field id="debet" dataType="Float" length="15" precision="2" deafultValue="0" alias="&#x414;&#x43E;&#x43F;.&#x43D;&#x430;&#x447;&#x438;&#x441;&#x43B;&#x435;&#x43D;&#x438;&#x44F;"/>
+			<field id="kredit" dataType="Float" length="15" precision="2" deafultValue="0" alias="&#x426;&#x435;&#x43D;&#x430; &#x437;&#x430; &#x430;&#x440;&#x435;&#x43D;&#x434;&#x443;"/>
+			<field id="rent_price" dataType="Float" length="15" precision="2" deafultValue="0" alias="&#x421;&#x443;&#x43C;&#x43C;&#x430; &#x437;&#x430; &#x430;&#x440;&#x435;&#x43D;&#x434;&#x443;"/>
+			<field id="rent_total" dataType="Float" length="15" precision="2" deafultValue="0" alias="&#x417;&#x430;&#x440;&#x430;&#x431;&#x43E;&#x442;&#x430;&#x43D;&#x43E;"/>
+			<field id="total" dataType="Float" length="15" precision="2" alias="&#x41A; &#x43F;&#x435;&#x440;&#x435;&#x447;&#x438;&#x441;&#x43B;&#x435;&#x43D;&#x438;&#x44E;"/>
+			<index id="specialist_period_salaries_period_idx">
+				<field id="period"/>
+			</index>
+			<index id="specialist_period_salaries_specialist_idx">
+				<field id="specialist_id"/>
+			</index>
+			<index id="specialist_period_salaries_period_idx" unique="TRUE">
+				<field id="specialist_period_salary_id"/>
+				<field id="line_num"/>
+			</index>
+		</model>
+		<model id="SpecialistPeriodSalaryDetailList" parent="ModelSQL" dataTable="specialist_period_salary_details_list" virtual="TRUE" alias="&#x417;&#x430;&#x440;&#x43F;&#x43B;&#x430;&#x442;&#x430; &#x441;&#x43E;&#x442;&#x440;&#x443;&#x434;&#x43D;&#x438;&#x43A;&#x43E;&#x432;">
+			<defaultOrder>
+				<field id="line_num"/>
+			</defaultOrder>
+			<aggFunctions>
+				<aggFunction alias="total_hours" expr="sum(hours)"/>
+				<aggFunction alias="total_work_total" expr="sum(work_total)"/>
+				<aggFunction alias="total_debet" expr="sum(debet)"/>
+				<aggFunction alias="total_kredit" expr="sum(kredit)"/>
+				<aggFunction alias="total_rent_total" expr="sum(rent_total)"/>
+				<aggFunction alias="total_total" expr="sum(total)"/>
+				<aggFunction alias="total_receipt_total" expr="sum(receipt_total)"/>
+			</aggFunctions>
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="specialist_period_salary_id" dataType="Int"/>
+			<field id="line_num" dataType="Int" alias="&#x41D;&#x43E;&#x43C;&#x435;&#x440;"/>
+			<field id="specialist_id" dataType="Int"/>
+			<field id="specialists_ref" dataType="JSON"/>
+			<field id="period" dataType="Date"/>
+			<field id="period_descr" dataType="String"/>
+			<field id="studio_id" dataType="Int"/>
+			<field id="studios_ref" dataType="JSON"/>
+			<field id="hours" dataType="Int" alias="&#x427;&#x430;&#x441;&#x43E;&#x432;"/>
+			<field id="agent_percent" dataType="Float"/>
+			<field id="work_total" dataType="Float" alias="&#x412;&#x44B;&#x440;&#x443;&#x447;&#x43A;&#x430;"/>
+			<field id="work_total_salary" dataType="Float" alias="&#x412;&#x44B;&#x440;&#x443;&#x447;&#x43A;&#x430; &#x434;&#x43B;&#x44F; &#x437;&#x43F;"/>
+			<field id="debet" dataType="Float" alias="&#x414;&#x43E;&#x43F;.&#x43D;&#x430;&#x447;&#x438;&#x441;&#x43B;&#x435;&#x43D;&#x438;&#x44F;"/>
+			<field id="kredit" dataType="Float" alias="&#x426;&#x435;&#x43D;&#x430; &#x437;&#x430; &#x430;&#x440;&#x435;&#x43D;&#x434;&#x443;"/>
+			<field id="rent_price" dataType="Float" alias="&#x421;&#x443;&#x43C;&#x43C;&#x430; &#x437;&#x430; &#x430;&#x440;&#x435;&#x43D;&#x434;&#x443;"/>
+			<field id="rent_total" dataType="Float" alias="&#x417;&#x430;&#x440;&#x430;&#x431;&#x43E;&#x442;&#x430;&#x43D;&#x43E;"/>
+			<field id="total" dataType="Float" alias="&#x41A; &#x43F;&#x435;&#x440;&#x435;&#x447;&#x438;&#x441;&#x43B;&#x435;&#x43D;&#x438;&#x44E;"/>
+			<field id="receipt_total" dataType="Float" alias="&#x421;&#x443;&#x43C;&#x43C;&#x430; &#x43F;&#x43E; &#x447;&#x435;&#x43A;&#x430;&#x43C; &#x43F;&#x43E; &#x434;&#x430;&#x43D;&#x43D;&#x43E;&#x439; &#x441;&#x442;&#x440;&#x43E;&#x43A;&#x435;"/>
+			<field id="receipt_photos" dataType="JSONB" alias="&#x41F;&#x440;&#x438;&#x432;&#x44C;&#x44E; &#x447;&#x435;&#x43A;&#x43E;&#x432;"/>
+			<field id="receipt_checked" dataType="Bool" alias="&#x427;&#x435;&#x43A; &#x43F;&#x440;&#x43E;&#x432;&#x435;&#x440;&#x435;&#x43D; &#x424;&#x41D;&#x421;"/>
+			<field id="receipt_error" dataType="Text" alias="&#x422;&#x435;&#x43A;&#x441;&#x442; &#x43E;&#x448;&#x438;&#x431;&#x43A;&#x438; &#x43F;&#x440;&#x43E;&#x432;&#x435;&#x440;&#x43A;&#x438; &#x447;&#x435;&#x43A;&#x430;"/>
+			<field id="receipt_href" dataType="Text" alias="&#x421;&#x441;&#x44B;&#x43B;&#x43A;&#x430; &#x43D;&#x430; &#x447;&#x435;&#x43A;"/>
+			<field id="bank_payments_ref" dataType="JSON" alias="&#x41F;&#x43B;&#x430;&#x442;&#x435;&#x436;&#x43D;&#x43E;&#x435; &#x43F;&#x43E;&#x440;&#x443;&#x447;&#x435;&#x43D;&#x438;&#x435;"/>
+			<field id="descr" dataType="String" alias="&#x41F;&#x440;&#x435;&#x434;&#x441;&#x442;&#x430;&#x432;&#x43B;&#x435;&#x43D;&#x438;&#x435;"/>
+		</model>
+		<model id="SpecialistReceipt" parent="ModelSQL" dataTable="specialist_receipts" virtual="FALSE" alias="&#x427;&#x435;&#x43A;&#x438; &#x441;&#x430;&#x43C;&#x43E;&#x437;&#x430;&#x43D;&#x44F;&#x442;&#x44B;&#x445;">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="date_time" dataType="DateTimeTZ" dbRequired="TRUE" defaultValue="CURRENT_TIMESTAMP" alias="&#x414;&#x430;&#x442;&#x430; &#x437;&#x430;&#x433;&#x440;&#x443;&#x437;&#x43A;&#x438;"/>
+			<field id="document_date_time" dataType="DateTimeTZ" alias="&#x414;&#x430;&#x442;&#x430; &#x434;&#x43E;&#x43A;&#x443;&#x43C;&#x435;&#x43D;&#x442;&#x430;"/>
+			<field id="document_total" dataType="Float" length="15" precision="2" defaultValue="0" alias="&#x421;&#x443;&#x43C;&#x43C;&#x430; &#x434;&#x43E;&#x43A;&#x443;&#x43C;&#x435;&#x43D;&#x442;&#x430;"/>
+			<field id="document_parsed" dataType="Bool" defaultValue="FALSE" alias="&#x421;&#x443;&#x43C;&#x43C;&#x430; &#x43F;&#x440;&#x43E;&#x432;&#x435;&#x440;&#x435;&#x43D; &#x424;&#x41D;&#x421;"/>
+			<field id="specialist_id" dataType="Int" required="TRUE" refTable="specialists" refField="id"/>
+			<field id="specialist_period_salary_detail_id" dataType="Int" required="TRUE" refTable="specialist_period_salary_details" refField="id"/>
+			<field id="document_error" dataType="Text" alias="&#x41E;&#x448;&#x438;&#x431;&#x43A;&#x430; &#x43F;&#x440;&#x43E;&#x432;&#x435;&#x440;&#x43A;&#x438; &#x441;&#x435;&#x43A;&#x430; &#x424;&#x41D;&#x421;"/>
+			<field id="qrextr_request_id" dataType="Text" alias="&#x418;&#x414; &#x441;&#x435;&#x440;&#x432;&#x438;&#x441;&#x430; qrextr"/>
+			<field id="operation_id" dataType="String" length="36"/>
+			<field id="document_href" dataType="Text"/>
+			<index id="specialist_receipts_specialist_idx">
+				<field id="specialist_id"/>
+			</index>
+			<index id="specialist_receipts_salary_detail_idx">
+				<field id="specialist_period_salary_detail_id"/>
+			</index>
+			<index id="specialist_receipts_qrextr_request_id_idx">
+				<field id="qrextr_request_id"/>
+			</index>
+		</model>
+		<model id="TemplateBatch" parent="ModelSQL" dataTable="template_batches" virtual="FALSE" alias="&#x41F;&#x430;&#x43A;&#x435;&#x442;&#x44B; &#x448;&#x430;&#x431;&#x43B;&#x43E;&#x43D;&#x43E;&#x432;">
+			<defaultOrder>
+				<field id="name"/>
+			</defaultOrder>
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="name" dataType="Text" alias="&#x41D;&#x430;&#x438;&#x43C;&#x435;&#x43D;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435; &#x43F;&#x430;&#x43A;&#x435;&#x442;&#x430;"/>
+			<field id="template_batch_type" dataType="Enum" enumId="template_batch_types"/>
+			<field id="studio_id" dataType="Int" refTable="studios" refField="id" alias="&#x421;&#x442;&#x443;&#x434;&#x438;&#x44F; &#x438;&#x43B;&#x438; &#x43F;&#x443;&#x441;&#x442;&#x43E;, &#x435;&#x441;&#x43B;&#x438; &#x432;&#x441;&#x435;"/>
+		</model>
+		<model id="TemplateBatchItem" parent="ModelSQL" dataTable="template_batch_items" virtual="FALSE" alias="&#x42D;&#x43B;&#x435;&#x43C;&#x435;&#x43D;&#x442; &#x43F;&#x430;&#x43A;&#x435;&#x442;&#x430; &#x448;&#x430;&#x431;&#x43B;&#x43E;&#x43D;&#x43E;&#x432;">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="template_batch_id" dataType="Int" required="TRUE" refTable="template_batchs" refField="id"/>
+			<field id="template_id" dataType="Int" required="TRUE" refTable="templates" refField="id"/>
+			<field id="studio_id" dataType="Int" refTable="studios" refField="id" alias="&#x421;&#x442;&#x443;&#x434;&#x438;&#x44F; &#x438;&#x43B;&#x438; &#x43F;&#x443;&#x441;&#x442;&#x43E;, &#x435;&#x441;&#x43B;&#x438; &#x432;&#x441;&#x435;"/>
+			<index id="template_batch_items_template_idx" unique="TRUE">
+				<field id="template_batch_id"/>
+				<field id="studio_id"/>
+				<field id="template_id"/>
+			</index>
+		</model>
+		<model id="TemplateBatchItemList" parent="ModelSQL" dataTable="template_batch_items_list" virtual="TRUE" alias="&#x42D;&#x43B;&#x435;&#x43C;&#x435;&#x43D;&#x442; &#x43F;&#x430;&#x43A;&#x435;&#x442;&#x430; &#x448;&#x430;&#x431;&#x43B;&#x43E;&#x43D;&#x43E;&#x432;">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="template_batch_id" dataType="Int"/>
+			<field id="templates_ref" dataType="JSON"/>
+			<field id="studios_ref" dataType="JSON"/>
+		</model>
+		<model id="BankPayment" parent="ModelSQL" dataTable="bank_payments" virtual="FALSE" alias="&#x41F;&#x43B;&#x430;&#x442;&#x435;&#x436;&#x43D;&#x44B;&#x435; &#x43F;&#x43E;&#x440;&#x443;&#x447;&#x435;&#x43D;&#x438;&#x44F;">
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="date_time" dataType="DateTimeTZ" dbRequired="TRUE" defaultValue="CURRENT_TIMESTAMP" alias="&#x414;&#x430;&#x442;&#x430; &#x441;&#x43E;&#x437;&#x434;&#x430;&#x43D;&#x438;&#x44F;"/>
+			<field id="document_date" dataType="DateTimeTZ" alias="&#x414;&#x430;&#x442;&#x430; &#x434;&#x43E;&#x43A;&#x443;&#x43C;&#x435;&#x43D;&#x442;&#x430;"/>
+			<field id="document_num" dataType="Int" alias="&#x41D;&#x43E;&#x43C;&#x435;&#x440; &#x434;&#x43E;&#x43A;&#x443;&#x43C;&#x435;&#x43D;&#x442;&#x430;"/>
+			<field id="document_total" dataType="Float" length="15" precision="2" defaultValue="0" alias="&#x421;&#x443;&#x43C;&#x43C;&#x430; &#x434;&#x43E;&#x43A;&#x443;&#x43C;&#x435;&#x43D;&#x442;&#x430;"/>
+			<field id="document_comment" dataType="Text" alias="&#x41D;&#x430;&#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x438;&#x435; &#x43F;&#x43B;&#x430;&#x442;&#x435;&#x436;&#x430;"/>
+			<field id="payer" dataType="Text" alias="&#x41D;&#x430;&#x438;&#x43C;&#x435;&#x43D;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435; &#x43F;&#x43B;&#x430;&#x442;&#x435;&#x43B;&#x44C;&#x449;&#x438;&#x43A;&#x430;"/>
+			<field id="payer_acc" dataType="String" length="20" alias="&#x420;&#x430;&#x441;&#x447;&#x435;&#x442;&#x43D;&#x44B;&#x439; &#x441;&#x447;&#x435;&#x442; &#x43F;&#x43B;&#x430;&#x442;&#x435;&#x43B;&#x44C;&#x449;&#x438;&#x43A;&#x430;"/>
+			<field id="payer_inn" dataType="String" length="12" alias="&#x418;&#x41D;&#x41D; &#x43F;&#x43E;&#x43B;&#x443;&#x447;&#x430;&#x442;&#x435;&#x43B;&#x44F;"/>
+			<field id="payer_bank_acc" dataType="String" length="20" alias="&#x41A;&#x43E;&#x440;. &#x441;&#x447;&#x435;&#x442; &#x431;&#x430;&#x43D;&#x43A;&#x430; &#x43F;&#x43B;&#x430;&#x442;&#x435;&#x43B;&#x44C;&#x449;&#x438;&#x43A;&#x430;"/>
+			<field id="payer_bank_bik" dataType="String" length="9" alias="&#x411;&#x438;&#x43A; &#x431;&#x430;&#x43D;&#x43A;&#x430; &#x43F;&#x43B;&#x430;&#x442;&#x435;&#x43B;&#x44C;&#x449;&#x438;&#x43A;&#x430;"/>
+			<field id="payer_bank" dataType="Text" alias="&#x411;&#x430;&#x43D;&#x43A; &#x43F;&#x43B;&#x430;&#x442;&#x435;&#x43B;&#x44C;&#x449;&#x438;&#x43A;&#x430;"/>
+			<field id="payer_bank_place" dataType="Text" alias="&#x413;&#x43E;&#x440;&#x43E;&#x434; &#x431;&#x430;&#x43D;&#x43A;&#x430; &#x43F;&#x43B;&#x430;&#x442;&#x435;&#x43B;&#x44C;&#x449;&#x438;&#x43A;&#x430;"/>
+			<field id="rec" dataType="Text" alias="&#x41D;&#x430;&#x438;&#x43C;&#x435;&#x43D;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435; &#x43F;&#x43E;&#x43B;&#x443;&#x447;&#x430;&#x442;&#x435;&#x43B;&#x44F;"/>
+			<field id="rec_inn" dataType="String" length="12" alias="&#x418;&#x41D;&#x41D; &#x43F;&#x43E;&#x43B;&#x443;&#x447;&#x430;&#x442;&#x435;&#x43B;&#x44F;"/>
+			<field id="rec_acc" dataType="String" length="20" alias="&#x420;&#x430;&#x441;&#x447;&#x435;&#x442;&#x43D;&#x44B;&#x439; &#x441;&#x447;&#x435;&#x442; &#x43F;&#x43E;&#x43B;&#x443;&#x447;&#x430;&#x442;&#x435;&#x43B;&#x44F;"/>
+			<field id="rec_bank_acc" dataType="String" length="20" alias="&#x41A;&#x43E;&#x440;. &#x441;&#x447;&#x435;&#x442; &#x431;&#x430;&#x43D;&#x43A;&#x430; &#x43F;&#x43E;&#x43B;&#x443;&#x447;&#x430;&#x442;&#x435;&#x43B;&#x44F;"/>
+			<field id="rec_bank_bik" dataType="String" length="9" alias="&#x411;&#x438;&#x43A; &#x431;&#x430;&#x43D;&#x43A;&#x430; &#x43F;&#x43E;&#x43B;&#x443;&#x447;&#x430;&#x442;&#x435;&#x43B;&#x44F;"/>
+			<field id="rec_bank" dataType="Text" alias="&#x411;&#x430;&#x43D;&#x43A; &#x43F;&#x43E;&#x43B;&#x443;&#x447;&#x430;&#x442;&#x435;&#x43B;&#x44F;"/>
+			<field id="rec_bank_place" dataType="Text" alias="&#x413;&#x43E;&#x440;&#x43E;&#x434; &#x431;&#x430;&#x43D;&#x43A;&#x430; &#x43F;&#x43E;&#x43B;&#x443;&#x447;&#x430;&#x442;&#x435;&#x43B;&#x44F;"/>
+			<field id="specialist_id" dataType="Int" required="TRUE" refTable="specialists" refField="id"/>
+			<field id="specialist_period_salary_detail_id" dataType="Int" required="TRUE" refTable="specialist_period_salary_details" refField="id"/>
+			<index id="bank_payments_specialist_idx">
+				<field id="specialist_id"/>
+			</index>
+			<index id="bank_payments_document_date_idx">
+				<field id="document_date"/>
+			</index>
+			<index id="bank_payments_document_num_idx">
+				<field id="document_num"/>
+			</index>
+			<index id="bank_payments_specialist_salary_idx">
+				<field id="specialist_period_salary_detail_id"/>
+			</index>
+		</model>
+		<model id="BankPaymentList" parent="ModelSQL" dataTable="bank_payments_list" virtual="TRUE" alias="&#x41F;&#x43B;&#x430;&#x442;&#x435;&#x436;&#x43D;&#x44B;&#x435; &#x43F;&#x43E;&#x440;&#x443;&#x447;&#x435;&#x43D;&#x438;&#x44F;">
+			<defaultOrder>
+				<field id="document_num" sortDirect="DESC"/>
+			</defaultOrder>
+			<aggFunctions>
+				<aggFunction alias="total_document_total" expr="sum(document_total)"/>
+			</aggFunctions>
+			<field id="id" dataType="Int" primaryKey="TRUE" autoInc="TRUE"/>
+			<field id="date_time" dataType="DateTimeTZ" alias="&#x414;&#x430;&#x442;&#x430; &#x441;&#x43E;&#x437;&#x434;&#x430;&#x43D;&#x438;&#x44F;"/>
+			<field id="document_date" dataType="DateTimeTZ" alias="&#x414;&#x430;&#x442;&#x430; &#x434;&#x43E;&#x43A;&#x443;&#x43C;&#x435;&#x43D;&#x442;&#x430;"/>
+			<field id="document_num" dataType="Int" alias="&#x41D;&#x43E;&#x43C;&#x435;&#x440; &#x434;&#x43E;&#x43A;&#x443;&#x43C;&#x435;&#x43D;&#x442;&#x430;"/>
+			<field id="document_total" dataType="Float" alias="&#x421;&#x443;&#x43C;&#x43C;&#x430; &#x434;&#x43E;&#x43A;&#x443;&#x43C;&#x435;&#x43D;&#x442;&#x430;"/>
+			<field id="document_comment" dataType="Text" alias="&#x41D;&#x430;&#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x438;&#x435; &#x43F;&#x43B;&#x430;&#x442;&#x435;&#x436;&#x430;"/>
+			<field id="payer_acc" dataType="String" alias="&#x420;&#x430;&#x441;&#x447;&#x435;&#x442;&#x43D;&#x44B;&#x439; &#x441;&#x447;&#x435;&#x442; &#x43F;&#x43B;&#x430;&#x442;&#x435;&#x43B;&#x44C;&#x449;&#x438;&#x43A;&#x430;"/>
+			<field id="payer_bank_acc" dataType="String" alias="&#x41A;&#x43E;&#x440;. &#x441;&#x447;&#x435;&#x442; &#x431;&#x430;&#x43D;&#x43A;&#x430; &#x43F;&#x43B;&#x430;&#x442;&#x435;&#x43B;&#x44C;&#x449;&#x438;&#x43A;&#x430;"/>
+			<field id="payer_bank_bik" dataType="String" alias="&#x411;&#x438;&#x43A; &#x431;&#x430;&#x43D;&#x43A;&#x430; &#x43F;&#x43B;&#x430;&#x442;&#x435;&#x43B;&#x44C;&#x449;&#x438;&#x43A;&#x430;"/>
+			<field id="payer_bank" dataType="Text" alias="&#x411;&#x430;&#x43D;&#x43A; &#x43F;&#x43B;&#x430;&#x442;&#x435;&#x43B;&#x44C;&#x449;&#x438;&#x43A;&#x430;"/>
+			<field id="payer_bank_place" dataType="Text" alias="&#x413;&#x43E;&#x440;&#x43E;&#x434; &#x431;&#x430;&#x43D;&#x43A;&#x430; &#x43F;&#x43B;&#x430;&#x442;&#x435;&#x43B;&#x44C;&#x449;&#x438;&#x43A;&#x430;"/>
+			<field id="rec_acc" dataType="String" alias="&#x420;&#x430;&#x441;&#x447;&#x435;&#x442;&#x43D;&#x44B;&#x439; &#x441;&#x447;&#x435;&#x442; &#x43F;&#x43E;&#x43B;&#x443;&#x447;&#x430;&#x442;&#x435;&#x43B;&#x44F;"/>
+			<field id="rec_bank_acc" dataType="String" alias="&#x41A;&#x43E;&#x440;. &#x441;&#x447;&#x435;&#x442; &#x431;&#x430;&#x43D;&#x43A;&#x430; &#x43F;&#x43E;&#x43B;&#x443;&#x447;&#x430;&#x442;&#x435;&#x43B;&#x44F;"/>
+			<field id="rec_bank_bik" dataType="String" alias="&#x411;&#x438;&#x43A; &#x431;&#x430;&#x43D;&#x43A;&#x430; &#x43F;&#x43E;&#x43B;&#x443;&#x447;&#x430;&#x442;&#x435;&#x43B;&#x44F;"/>
+			<field id="rec_bank" dataType="Text" alias="&#x411;&#x430;&#x43D;&#x43A; &#x43F;&#x43E;&#x43B;&#x443;&#x447;&#x430;&#x442;&#x435;&#x43B;&#x44F;"/>
+			<field id="rec_bank_place" dataType="Text" alias="&#x413;&#x43E;&#x440;&#x43E;&#x434; &#x431;&#x430;&#x43D;&#x43A;&#x430; &#x43F;&#x43E;&#x43B;&#x443;&#x447;&#x430;&#x442;&#x435;&#x43B;&#x44F;"/>
+			<field id="specialist_id" dataType="Int"/>
+			<field id="specialists_ref" dataType="JSON"/>
+			<field id="specialist_period_salary_detail_id" dataType="Int"/>
+			<field id="specialist_period_salary_details_ref" dataType="JSON"/>
+		</model>
+	</models>
+	<constants>
+		<constant id="doc_per_page_count" name="&#x41A;&#x43E;&#x43B;&#x438;&#x447;&#x435;&#x441;&#x442;&#x432;&#x43E; &#x434;&#x43E;&#x43A;&#x443;&#x43C;&#x435;&#x43D;&#x442;&#x43E;&#x432; &#x43D;&#x430; &#x441;&#x442;&#x440;&#x430;&#x43D;&#x438;&#x446;&#x435;" descr="&#x41A;&#x43E;&#x43B;&#x438;&#x447;&#x435;&#x441;&#x442;&#x432;&#x43E; &#x434;&#x43E;&#x43A;&#x443;&#x43C;&#x435;&#x43D;&#x442;&#x43E;&#x432; &#x43D;&#x430; &#x441;&#x442;&#x440;&#x430;&#x43D;&#x438;&#x446;&#x435; &#x432; &#x436;&#x443;&#x440;&#x43D;&#x430;&#x43B;&#x435; &#x434;&#x43E;&#x43A;&#x443;&#x43C;&#x435;&#x43D;&#x442;&#x43E;&#x432;" dataType="Int" defaultValue="60" autoload="TRUE"/>
+		<constant id="grid_refresh_interval" name="&#x41F;&#x435;&#x440;&#x438;&#x43E;&#x434; &#x43E;&#x431;&#x43D;&#x43E;&#x432;&#x43B;&#x435;&#x43D;&#x438;&#x44F; &#x442;&#x430;&#x431;&#x43B;&#x438;&#x446;" descr="&#x41F;&#x435;&#x440;&#x438;&#x43E;&#x434; &#x43E;&#x431;&#x43D;&#x43E;&#x432;&#x43B;&#x435;&#x43D;&#x438;&#x44F; &#x442;&#x430;&#x431;&#x43B;&#x438;&#x446; &#x432; &#x441;&#x435;&#x43A;&#x443;&#x43D;&#x434;&#x430;&#x445;" dataType="Int" defaultValue="15" autoload="TRUE"/>
+		<constant id="email" name="&#x414;&#x430;&#x43D;&#x43D;&#x44B;&#x435; &#x44D;&#x43B;&#x435;&#x43A;&#x442;&#x440;&#x43E;&#x43D;&#x43D;&#x43E;&#x439; &#x43F;&#x43E;&#x447;&#x442;&#x44B;" descr="&#x414;&#x430;&#x43D;&#x43D;&#x44B;&#x435; &#x44D;&#x43B;&#x435;&#x43A;&#x442;&#x440;&#x43E;&#x43D;&#x43D;&#x43E;&#x439; &#x43F;&#x43E;&#x447;&#x442;&#x44B; &#x434;&#x43B;&#x44F; &#x43E;&#x442;&#x43F;&#x440;&#x430;&#x432;&#x43A;&#x438; &#x43F;&#x438;&#x441;&#x435;&#x43C;" dataType="JSONB" autoload="FALSE"/>
+		<constant id="join_contract" name="&#x414;&#x43E;&#x433;&#x43E;&#x432;&#x43E;&#x440; &#x43F;&#x440;&#x438;&#x441;&#x43E;&#x435;&#x434;&#x438;&#x43D;&#x435;&#x43D;&#x438;&#x44F;" descr="&#x414;&#x43E;&#x433;&#x43E;&#x432;&#x43E;&#x440; &#x43F;&#x440;&#x438;&#x441;&#x43E;&#x435;&#x434;&#x438;&#x43D;&#x435;&#x43D;&#x438;&#x44F;" dataType="Text" autoload="FALSE"/>
+		<constant id="person_tax" name="&#x41D;&#x430;&#x43B;&#x43E;&#x433; &#x43D;&#x430; &#x441;&#x430;&#x43C;&#x43B;&#x437;&#x430;&#x43D;&#x44F;&#x442;&#x43E;&#x433;&#x43E;,%" descr="&#x41F;&#x440;&#x43E;&#x446;&#x435;&#x43D;&#x442; &#x43D;&#x430;&#x43B;&#x43E;&#x433;&#x430; &#x441; &#x441;&#x430;&#x43C;&#x43E;&#x437;&#x430;&#x43D;&#x44F;&#x442;&#x43E;&#x433;&#x43E;" dataType="Int" defaultValue="6" autoload="FALSE"/>
+		<constant id="specialist_services" name="&#x423;&#x441;&#x43B;&#x443;&#x433;&#x438; &#x441;&#x430;&#x43C;&#x43E;&#x437;&#x430;&#x43D;&#x44F;&#x442;&#x43E;&#x433;&#x43E;" descr="&#x412;&#x441;&#x435; &#x432;&#x43E;&#x437;&#x43C;&#x43E;&#x436;&#x43D;&#x44B;&#x435; &#x443;&#x441;&#x434;&#x443;&#x433;&#x438; &#x441;&#x430;&#x43C;&#x43E;&#x437;&#x430;&#x43D;&#x44F;&#x442;&#x43E;&#x433;&#x43E; &#x434;&#x43B;&#x44F; &#x43F;&#x440;&#x43E;&#x432;&#x435;&#x440;&#x43A;&#x438; &#x447;&#x435;&#x43A;&#x430;" dataType="Text" defaultValue="'&#x43C;&#x430;&#x43D;&#x438;&#x43A;, &#x43F;&#x435;&#x434;&#x438;&#x43A;'" autoload="FALSE"/>
+		<constant id="specialist_pay_comment_template" name="&#x428;&#x430;&#x431;&#x43B;&#x43E;&#x43D; &#x43D;&#x430;&#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x438;&#x44F; &#x43F;&#x43B;&#x430;&#x442;&#x435;&#x436;&#x430; &#x434;&#x43B;&#x44F; &#x441;&#x430;&#x43C;&#x43E;&#x437;&#x430;&#x43D;&#x44F;&#x442;&#x43E;&#x433;&#x43E;" descr="&#x418;&#x441;&#x43F;&#x43E;&#x43B;&#x44C;&#x437;&#x443;&#x435;&#x442;&#x441;&#x44F; &#x43F;&#x440;&#x438; &#x444;&#x43E;&#x440;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x438; &#x43F;/&#x43F; &#x432; &#x431;&#x430;&#x43D;&#x43A; &#x43D;&#x430; &#x43E;&#x43F;&#x43B;&#x430;&#x442;&#x443; &#x441;&#x430;&#x43C;&#x43E;&#x437;&#x430;&#x43D;&#x44F;&#x442;&#x44B;&#x43C;. &#x41F;&#x440;&#x438;&#x43D;&#x438;&#x43C;&#x430;&#x435;&#x442; &#x441;&#x43B;&#x435;&#x434;&#x443;&#x44E;&#x449;&#x438;&#x435; &#x43F;&#x43E;&#x43B;&#x44F;: [sum]-&#x441;&#x443;&#x43C;&#x43C;&#x430;, [fio]-&#x424;&#x418;&#x41E; &#x43C;&#x430;&#x441;&#x442;&#x435;&#x440;&#x430;" dataType="Text" defaultValue="'&#x41E;&#x43F;&#x43B;&#x430;&#x442;&#x430; &#x441;&#x430;&#x43C;&#x43E;&#x437;&#x430;&#x43D;&#x44F;&#x442;&#x43E;&#x43C;&#x443;, &#x441;&#x443;&#x43C;&#x43C;&#x430; [sum], &#x431;&#x435;&#x437; &#x41D;&#x414;&#x421;'" autoload="FALSE"/>
+	</constants>
+	<controllers>
+		<controller id="Event" parentId="ControllerSQL">
+			<publicMethod id="subscribe">
+				<field id="events" dataType="Array" required="TRUE"/>
+			</publicMethod>
+			<publicMethod id="unsubscribe">
+				<field id="events" dataType="Array" required="TRUE"/>
+			</publicMethod>
+			<publicMethod id="publish">
+				<field id="events" dataType="Array" required="TRUE"/>
+			</publicMethod>
+		</controller>
+		<controller id="Constant" parentId="ControllerSQL">
+			<publicMethod id="set_value">
+				<field id="id" dataType="String" required="TRUE"/>
+				<field id="val" dataType="String"/>
+			</publicMethod>
+			<publicMethod id="get_list" modelId="ConstantList"/>
+			<publicMethod id="get_object" modelId="ConstantList"/>
+			<publicMethod id="get_values">
+				<field id="id_list" dataType="String"/>
+				<field id="field_sep" dataType="String" length="1"/>
+			</publicMethod>
+		</controller>
+		<controller id="Enum" parentId="ControllerSQL">
+			<publicMethod id="get_enum_list">
+				<field id="id" dataType="String"/>
+			</publicMethod>
+		</controller>
+		<controller id="MainMenuConstructor" parentId="ControllerSQL">
+			<publicMethod id="insert" modelId="MainMenuConstructor"/>
+			<publicMethod id="update" modelId="MainMenuConstructor"/>
+			<publicMethod id="delete" modelId="MainMenuConstructor"/>
+			<publicMethod id="get_list" modelId="MainMenuConstructorList"/>
+			<publicMethod id="get_object" modelId="MainMenuConstructorDialog"/>
+		</controller>
+		<controller id="MainMenuContent" parentIdJS="ControllerObjClient" server="FALSE">
+			<publicMethod id="insert" modelId="MainMenuContent"/>
+			<publicMethod id="update" modelId="MainMenuContent"/>
+			<publicMethod id="delete" modelId="MainMenuContent"/>
+			<publicMethod id="get_list" modelId="MainMenuContent"/>
+			<publicMethod id="get_object" modelId="MainMenuContent"/>
+		</controller>
+		<controller id="View" parentId="ControllerSQL">
+			<publicMethod id="get_list" modelId="ViewList"/>
+			<publicMethod id="complete" modelId="ViewList" patternFieldId="user_descr"/>
+			<publicMethod id="get_section_list" modelId="ViewSectionList"/>
+		</controller>
+		<controller id="VariantStorage" parentId="ControllerSQL">
+			<publicMethod id="insert" modelId="VariantStorage"/>
+			<publicMethod id="upsert_filter_data" modelId="VariantStorage">
+				<field id="storage_name" dataType="String" required="TRUE"/>
+				<field id="variant_name" dataType="String" required="TRUE"/>
+				<field id="filter_data" dataType="String" required="TRUE"/>
+				<field id="default_variant" dataType="Bool" required="TRUE"/>
+			</publicMethod>
+			<publicMethod id="upsert_col_visib_data" modelId="VariantStorage">
+				<field id="storage_name" dataType="String" required="TRUE"/>
+				<field id="variant_name" dataType="String" required="TRUE"/>
+				<field id="col_visib" dataType="String" required="TRUE"/>
+				<field id="default_variant" dataType="Bool" required="TRUE"/>
+			</publicMethod>
+			<publicMethod id="upsert_col_order_data" modelId="VariantStorage">
+				<field id="storage_name" dataType="String" required="TRUE"/>
+				<field id="variant_name" dataType="String" required="TRUE"/>
+				<field id="col_order" dataType="String" required="TRUE"/>
+				<field id="default_variant" dataType="Bool" required="TRUE"/>
+			</publicMethod>
+			<publicMethod id="update" modelId="VariantStorage"/>
+			<publicMethod id="delete" modelId="VariantStorage"/>
+			<publicMethod id="get_list">
+				<field id="storage_name" dataType="String" required="TRUE"/>
+				<field id="variant_name" dataType="String"/>
+			</publicMethod>
+			<publicMethod id="get_object" modelId="VariantStorage"/>
+			<publicMethod id="get_filter_data" modelId="VariantStorage">
+				<field id="storage_name" dataType="String" required="TRUE"/>
+				<field id="variant_name" dataType="String"/>
+			</publicMethod>
+			<publicMethod id="get_col_visib_data" modelId="VariantStorage">
+				<field id="storage_name" dataType="String" required="TRUE"/>
+				<field id="variant_name" dataType="String"/>
+			</publicMethod>
+			<publicMethod id="get_col_order_data" modelId="VariantStorage">
+				<field id="storage_name" dataType="String" required="TRUE"/>
+				<field id="variant_name" dataType="String"/>
+			</publicMethod>
+		</controller>
+		<controller id="About" parentId="ControllerSQL">
+			<publicMethod id="get_object" modelId="About"/>
+		</controller>
+		<controller id="User" parentId="ControllerSQL" noState="FALSE">
+			<publicMethod id="insert" modelId="User" encType="multipart" requestType="post"/>
+			<publicMethod id="update" modelId="User" encType="multipart" requestType="post"/>
+			<publicMethod id="delete" modelId="User"/>
+			<publicMethod id="get_list" modelId="UserList"/>
+			<publicMethod id="get_object" modelId="UserDialog"/>
+			<publicMethod id="complete" modelId="UserList" patternFieldId="name_full"/>
+			<publicMethod id="get_profile" modelId="UserProfile"/>
+			<publicMethod id="reset_pwd">
+				<field id="user_id" dataType="Int" required="TRUE"/>
+			</publicMethod>
+			<publicMethod id="login">
+				<field id="name" dataType="String" alias="&#x418;&#x43C;&#x44F; &#x43F;&#x43E;&#x43B;&#x44C;&#x437;&#x43E;&#x432;&#x430;&#x442;&#x435;&#x43B;&#x44F;" length="50" required="TRUE"/>
+				<field id="pwd" dataType="Password" alias="&#x41F;&#x430;&#x440;&#x43E;&#x43B;&#x44C;" length="20" required="TRUE"/>
+				<field id="width_type" dataType="String" length="2"/>
+			</publicMethod>
+			<publicMethod id="login_refresh">
+				<field id="refresh_token" dataType="String" required="true" length="50"/>
+			</publicMethod>
+			<publicMethod id="logout"/>
+			<publicMethod id="logout_html"/>
+			<publicMethod id="password_recover">
+				<field id="email" dataType="String" required="TRUE" length="100"/>
+				<field id="captcha_key" dataType="String" required="TRUE" length="10"/>
+			</publicMethod>
+		</controller>
+		<controller id="Login" parentId="ControllerSQL" state="TRUE" noState="TRUE">
+			<publicMethod id="get_list" modelId="LoginList"/>
+			<publicMethod id="get_object" modelId="LoginList"/>
+		</controller>
+		<controller id="LoginDevice" parentId="ControllerSQL" state="TRUE" noState="TRUE">
+			<publicMethod id="get_list" modelId="LoginDeviceList"/>
+			<publicMethod id="switch_banned">
+				<field id="banned" dataType="Bool" required="TRUE"/>
+				<field id="hash" dataType="String" length="32" required="TRUE"/>
+				<field id="user_id" dataType="Int" required="TRUE"/>
+			</publicMethod>
+		</controller>
+		<controller id="Captcha" parentId="Controller">
+			<publicMethod id="get">
+				<field id="id" dataType="String" length="50"/>
+				<field id="width" dataType="Int"/>
+				<field id="height" dataType="Int"/>
+				<field id="count" dataType="Int"/>
+			</publicMethod>
+		</controller>
+		<controller id="LoginDeviceBan" parentId="ControllerSQL" state="TRUE" noState="TRUE">
+			<publicMethod id="insert" modelId="LoginDeviceBan"/>
+			<publicMethod id="delete" modelId="LoginDeviceBan"/>
+			<publicMethod id="get_list" modelId="LoginDeviceBan"/>
+			<publicMethod id="get_object" modelId="LoginDeviceBan"/>
+		</controller>
+		<controller id="TimeZoneLocale" parentId="ControllerSQL" state="TRUE" noState="TRUE">
+			<publicMethod id="insert" modelId="TimeZoneLocale"/>
+			<publicMethod id="update" modelId="TimeZoneLocale"/>
+			<publicMethod id="delete" modelId="TimeZoneLocale"/>
+			<publicMethod id="get_list" modelId="TimeZoneLocale"/>
+			<publicMethod id="get_object" modelId="TimeZoneLocale"/>
+		</controller>
+		<controller id="MailTemplate" parentId="ControllerSQL">
+			<publicMethod id="insert" modelId="MailTemplate"/>
+			<publicMethod id="update" modelId="MailTemplate"/>
+			<publicMethod id="get_list" modelId="MailTemplateList"/>
+			<publicMethod id="get_object" modelId="MailTemplate"/>
+		</controller>
+		<controller id="ReportTemplateField" parentIdJS="ControllerObjClient" server="FALSE">
+			<publicMethod id="insert" modelId="ReportTemplateField"/>
+			<publicMethod id="update" modelId="ReportTemplateField"/>
+			<publicMethod id="delete" modelId="ReportTemplateField"/>
+			<publicMethod id="get_list" modelId="ReportTemplateField"/>
+			<publicMethod id="get_object" modelId="ReportTemplateField"/>
+		</controller>
+		<controller id="Attachment" parentId="ControllerSQL" state="TRUE" noState="TRUE">
+			<publicMethod id="get_list" modelId="AttachmentList"/>
+			<publicMethod id="get_object" modelId="AttachmentList"/>
+			<publicMethod id="delete_file">
+				<field id="ref" dataType="String" required="TRUE"/>
+				<field id="content_id" dataType="String" required="TRUE"/>
+			</publicMethod>
+			<publicMethod id="clear_cache">
+				<field id="ref" dataType="String" required="TRUE"/>
+				<field id="content_id" dataType="String" required="TRUE"/>
+			</publicMethod>
+			<publicMethod id="get_file">
+				<field id="ref" dataType="String" required="TRUE"/>
+				<field id="content_id" dataType="String" length="36" required="TRUE"/>
+				<field id="inline" dataType="Int"/>
+			</publicMethod>
+			<publicMethod id="add_file" encType="multipart" requestType="post">
+				<field id="ref" dataType="String" required="TRUE"/>
+				<field id="content_data" dataType="Text"/>
+				<field id="content_info" dataType="String" length="500" required="TRUE"/>
+			</publicMethod>
+		</controller>
+		<controller id="UserOperation" parentId="ControllerSQL">
+			<publicMethod id="get_object" modelId="UserOperationDialog"/>
+			<publicMethod id="delete" modelId="UserOperation"/>
+		</controller>
+		<controller id="Post" parentId="ControllerSQL" state="TRUE" noState="TRUE">
+			<publicMethod id="insert" modelId="Post"/>
+			<publicMethod id="update" modelId="Post"/>
+			<publicMethod id="delete" modelId="Post"/>
+			<publicMethod id="get_list" modelId="Post"/>
+			<publicMethod id="get_object" modelId="Post"/>
+			<publicMethod id="complete" modelId="Post" patternFieldId="name"/>
+		</controller>
+		<controller id="Contact" parentId="ControllerSQL" noState="FALSE">
+			<publicMethod id="insert" modelId="&#x43A;&#x44C;&#x448;Contact"/>
+			<publicMethod id="update" modelId="Contact"/>
+			<publicMethod id="delete" modelId="Contact"/>
+			<publicMethod id="get_list" modelId="ContactList"/>
+			<publicMethod id="get_object" modelId="ContactDialog"/>
+			<publicMethod id="complete" modelId="ContactList" patternFieldId="descr"/>
+			<publicMethod id="upsert">
+				<field id="name" dataType="String" length="250" required="TRUE"/>
+				<field id="tel" dataType="String" length="11" required="TRUE"/>
+				<field id="email" dataType="String" length="100" required="FALSE"/>
+				<field id="tel_ext" dataType="String" length="20" required="FALSE"/>
+			</publicMethod>
+		</controller>
+		<controller id="EntityContact" parentId="ControllerSQL" noState="FALSE">
+			<publicMethod id="insert" modelId="EntityContact"/>
+			<publicMethod id="update" modelId="EntityContact"/>
+			<publicMethod id="delete" modelId="EntityContact"/>
+			<publicMethod id="get_list" modelId="EntityContactList"/>
+			<publicMethod id="get_object" modelId="EntityContactList"/>
+		</controller>
+		<controller id="Bank" parentId="ControllerSQL" noState="FALSE">
+			<publicMethod id="get_list" modelId="BankList"/>
+			<publicMethod id="get_object" modelId="BankList"/>
+			<publicMethod id="complete" modelId="BankList" patternFieldId="bik"/>
+		</controller>
+		<controller id="Firm" parentId="ControllerSQL" state="TRUE" noState="TRUE">
+			<publicMethod id="insert" modelId="Firm"/>
+			<publicMethod id="update" modelId="Firm"/>
+			<publicMethod id="delete" modelId="Firm"/>
+			<publicMethod id="get_list" modelId="FirmList"/>
+			<publicMethod id="get_object" modelId="FirmDialog"/>
+		</controller>
+		<controller id="Studio" parentId="ControllerSQL" state="TRUE" noState="TRUE">
+			<publicMethod id="insert" modelId="Studio"/>
+			<publicMethod id="update" modelId="Studio"/>
+			<publicMethod id="delete" modelId="Studio"/>
+			<publicMethod id="get_list" modelId="StudioList"/>
+			<publicMethod id="get_object" modelId="StudioDialog"/>
+		</controller>
+		<controller id="Specialist" parentId="ControllerSQL" state="TRUE" noState="TRUE">
+			<publicMethod id="insert" modelId="Specialist"/>
+			<publicMethod id="update" modelId="Specialist"/>
+			<publicMethod id="delete" modelId="Specialist"/>
+			<publicMethod id="get_list" modelId="SpecialistList"/>
+			<publicMethod id="get_object" modelId="SpecialistDialog"/>
+			<publicMethod id="register" structId="Specialist_register" encType="multipart" requestType="post">
+				<field id="operation_id" dataType="String" length="36" required="TRUE"/>
+				<field id="inn" dataType="String" length="12" required="TRUE"/>
+				<field id="banks_ref" dataType="JSON" required="TRUE"/>
+				<field id="bank_acc" dataType="String" length="20" required="TRUE"/>
+				<field id="name_full" dataType="String" length="200" required="TRUE"/>
+				<field id="name" dataType="String" length="100"/>
+				<field id="email" dataType="String" length="50" required="TRUE"/>
+				<field id="tel" dataType="String" length="11" required="TRUE"/>
+				<field id="birthdate" dataType="Date" required="TRUE"/>
+				<field id="address_reg" dataType="String" length="500" required="TRUE"/>
+				<field id="captcha" dataType="String" length="10" required="TRUE"/>
+				<field id="passport" dataType="JSON" required="TRUE"/>
+				<field id="passport_file_content" dataType="Text"/>
+			</publicMethod>
+			<publicMethod id="complete" modelId="SpecialistList" patternFieldId="name"/>
+			<publicMethod id="send_reg_documents" structId="DocAsync_id">
+				<field id="id" dataType="Int" required="TRUE" alias="specialist ID"/>
+				<field id="operation_id" dataType="String" required="TRUE"/>
+			</publicMethod>
+			<publicMethod id="send_salary_documents" structId="DocAsync_id">
+				<field id="id" dataType="Int" required="TRUE" alias="period salary detail ID"/>
+				<field id="operation_id" dataType="String" required="TRUE"/>
+			</publicMethod>
+		</controller>
+		<controller id="StudioEquipment" parentIdJS="ControllerObjClient" server="FALSE">
+			<publicMethod id="insert" modelId="StudioEquipment"/>
+			<publicMethod id="update" modelId="StudioEquipment"/>
+			<publicMethod id="delete" modelId="StudioEquipment"/>
+			<publicMethod id="get_list" modelId="StudioEquipment"/>
+			<publicMethod id="get_object" modelId="StudioEquipment"/>
+		</controller>
+		<controller id="SpecialityEquipment" parentIdJS="ControllerObjClient" server="FALSE">
+			<publicMethod id="insert" modelId="SpecialityEquipment"/>
+			<publicMethod id="update" modelId="SpecialityEquipment"/>
+			<publicMethod id="delete" modelId="SpecialityEquipment"/>
+			<publicMethod id="get_list" modelId="SpecialityEquipment"/>
+			<publicMethod id="get_object" modelId="SpecialityEquipment"/>
+		</controller>
+		<controller id="SpecialistStatus" parentId="ControllerSQL" state="TRUE" noState="TRUE">
+			<publicMethod id="insert" modelId="SpecialistStatus"/>
+			<publicMethod id="update" modelId="SpecialistStatus"/>
+			<publicMethod id="delete" modelId="SpecialistStatus"/>
+			<publicMethod id="get_list" modelId="SpecialistStatus"/>
+			<publicMethod id="get_object" modelId="SpecialistStatus"/>
+		</controller>
+		<controller id="NotifTemplate" parentId="ControllerSQL" state="TRUE" noState="TRUE">
+			<publicMethod id="insert" modelId="NotifTemplate"/>
+			<publicMethod id="update" modelId="NotifTemplate"/>
+			<publicMethod id="delete" modelId="NotifTemplate"/>
+			<publicMethod id="get_list" modelId="NotifTemplateList"/>
+			<publicMethod id="get_object" modelId="NotifTemplate"/>
+		</controller>
+		<controller id="SpecialistReg" parentId="ControllerSQL" state="TRUE" noState="TRUE">
+			<publicMethod id="insert" modelId="SpecialistReg"/>
+			<publicMethod id="update" modelId="SpecialistReg"/>
+			<publicMethod id="delete" modelId="SpecialistReg"/>
+			<publicMethod id="get_list" modelId="SpecialistRegList"/>
+			<publicMethod id="get_object" modelId="SpecialistRegDialog"/>
+			<publicMethod id="get_by_operation_id" modelId="SpecialistRegDialog">
+				<field id="operation_id" dataType="String" length="36" required="TRUE"/>
+			</publicMethod>
+			<publicMethod id="register" encType="multipart" requestType="post">
+				<field id="id" dataType="Int" required="TRUE"/>
+				<field id="studio_id" dataType="Int" required="TRUE"/>
+				<field id="ycl_staff_id" dataType="Int" required="TRUE"/>
+				<field id="operation_id" dataType="String" length="36" required="TRUE"/>
+			</publicMethod>
+			<publicMethod id="print_app" structId="Doc_id">
+				<field id="id" dataType="Int" required="TRUE"/>
+			</publicMethod>
+		</controller>
+		<controller id="ConfirmationStatus" parentId="ControllerSQL" state="TRUE" noState="TRUE">
+			<publicMethod id="set_confirmed">
+				<field id="secret" dataType="String" length="36" required="TRUE"/>
+			</publicMethod>
+		</controller>
+		<controller id="Mgateway" parentId="Controller">
+			<publicMethod id="callback" structId="Mgateway_callback"/>
+			<publicMethod id="get_qr"/>
+		</controller>
+		<controller id="QRExtractor" parentId="Controller">
+			<publicMethod id="callback" structId="QRExtractor_callback"/>
+		</controller>
+		<controller id="ClientSearch" parentId="Controller">
+			<publicMethod id="search">
+				<field id="query" dataType="String" length="250" required="TRUE"/>
+			</publicMethod>
+		</controller>
+		<controller id="DocumentTemplate" parentId="ControllerSQL" state="TRUE" noState="TRUE">
+			<publicMethod id="insert" modelId="DocumentTemplate"/>
+			<publicMethod id="update" modelId="DocumentTemplate"/>
+			<publicMethod id="delete" modelId="DocumentTemplate"/>
+			<publicMethod id="get_list" modelId="DocumentTemplateList"/>
+			<publicMethod id="get_object" modelId="DocumentTemplateDialog"/>
+		</controller>
+		<controller id="DocumentTemplateField" parentIdJS="ControllerObjClient" server="FALSE">
+			<publicMethod id="insert" modelId="DocumentTemplateField"/>
+			<publicMethod id="update" modelId="DocumentTemplateField"/>
+			<publicMethod id="delete" modelId="DocumentTemplateField"/>
+			<publicMethod id="get_list" modelId="DocumentTemplateField"/>
+			<publicMethod id="get_object" modelId="DocumentTemplateField"/>
+		</controller>
+		<controller id="SpecialistDocumentOnRegister" parentId="ControllerSQL" state="TRUE" noState="TRUE">
+			<publicMethod id="insert" modelId="SpecialistDocumentOnRegister"/>
+			<publicMethod id="update" modelId="SpecialistDocumentOnRegister"/>
+			<publicMethod id="delete" modelId="SpecialistDocumentOnRegister"/>
+			<publicMethod id="get_list" modelId="SpecialistDocumentOnRegisterList"/>
+			<publicMethod id="get_object" modelId="SpecialistDocumentOnRegisterList"/>
+		</controller>
+		<controller id="SpecialistWork" parentId="ControllerSQL" state="TRUE" noState="TRUE">
+			<publicMethod id="insert" modelId="SpecialistWork"/>
+			<publicMethod id="update" modelId="SpecialistWork"/>
+			<publicMethod id="delete" modelId="SpecialistWork"/>
+			<publicMethod id="get_list" modelId="SpecialistWorkList"/>
+			<publicMethod id="get_object" modelId="SpecialistWorkList"/>
+			<publicMethod id="get_for_rate_list" condFields="TRUE" modelId="SpecialistWorkForRateList"/>
+			<publicMethod id="set_admin_rates" structId="SpecialistWork_rates">
+				<field id="rates" dataType="JSON" required="TRUE"/>
+			</publicMethod>
+		</controller>
+		<controller id="SpecialistDocument" parentId="ControllerSQL" state="TRUE" noState="TRUE">
+			<publicMethod id="insert" modelId="SpecialistDocument"/>
+			<publicMethod id="update" modelId="SpecialistDocument"/>
+			<publicMethod id="delete" modelId="SpecialistDocument"/>
+			<publicMethod id="get_list" modelId="SpecialistDocumentList"/>
+			<publicMethod id="get_object" modelId="SpecialistDocumentList"/>
+			<publicMethod id="get_for_sign_list" condFields="TRUE" modelId="SpecialistDocumentForSignList"/>
+			<publicMethod id="sign" encType="multipart" requestType="post">
+				<field id="id" dataType="Int" required="TRUE"/>
+				<field id="signature" dataType="Bytea"/>
+				<field id="operation_id" dataType="String" length="36" required="TRUE"/>
+			</publicMethod>
+			<publicMethod id="get_file" structId="SpecialistDocument_get_file">
+				<field id="ref" dataType="String" required="TRUE"/>
+				<field id="content_id" dataType="String" length="36" required="TRUE"/>
+				<field id="inline" dataType="Int"/>
+				<field id="doc_id" dataType="Int" required="TRUE"/>
+			</publicMethod>
+		</controller>
+		<controller id="EquipmentType" parentId="ControllerSQL" state="TRUE" noState="TRUE">
+			<publicMethod id="insert" modelId="EquipmentType"/>
+			<publicMethod id="update" modelId="EquipmentType"/>
+			<publicMethod id="delete" modelId="EquipmentType"/>
+			<publicMethod id="get_list" modelId="EquipmentType"/>
+			<publicMethod id="get_object" modelId="EquipmentType"/>
+			<publicMethod id="complete" modelId="EquipmentType" patternFieldId="name"/>
+		</controller>
+		<controller id="Speciality" parentId="ControllerSQL" state="TRUE" noState="TRUE">
+			<publicMethod id="insert" modelId="Speciality"/>
+			<publicMethod id="update" modelId="Speciality"/>
+			<publicMethod id="delete" modelId="Speciality"/>
+			<publicMethod id="get_list" modelId="SpecialityList"/>
+			<publicMethod id="get_object" modelId="SpecialityDialog"/>
+		</controller>
+		<controller id="Item" parentId="ControllerSQL" state="TRUE" noState="TRUE">
+			<publicMethod id="insert" modelId="Item"/>
+			<publicMethod id="update" modelId="Item"/>
+			<publicMethod id="delete" modelId="Item"/>
+			<publicMethod id="get_list" modelId="Item"/>
+			<publicMethod id="get_object" modelId="Item"/>
+		</controller>
+		<controller id="YClStaff" parentId="ControllerSQL" state="TRUE" noState="TRUE">
+			<publicMethod id="insert" modelId="YClStaff"/>
+			<publicMethod id="update" modelId="YClStaff"/>
+			<publicMethod id="delete" modelId="YClStaff"/>
+			<publicMethod id="get_list" modelId="YClStaffList"/>
+			<publicMethod id="get_object" modelId="YClStaffList"/>
+			<publicMethod id="api_get_all">
+				<field id="operation_id" dataType="String" length="36" required="TRUE"/>
+			</publicMethod>
+		</controller>
+		<controller id="YClTransaction" parentId="ControllerSQL" state="TRUE" noState="TRUE">
+			<publicMethod id="insert" modelId="YClTransaction"/>
+			<publicMethod id="update" modelId="YClTransaction"/>
+			<publicMethod id="delete" modelId="YClTransaction"/>
+			<publicMethod id="get_list" modelId="YClTransactionList"/>
+			<publicMethod id="get_object" modelId="YClTransactionList"/>
+			<publicMethod id="get_for_work_list" condFields="TRUE" modelId="YClTransactionDocList"/>
+			<publicMethod id="get_doc_all_list" condFields="TRUE" modelId="YClTransactionDocAllList"/>
+			<publicMethod id="api_get">
+				<field id="operation_id" dataType="String" length="36" required="TRUE"/>
+				<field id="date_from" dataType="Date" required="TRUE"/>
+				<field id="date_to" dataType="Date" required="TRUE"/>
+			</publicMethod>
+		</controller>
+		<controller id="SalaryDebet" parentId="ControllerSQL" state="TRUE" noState="TRUE">
+			<publicMethod id="insert" modelId="SalaryDebet"/>
+			<publicMethod id="update" modelId="SalaryDebet"/>
+			<publicMethod id="delete" modelId="SalaryDebet"/>
+			<publicMethod id="get_list" modelId="SalaryDebet"/>
+			<publicMethod id="get_object" modelId="SalaryDebet"/>
+		</controller>
+		<controller id="SalaryKredit" parentId="ControllerSQL" state="TRUE" noState="TRUE">
+			<publicMethod id="insert" modelId="SalaryKredit"/>
+			<publicMethod id="update" modelId="SalaryKredit"/>
+			<publicMethod id="delete" modelId="SalaryKredit"/>
+			<publicMethod id="get_list" modelId="SalaryKredit"/>
+			<publicMethod id="get_object" modelId="SalaryKredit"/>
+		</controller>
+		<controller id="SpecialistSalaryKredit" parentId="ControllerSQL" state="TRUE" noState="TRUE">
+			<publicMethod id="insert" modelId="SpecialistSalaryKredit"/>
+			<publicMethod id="update" modelId="SpecialistSalaryKredit"/>
+			<publicMethod id="delete" modelId="SpecialistSalaryKredit"/>
+			<publicMethod id="get_list" modelId="SpecialistSalaryKreditList"/>
+			<publicMethod id="get_object" modelId="SpecialistSalaryKreditList"/>
+		</controller>
+		<controller id="SpecialistSalaryDebet" parentId="ControllerSQL" state="TRUE" noState="TRUE">
+			<publicMethod id="insert" modelId="SpecialistSalaryDebet"/>
+			<publicMethod id="update" modelId="SpecialistSalaryDebet"/>
+			<publicMethod id="delete" modelId="SpecialistSalaryDebet"/>
+			<publicMethod id="get_list" modelId="SpecialistSalaryDebetList"/>
+			<publicMethod id="get_object" modelId="SpecialistSalaryDebetList"/>
+		</controller>
+		<controller id="SpecialistPeriodSalary" parentId="ControllerSQL" state="TRUE" noState="TRUE">
+			<publicMethod id="insert" modelId="SpecialistPeriodSalary"/>
+			<publicMethod id="update" modelId="SpecialistPeriodSalary"/>
+			<publicMethod id="delete" modelId="SpecialistPeriodSalary"/>
+			<publicMethod id="get_list" modelId="SpecialistPeriodSalaryList"/>
+			<publicMethod id="get_object" modelId="SpecialistPeriodSalaryList"/>
+			<publicMethod id="fill_doc" structId="Doc_id">
+				<field id="id" dataType="Int" required="TRUE"/>
+			</publicMethod>
+		</controller>
+		<controller id="SpecialistPeriodSalaryDetail" parentId="ControllerSQL" state="TRUE" noState="TRUE">
+			<publicMethod id="insert" modelId="SpecialistPeriodSalaryDetail"/>
+			<publicMethod id="update" modelId="SpecialistPeriodSalaryDetail"/>
+			<publicMethod id="delete" modelId="SpecialistPeriodSalaryDetail"/>
+			<publicMethod id="get_list" modelId="SpecialistPeriodSalaryDetailList"/>
+			<publicMethod id="get_object" modelId="SpecialistPeriodSalaryDetailList"/>
+			<publicMethod id="get_for_pay_list" condFields="TRUE" modelId="SpecialistPeriodSalaryDetailList"/>
+			<publicMethod id="complete" modelId="SpecialistPeriodSalaryDetailList" patternFieldId="descr"/>
+			<publicMethod id="documents_to_bank" structId="Object_key_ar">
+				<field id="ids" dataType="String" required="TRUE" alias="&#x41C;&#x430;&#x441;&#x441;&#x438;&#x432; &#x438;&#x434;&#x435;&#x43D;&#x442;&#x438;&#x444;&#x438;&#x43A;&#x430;&#x442;&#x43E;&#x440;&#x43E;&#x432; &#x434;&#x43E;&#x43A;&#x443;&#x43C;&#x435;&#x43D;&#x442;&#x43E;&#x432;"/>
+			</publicMethod>
+		</controller>
+		<controller id="SpecialistReceipt" parentId="ControllerSQL" state="TRUE" noState="TRUE">
+			<publicMethod id="insert" modelId="SpecialistReceipt"/>
+			<publicMethod id="update" modelId="SpecialistReceipt"/>
+			<publicMethod id="delete" modelId="SpecialistReceipt"/>
+			<publicMethod id="get_list" modelId="SpecialistReceipt"/>
+			<publicMethod id="get_object" modelId="SpecialistReceipt"/>
+			<publicMethod id="add" structId="SpecialistReceipt_add" encType="multipart" requestType="post">
+				<field id="operation_id" dataType="String" length="36" required="TRUE"/>
+				<field id="specialist_period_salary_detail_id" required="TRUE" dataType="Int"/>
+				<field id="file_content" dataType="Text"/>
+			</publicMethod>
+		</controller>
+		<controller id="TemplateBatch" parentId="ControllerSQL">
+			<publicMethod id="insert" modelId="TemplateBatch"/>
+			<publicMethod id="update" modelId="TemplateBatch"/>
+			<publicMethod id="delete" modelId="TemplateBatch"/>
+			<publicMethod id="get_list" modelId="TemplateBatch"/>
+			<publicMethod id="get_object" modelId="TemplateBatch"/>
+		</controller>
+		<controller id="TemplateBatchItem" parentId="ControllerSQL">
+			<publicMethod id="insert" modelId="TemplateBatchItem"/>
+			<publicMethod id="update" modelId="TemplateBatchItem"/>
+			<publicMethod id="delete" modelId="TemplateBatchItem"/>
+			<publicMethod id="get_list" modelId="TemplateBatchItemList"/>
+			<publicMethod id="get_object" modelId="TemplateBatchItemList"/>
+		</controller>
+		<controller id="BankPayment" parentId="ControllerSQL">
+			<publicMethod id="insert" modelId="BankPayment"/>
+			<publicMethod id="update" modelId="BankPayment"/>
+			<publicMethod id="delete" modelId="BankPayment"/>
+			<publicMethod id="get_list" modelId="BankPaymentList"/>
+			<publicMethod id="get_object" modelId="BankPaymentList"/>
+		</controller>
+	</controllers>
+	<permissions>
+		<permission type="allow" controllerId="all" methodId="all" roleId="admin"/>
+		<permission type="allow" controllerId="User" methodId="login" roleId="guest"/>
+		<permission type="allow" controllerId="Captcha" methodId="get" roleId="guest"/>
+		<permission type="allow" controllerId="Specialist" methodId="register" roleId="guest"/>
+		<permission type="allow" controllerId="Bank" methodId="complete" roleId="guest"/>
+		<permission type="allow" controllerId="SpecialistReg" methodId="get_by_operation_id" roleId="guest"/>
+		<permission type="allow" controllerId="Event" methodId="subscribe" roleId="guest"/>
+		<permission type="allow" controllerId="Event" methodId="unsubscribe" roleId="guest"/>
+		<permission type="allow" controllerId="ConfirmationStatus" methodId="set_confirmed" roleId="guest"/>
+		<permission type="allow" controllerId="Mgateway" methodId="callback" roleId="guest"/>
+		<permission type="allow" controllerId="QRExtractor" methodId="callback" roleId="guest"/>
+		<permission type="allow" controllerId="Specialist" methodId="get_object" roleId="specialist"/>
+		<permission type="allow" controllerId="SpecialistDocument" methodId="get_file" roleId="specialist"/>
+		<permission type="allow" controllerId="SpecialistDocument" methodId="sign" roleId="specialist"/>
+		<permission type="allow" controllerId="SpecialistDocument" methodId="get_list" roleId="specialist"/>
+		<permission type="allow" controllerId="SpecialistDocument" methodId="get_object" roleId="specialist"/>
+		<permission type="allow" controllerId="SpecialistDocument" methodId="get_for_sign_list" roleId="specialist"/>
+		<permission type="allow" controllerId="Attachment" methodId="get_file" roleId="specialist"/>
+		<permission type="allow" controllerId="Attachment" methodId="add_file" roleId="specialist"/>
+		<permission type="allow" controllerId="Attachment" methodId="delete_file" roleId="specialist"/>
+		<permission type="allow" controllerId="User" methodId="get_profile" roleId="specialist"/>
+		<permission type="allow" controllerId="User" methodId="logout" roleId="specialist"/>
+		<permission type="allow" controllerId="User" methodId="logout_html" roleId="specialist"/>
+		<permission type="allow" controllerId="Bank" methodId="get_list" roleId="specialist"/>
+		<permission type="allow" controllerId="Bank" methodId="get_object" roleId="specialist"/>
+		<permission type="allow" controllerId="SpecialistWork" methodId="all" roleId="specialist"/>
+		<permission type="allow" controllerId="About" methodId="all" roleId="specialist"/>
+		<permission type="allow" controllerId="VariantStorage" methodId="all" roleId="specialist"/>
+		<permission type="allow" controllerId="Enum" methodId="all" roleId="specialist"/>
+		<permission type="allow" controllerId="Constant" methodId="all" roleId="specialist"/>
+		<permission type="allow" controllerId="Event" methodId="all" roleId="specialist"/>
+		<permission type="allow" controllerId="UserOperation" methodId="all" roleId="specialist"/>
+		<permission type="allow" controllerId="TimeZoneLocale" methodId="get_list" roleId="specialist"/>
+		<permission type="allow" controllerId="TimeZoneLocale" methodId="get_object" roleId="specialist"/>
+		<permission type="allow" controllerId="YClTransaction" methodId="get_list" roleId="specialist"/>
+		<permission type="allow" controllerId="YClTransaction" methodId="get_object" roleId="specialist"/>
+		<permission type="allow" controllerId="YClTransaction" methodId="get_for_work_list" roleId="specialist"/>
+		<permission type="allow" controllerId="YClTransaction" methodId="get_doc_all_list" roleId="specialist"/>
+		<permission type="allow" controllerId="SpecialistPeriodSalaryDetail" methodId="get_list" roleId="specialist"/>
+		<permission type="allow" controllerId="SpecialistPeriodSalaryDetail" methodId="get_object" roleId="specialist"/>
+		<permission type="allow" controllerId="SpecialistReceipt" methodId="add" roleId="specialist"/>
+		<permission type="allow" controllerId="SpecialistReceipt" methodId="delete" roleId="specialist"/>
+	</permissions>
+	<views>
+		<view id="10000" c="User_Controller" t="UserList" f="get_list" section="&#x421;&#x43F;&#x440;&#x430;&#x432;&#x43E;&#x447;&#x43D;&#x438;&#x43A;&#x438;" descr="&#x41F;&#x43E;&#x43B;&#x44C;&#x437;&#x43E;&#x432;&#x430;&#x442;&#x435;&#x43B;&#x438;"/>
+		<view id="10001" c="LoginDevice_Controller" t="LoginDeviceList" f="get_list" section="&#x421;&#x43F;&#x440;&#x430;&#x432;&#x43E;&#x447;&#x43D;&#x438;&#x43A;&#x438;" descr="&#x423;&#x441;&#x442;&#x440;&#x43E;&#x439;&#x441;&#x442;&#x432;&#x430; &#x432;&#x445;&#x43E;&#x434;&#x430; &#x43F;&#x43E;&#x43B;&#x44C;&#x437;&#x43E;&#x432;&#x430;&#x442;&#x435;&#x43B;&#x435;&#x439;"/>
+		<view id="10002" c="Contact_Controller" t="ContactList" f="get_list" section="&#x421;&#x43F;&#x440;&#x430;&#x432;&#x43E;&#x447;&#x43D;&#x438;&#x43A;&#x438;" descr="&#x41A;&#x43E;&#x43D;&#x442;&#x430;&#x43A;&#x442;&#x44B;"/>
+		<view id="10003" c="Post_Controller" t="PostList" f="get_list" section="&#x421;&#x43F;&#x440;&#x430;&#x432;&#x43E;&#x447;&#x43D;&#x438;&#x43A;&#x438;" descr="&#x414;&#x43E;&#x43B;&#x436;&#x43D;&#x43E;&#x441;&#x442;&#x438;"/>
+		<view id="10004" c="Bank_Controller" t="BankList" f="get_list" section="&#x421;&#x43F;&#x440;&#x430;&#x432;&#x43E;&#x447;&#x43D;&#x438;&#x43A;&#x438;" descr="&#x411;&#x430;&#x43D;&#x43A;&#x438;"/>
+		<view id="10005" c="Firm_Controller" t="FirmList" f="get_list" section="&#x421;&#x43F;&#x440;&#x430;&#x432;&#x43E;&#x447;&#x43D;&#x438;&#x43A;&#x438;" descr="&#x41E;&#x440;&#x433;&#x430;&#x43D;&#x438;&#x437;&#x430;&#x446;&#x438;&#x438;"/>
+		<view id="10006" c="Studio_Controller" t="StudioList" f="get_list" section="&#x421;&#x43F;&#x440;&#x430;&#x432;&#x43E;&#x447;&#x43D;&#x438;&#x43A;&#x438;" descr="&#x421;&#x442;&#x443;&#x434;&#x438;&#x438;"/>
+		<view id="10007" c="Specialist_Controller" t="SpecialistList" f="get_list" section="&#x421;&#x43F;&#x440;&#x430;&#x432;&#x43E;&#x447;&#x43D;&#x438;&#x43A;&#x438;" descr="&#x41C;&#x430;&#x441;&#x442;&#x435;&#x440;&#x430;"/>
+		<view id="10008" c="NotifTemplate_Controller" t="NotifTemplateList" f="get_list" section="&#x421;&#x43F;&#x440;&#x430;&#x432;&#x43E;&#x447;&#x43D;&#x438;&#x43A;&#x438;" descr="&#x428;&#x430;&#x431;&#x43B;&#x43E;&#x43D;&#x44B; &#x443;&#x432;&#x435;&#x434;&#x43E;&#x43C;&#x43B;&#x435;&#x43D;&#x438;&#x439;"/>
+		<view id="10009" c="DocumentTemplate_Controller" t="DocumentTemplateList" f="get_list" section="&#x421;&#x43F;&#x440;&#x430;&#x432;&#x43E;&#x447;&#x43D;&#x438;&#x43A;&#x438;" descr="&#x428;&#x430;&#x431;&#x43B;&#x43E;&#x43D;&#x44B; &#x434;&#x43E;&#x43A;&#x443;&#x43C;&#x435;&#x43D;&#x442;&#x43E;&#x432;"/>
+		<view id="10010" c="SpecialistDocumentOnRegister_Controller" t="SpecialistDocumentOnRegisterList" f="get_list" section="&#x421;&#x43F;&#x440;&#x430;&#x432;&#x43E;&#x447;&#x43D;&#x438;&#x43A;&#x438;" descr="&#x428;&#x430;&#x431;&#x43B;&#x43E;&#x43D;&#x44B; &#x434;&#x43E;&#x43A;&#x443;&#x43C;&#x435;&#x43D;&#x442;&#x43E;&#x432; &#x434;&#x43B;&#x44F; &#x43E;&#x442;&#x43F;&#x440;&#x430;&#x432;&#x43A;&#x438; &#x43F;&#x440;&#x438; &#x440;&#x435;&#x433;&#x438;&#x441;&#x442;&#x440;&#x430;&#x446;&#x438;&#x438;"/>
+		<view id="10011" c="SalaryDebet_Controller" t="SalaryDebetList" f="get_list" section="&#x421;&#x43F;&#x440;&#x430;&#x432;&#x43E;&#x447;&#x43D;&#x438;&#x43A;&#x438;" descr="&#x41D;&#x430;&#x447;&#x438;&#x441;&#x43B;&#x435;&#x43D;&#x438;&#x44F;"/>
+		<view id="10012" c="SalaryKredit_Controller" t="SalaryKreditList" f="get_list" section="&#x421;&#x43F;&#x440;&#x430;&#x432;&#x43E;&#x447;&#x43D;&#x438;&#x43A;&#x438;" descr="&#x423;&#x434;&#x435;&#x440;&#x436;&#x430;&#x43D;&#x438;&#x44F;"/>
+		<view id="10013" c="TemplateBatch_Controller" t="TemplateBatchList" f="get_list" section="&#x421;&#x43F;&#x440;&#x430;&#x432;&#x43E;&#x447;&#x43D;&#x438;&#x43A;&#x438;" descr="&#x41F;&#x430;&#x43A;&#x435;&#x442;&#x44B; &#x448;&#x430;&#x431;&#x43B;&#x43E;&#x43D;&#x43E;&#x432;"/>
+		<view id="20000" c="SpecialistReg_Controller" t="SpecialistRegList" f="get_list" section="&#x416;&#x443;&#x440;&#x43D;&#x430;&#x43B;&#x44B;" descr="&#x420;&#x435;&#x433;&#x438;&#x441;&#x442;&#x440;&#x430;&#x446;&#x438;&#x44F; &#x441;&#x430;&#x43C;&#x43E;&#x437;&#x430;&#x43D;&#x44F;&#x442;&#x44B;&#x445;"/>
+		<view id="20001" c="SpecialistWork_Controller" t="SpecialistWorkList" f="get_list" section="&#x416;&#x443;&#x440;&#x43D;&#x430;&#x43B;&#x44B;" descr="&#x420;&#x430;&#x431;&#x43E;&#x442;&#x44B;"/>
+		<view id="20002" c="SpecialistDocument_Controller" t="SpecialistDocumentList" f="get_list" section="&#x416;&#x443;&#x440;&#x43D;&#x430;&#x43B;&#x44B;" descr="&#x414;&#x43E;&#x43A;&#x443;&#x43C;&#x435;&#x43D;&#x442;&#x44B; &#x434;&#x43B;&#x44F; &#x43C;&#x430;&#x441;&#x442;&#x435;&#x440;&#x43E;&#x432;"/>
+		<view id="20003" c="SpecialistDocument_Controller" t="SpecialistDocumentForSignList" f="get_for_sign_list" section="&#x416;&#x443;&#x440;&#x43D;&#x430;&#x43B;&#x44B;" descr="&#x414;&#x43E;&#x43A;&#x443;&#x43C;&#x435;&#x43D;&#x442;&#x44B; &#x43D;&#x430; &#x43F;&#x43E;&#x434;&#x43F;&#x438;&#x441;&#x44C;"/>
+		<view id="20004" c="EquipmentType_Controller" t="EquipmentTypeList" f="get_list" section="&#x416;&#x443;&#x440;&#x43D;&#x430;&#x43B;&#x44B;" descr="&#x412;&#x438;&#x434;&#x44B; &#x43E;&#x431;&#x43E;&#x440;&#x443;&#x434;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x44F;"/>
+		<view id="20005" c="Item_Controller" t="ItemList" f="get_list" section="&#x416;&#x443;&#x440;&#x43D;&#x430;&#x43B;&#x44B;" descr="&#x41D;&#x43E;&#x43C;&#x435;&#x43D;&#x43A;&#x43B;&#x430;&#x442;&#x443;&#x440;&#x430;"/>
+		<view id="20006" c="Speciality_Controller" t="SpecialityList" f="get_list" section="&#x416;&#x443;&#x440;&#x43D;&#x430;&#x43B;&#x44B;" descr="&#x41D;&#x43E;&#x43C;&#x435;&#x43D;&#x43A;&#x43B;&#x430;&#x442;&#x443;&#x440;&#x430;"/>
+		<view id="20007" c="YClStaff_Controller" t="YClStaffList" f="get_list" section="&#x416;&#x443;&#x440;&#x43D;&#x430;&#x43B;&#x44B;" descr="&#x421;&#x43E;&#x442;&#x440;&#x443;&#x434;&#x43D;&#x438;&#x43A;&#x438; yclients"/>
+		<view id="20008" c="YClTransaction_Controller" t="YClTransactionList" f="get_list" section="&#x416;&#x443;&#x440;&#x43D;&#x430;&#x43B;&#x44B;" descr="&#x422;&#x440;&#x430;&#x43D;&#x437;&#x430;&#x43A;&#x446;&#x438;&#x438; yclients"/>
+		<view id="20009" c="SpecialistSalaryKredit_Controller" t="SpecialistSalaryKreditList" f="get_list" section="&#x416;&#x443;&#x440;&#x43D;&#x430;&#x43B;&#x44B;" descr="&#x423;&#x434;&#x435;&#x440;&#x436;&#x430;&#x43D;&#x438;&#x44F; &#x441;&#x43E;&#x442;&#x440;&#x443;&#x434;&#x43D;&#x438;&#x43A;&#x43E;&#x432;"/>
+		<view id="20010" c="SpecialistSalaryDebet_Controller" t="SpecialistSalaryDebetList" f="get_list" section="&#x416;&#x443;&#x440;&#x43D;&#x430;&#x43B;&#x44B;" descr="&#x41D;&#x430;&#x447;&#x438;&#x441;&#x43B;&#x435;&#x43D;&#x438;&#x44F; &#x441;&#x43E;&#x442;&#x440;&#x443;&#x434;&#x43D;&#x438;&#x43A;&#x43E;&#x432;"/>
+		<view id="20011" c="SpecialistPeriodSalary_Controller" t="SpecialistPeriodSalaryList" f="get_list" section="&#x416;&#x443;&#x440;&#x43D;&#x430;&#x43B;&#x44B;" descr="&#x417;&#x430;&#x440;&#x43F;&#x43B;&#x430;&#x442;&#x430; &#x441;&#x43E;&#x442;&#x440;&#x443;&#x434;&#x43D;&#x438;&#x43A;&#x43E;&#x432;"/>
+		<view id="20012" c="YClTransaction_Controller" t="YClTransactionDocAllList" f="get_doc_all_list" section="&#x416;&#x443;&#x440;&#x43D;&#x430;&#x43B;&#x44B;" descr="&#x414;&#x43E;&#x43A;&#x443;&#x43C;&#x435;&#x43D;&#x442;&#x44B; &#x442;&#x440;&#x430;&#x43D;&#x437;&#x430;&#x43A;&#x446;&#x438;&#x439;"/>
+		<view id="20013" c="SpecialistPeriodSalaryDetail_Controller" t="SpecialistPeriodSalaryDetailList" f="get_list" section="&#x416;&#x443;&#x440;&#x43D;&#x430;&#x43B;&#x44B;" descr="&#x417;&#x430;&#x440;&#x43F;&#x43B;&#x430;&#x442;&#x430; &#x441;&#x43E;&#x442;&#x440;&#x443;&#x434;&#x43D;&#x438;&#x43A;&#x430;"/>
+		<view id="20014" c="BankPayment_Controller" t="BankPaymentList" f="get_list" section="&#x416;&#x443;&#x440;&#x43D;&#x430;&#x43B;&#x44B;" descr="&#x41F;&#x43B;&#x430;&#x442;&#x435;&#x436;&#x43D;&#x44B;&#x435; &#x43F;&#x43E;&#x440;&#x443;&#x447;&#x435;&#x43D;&#x438;&#x44F;"/>
+		<view id="20015" c="SpecialistPeriodSalaryDetail_Controller" t="SpecialistPeriodSalaryDetailForPayList" f="get_for_pay_list" section="&#x416;&#x443;&#x440;&#x43D;&#x430;&#x43B;&#x44B;" descr="&#x424;&#x43E;&#x440;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435; &#x43F;/&#x43F; &#x432; &#x431;&#x430;&#x43D;&#x43A;"/>
+		<view id="30000" c="Mgateway_Controller" t="Mgateway" section="&#x424;&#x43E;&#x440;&#x43C;&#x44B;" descr="&#x423;&#x43F;&#x440;&#x430;&#x432;&#x43B;&#x435;&#x43D;&#x438;&#x435; &#x441;&#x43E;&#x43E;&#x431;&#x449;&#x435;&#x43D;&#x438;&#x44F;&#x43C;&#x438;"/>
+		<view id="30001" t="SpecialistRegTemplateBatch" section="&#x424;&#x43E;&#x440;&#x43C;&#x44B;" descr="&#x424;&#x43E;&#x440;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435; &#x43A;&#x43E;&#x43C;&#x43F;&#x43B;&#x435;&#x43A;&#x442;&#x430; &#x434;&#x43E;&#x43A;&#x443;&#x43C;&#x435;&#x43D;&#x442;&#x43E;&#x432; &#x434;&#x43B;&#x44F; &#x43C;&#x430;&#x441;&#x442;&#x435;&#x440;&#x430;"/>
+		<view id="30002" t="SpecialistSalaryTemplateBatch" section="&#x424;&#x43E;&#x440;&#x43C;&#x44B;" descr="&#x424;&#x43E;&#x440;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x435; &#x43A;&#x43E;&#x43C;&#x43F;&#x43B;&#x435;&#x43A;&#x442;&#x430; &#x434;&#x43E;&#x43A;&#x443;&#x43C;&#x435;&#x43D;&#x442;&#x43E;&#x432; &#x43F;&#x43E; &#x437;/&#x430;&#x43F; &#x434;&#x43B;&#x44F; &#x43C;&#x430;&#x441;&#x442;&#x435;&#x440;&#x430;"/>
+		<view id="40000" c="Constant_Controller" t="ConstantList" f="get_list" section="&#x41A;&#x43E;&#x43D;&#x441;&#x442;&#x430;&#x43D;&#x442;&#x44B;" descr="&#x412;&#x441;&#x435; &#x43A;&#x43E;&#x43D;&#x441;&#x442;&#x430;&#x43D;&#x442;&#x44B;"/>
+	</views>
+	<serverTemplates>
+		<serverTemplate id="About"/>
+		<serverTemplate id="ConstantList" class="list"/>
+		<serverTemplate id="MainMenuConstructorList" class="list"/>
+		<serverTemplate id="ViewList" class="list"/>
+		<serverTemplate id="UserList" class="list"/>
+		<serverTemplate id="LoginList" class="list"/>
+		<serverTemplate id="LoginDeviceList" class="list"/>
+		<serverTemplate id="MailTemplateList" class="list"/>
+		<serverTemplate id="NotifTemplateList" class="list"/>
+		<serverTemplate id="FirmList" class="list"/>
+		<serverTemplate id="PostList" class="list"/>
+		<serverTemplate id="ContactList" class="list"/>
+		<serverTemplate id="FirmList" class="list"/>
+		<serverTemplate id="StudioList" class="list"/>
+		<serverTemplate id="SpecialistList" class="list"/>
+		<serverTemplate id="SpecialistStatusList" class="list"/>
+		<serverTemplate id="SpecialistRegList" class="list"/>
+		<serverTemplate id="DocumentTemplateList" class="list"/>
+		<serverTemplate id="SpecialistDocumentOnRegisterList" class="list"/>
+		<serverTemplate id="SpecialistDocumentList" class="list"/>
+		<serverTemplate id="SpecialistDocumentForSignList" class="list"/>
+		<serverTemplate id="SpecialistWorkList" class="list"/>
+		<serverTemplate id="EquipmentTypeList" class="list"/>
+		<serverTemplate id="SpecialityList" class="list"/>
+		<serverTemplate id="ItemList" class="list"/>
+		<serverTemplate id="AdminRate"/>
+		<serverTemplate id="YClStaffList" class="list"/>
+		<serverTemplate id="YClTransactionList" class="list"/>
+		<serverTemplate id="SalaryDebetList" class="list"/>
+		<serverTemplate id="SalaryKreditList" class="list"/>
+		<serverTemplate id="SpecialistSalaryDebetList" class="list"/>
+		<serverTemplate id="SpecialistSalaryKreditList" class="list"/>
+		<serverTemplate id="SpecialistPeriodSalaryList" class="list"/>
+		<serverTemplate id="SpecialistPeriodSalaryDetailList" class="list"/>
+		<serverTemplate id="YClTransactionDocAllList" class="list"/>
+		<serverTemplate id="SpecialistPeriodSalaryDetailDialog"/>
+		<serverTemplate id="TemplateBatchList" class="list"/>
+		<serverTemplate id="TemplateBatchItemList" class="list"/>
+		<serverTemplate id="BankPaymentList" class="list"/>
+		<serverTemplate id="SpecialistPeriodSalaryDetailForPayList" class="list"/>
+	</serverTemplates>
+	<jsTemplates>
+		<jsTemplate id="EditInfo" file="tmpl/EditInfo.html"/>
+		<jsTemplate id="FatalException" file="tmpl/FatalException.html"/>
+		<jsTemplate id="DbException" file="tmpl/DbException.html"/>
+		<jsTemplate id="VersException" file="tmpl/VersException.html"/>
+		<jsTemplate id="IcomoonList" file="tmpl/IcomoonList.html"/>
+		<jsTemplate id="GridCmdContainerAjx" file="controls/tmpl/GridCmdContainerAjx.html"/>
+		<jsTemplate id="ViewGridColManager" file="controls/tmpl/ViewGridColManager.html"/>
+		<jsTemplate id="PopOver" file="controls/tmpl/PopOver.html"/>
+		<jsTemplate id="GridCmdFilterView" file="controls/tmpl/GridCmdFilterView.html"/>
+		<jsTemplate id="EditPeriodDate" file="controls/tmpl/EditPeriodDate.html"/>
+		<jsTemplate id="WindowPrint" file="controls/tmpl/WindowPrint.html"/>
+		<jsTemplate id="VariantStorageSaveView" file="controls/tmpl/VariantStorageSaveView.html"/>
+		<jsTemplate id="VariantStorageOpenView" file="controls/tmpl/VariantStorageOpenView.html"/>
+		<jsTemplate id="EditFile" file="tmpl/EditFile.html"/>
+		<jsTemplate id="EditFileInf" file="tmpl/EditFileInf.html"/>
+		<jsTemplate id="Captcha" file="tmpl/Captcha.html"/>
+		<jsTemplate id="SignEdit" file="tmpl/SignEdit.html"/>
+		<jsTemplate id="EditPeriodMonth" file="tmpl/EditPeriodMonth.html"/>
+	</jsTemplates>
+	<packages/>
+	<sqlScripts>
+		<sqlScript file="variant_storages_upsert_col_order_data.sql"/>
+		<sqlScript file="variant_storages_upsert_col_visib_data.sql"/>
+		<sqlScript file="variant_storages_upsert_filter_data.sql"/>
+		<sqlScript file="users_view.sql"/>
+		<sqlScript file="init_db.sql"/>
+	</sqlScripts>
+	<jsScripts>
+		<jsScript file="assets/js/core/libraries/jquery.min.js" compressed="TRUE" standalone="TRUE"/>
+		<jsScript file="assets/js/core/libraries/bootstrap.min.js" compressed="TRUE" standalone="TRUE"/>
+		<jsScript file="assets/js/plugins/loaders/blockui.min.js" compressed="TRUE" standalone="TRUE"/>
+		<jsScript file="assets/js/core/app.js" compressed="TRUE" standalone="TRUE"/>
+		<jsScript file="ext/bootstrap-datepicker/bootstrap-datepicker.min.js" compressed="TRUE" standalone="TRUE" version="1.0"/>
+		<jsScript file="ext/bootstrap-datepicker/bootstrap-datepicker.ru.min.js" compressed="TRUE" standalone="TRUE" version="1.0"/>
+		<jsScript file="jquery.maskedinput.js" compressed="FALSE" standalone="FALSE" version="1.0"/>
+		<jsScript file="ext/cleave/cleave.min.js" compressed="TRUE" standalone="TRUE" version="1.6"/>
+		<jsScript file="ext/cleave/cleave-phone.ru.js" compressed="TRUE" standalone="TRUE" version="1.6"/>
+		<jsScript file="ext/jshash-2.2/md5-min.js" compressed="TRUE" standalone="TRUE"/>
+		<jsScript file="ext/mustache/mustache.min.js" compressed="TRUE" standalone="TRUE"/>
+		<!--Drag && Drop-->
+		<jsScript file="ext/DragnDrop/DragMaster.js"/>
+		<jsScript file="ext/DragnDrop/DragObject.js"/>
+		<jsScript file="ext/DragnDrop/DropTarget.js"/>
+		<jsScript file="assets/js/plugins/forms/styling/switchery.min.js" compressed="TRUE" standalone="TRUE"/>
+		<jsScript file="assets/js/plugins/forms/styling/uniform.min.js" compressed="TRUE" standalone="TRUE"/>
+		<!-- core -->
+		<jsScript file="core/extend.js"/>
+		<jsScript file="core/App.js"/>
+		<jsScript file="core/AppWin.js"/>
+		<jsScript file="core/CommonHelper.js"/>
+		<jsScript file="core/DOMHelper.js"/>
+		<jsScript file="core/DateHelper.js"/>
+		<jsScript file="core/EventHelper.js"/>
+		<jsScript file="core/FatalException.js"/>
+		<jsScript file="core/DbException.js"/>
+		<jsScript file="core/VersException.js"/>
+		<jsScript file="core/ConstantManager.js"/>
+		<jsScript file="core/AppSrv.js"/>
+		<jsScript file="core/AppSrv.rs_ru.js" resource="ru"/>
+		<jsScript file="core/CookieManager.js"/>
+		<jsScript file="core/ServConnector.js"/>
+		<jsScript file="core/Response.js"/>
+		<jsScript file="core/ResponseXML.js"/>
+		<jsScript file="core/ResponseJSON.js"/>
+		<jsScript file="core/PublicMethod.js"/>
+		<jsScript file="core/PublicMethodServer.js"/>
+		<jsScript file="core/Controller.js"/>
+		<jsScript file="core/ControllerObj.js"/>
+		<jsScript file="core/ControllerObjServer.js"/>
+		<jsScript file="core/ControllerObjClient.js"/>
+		<jsScript file="core/Model.js"/>
+		<jsScript file="core/ModelXML.js"/>
+		<jsScript file="core/ModelObjectXML.js"/>
+		<jsScript file="core/ModelServRespXML.js"/>
+		<jsScript file="core/ModelJSON.js"/>
+		<jsScript file="core/ModelObjectJSON.js"/>
+		<jsScript file="core/ModelServRespJSON.js"/>
+		<jsScript file="core/ModelXMLTree.js"/>
+		<jsScript file="core/Validator.js"/>
+		<jsScript file="core/ValidatorString.js"/>
+		<jsScript file="core/ValidatorBool.js"/>
+		<jsScript file="core/ValidatorDate.js"/>
+		<jsScript file="core/ValidatorDateTime.js"/>
+		<jsScript file="core/ValidatorTime.js"/>
+		<jsScript file="core/ValidatorInt.js"/>
+		<jsScript file="core/ValidatorFloat.js"/>
+		<jsScript file="core/ValidatorEnum.js"/>
+		<jsScript file="core/ValidatorJSON.js"/>
+		<jsScript file="core/ValidatorArray.js"/>
+		<jsScript file="core/ValidatorEmail.js"/>
+		<jsScript file="core/Field.js"/>
+		<jsScript file="core/FieldString.js"/>
+		<jsScript file="core/FieldEnum.js"/>
+		<jsScript file="core/FieldBool.js"/>
+		<jsScript file="core/FieldDate.js"/>
+		<jsScript file="core/FieldDateTime.js"/>
+		<jsScript file="core/FieldDateTimeTZ.js"/>
+		<jsScript file="core/FieldTime.js"/>
+		<jsScript file="core/FieldInt.js"/>
+		<jsScript file="core/FieldBigInt.js"/>
+		<jsScript file="core/FieldSmallInt.js"/>
+		<jsScript file="core/FieldFloat.js"/>
+		<jsScript file="core/FieldPassword.js"/>
+		<jsScript file="core/FieldText.js"/>
+		<jsScript file="core/FieldInterval.js"/>
+		<jsScript file="core/FieldJSON.js"/>
+		<jsScript file="core/FieldJSONB.js"/>
+		<jsScript file="core/FieldArray.js"/>
+		<jsScript file="core/FieldBytea.js"/>
+		<jsScript file="core/ModelFilter.js"/>
+		<jsScript file="core/RefType.js"/>
+		<jsScript file="core/rs_ru.js" resource="ru"/>
+		<!-- **** controls *** -->
+		<jsScript file="controls/DataBinding.js"/>
+		<jsScript file="controls/Command.js"/>
+		<jsScript file="controls/CommandBinding.js"/>
+		<jsScript file="controls/Control.js"/>
+		<jsScript file="controls/rs/Control.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/ControlContainer.js"/>
+		<jsScript file="controls/rs/ControlContainer.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/View.js"/>
+		<jsScript file="controls/ViewAjx.js"/>
+		<jsScript file="controls/rs/ViewAjx.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/ViewAjxList.js"/>
+		<!--<jsScript file="controls/ErrorControl.js"/>-->
+		<jsScript file="controls/Calculator.js"/>
+		<jsScript file="controls/rs/Calculator.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/Button.js"/>
+		<jsScript file="controls/ButtonCtrl.js"/>
+		<jsScript file="controls/ButtonEditCtrl.js"/>
+		<jsScript file="controls/rs/ButtonEditCtrl.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/ButtonCalc.js"/>
+		<jsScript file="controls/rs/ButtonCalc.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/ButtonCalendar.js"/>
+		<jsScript file="controls/rs/ButtonCalendar.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/ButtonClear.js"/>
+		<jsScript file="controls/rs/ButtonClear.rs_ru.js" resource="ru"/>
+		<jsScript file="custom_controls/ButtonCmd.js"/>
+		<jsScript file="controls/ButtonExpToExcel.js"/>
+		<jsScript file="controls/rs/ButtonExpToExcel.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/ButtonExpToPDF.js"/>
+		<jsScript file="controls/rs/ButtonExpToPDF.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/ButtonOpen.js"/>
+		<jsScript file="controls/rs/ButtonOpen.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/ButtonInsert.js"/>
+		<jsScript file="controls/rs/ButtonInsert.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/ButtonPrint.js"/>
+		<jsScript file="controls/rs/ButtonPrint.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/ButtonPrintList.js"/>
+		<jsScript file="controls/rs/ButtonPrintList.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/ButtonSelectRef.js"/>
+		<jsScript file="controls/rs/ButtonSelectRef.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/ButtonSelectDataType.js"/>
+		<jsScript file="controls/rs/ButtonSelectDataType.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/ButtonMakeSelection.js"/>
+		<jsScript file="controls/rs/ButtonMakeSelection.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/ButtonToggle.js"/>
+		<jsScript file="controls/Label.js"/>
+		<jsScript file="controls/Edit.js"/>
+		<jsScript file="controls/rs/Edit.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/EditRef.js"/>
+		<jsScript file="controls/EditComplete.js"/>
+		<jsScript file="controls/EditString.js"/>
+		<jsScript file="controls/EditText.js"/>
+		<jsScript file="controls/EditNum.js"/>
+		<jsScript file="controls/EditInt.js"/>
+		<jsScript file="controls/EditFloat.js"/>
+		<jsScript file="controls/EditMoney.js"/>
+		<jsScript file="controls/EditPhone.js"/>
+		<jsScript file="controls/EditEmail.js"/>
+		<jsScript file="controls/EditPercent.js"/>
+		<jsScript file="controls/EditDate.js"/>
+		<jsScript file="controls/EditDateTime.js"/>
+		<jsScript file="controls/EditTime.js"/>
+		<jsScript file="controls/EditPassword.js"/>
+		<jsScript file="controls/EditCheckBox.js"/>
+		<jsScript file="controls/EditContainer.js"/>
+		<jsScript file="controls/rs/EditContainer.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/EditRadioGroup.js"/>
+		<jsScript file="controls/EditRadio.js"/>
+		<jsScript file="controls/EditSelect.js"/>
+		<jsScript file="controls/EditSelectRef.js"/>
+		<jsScript file="controls/rs/EditSelectRef.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/EditSelectOption.js"/>
+		<jsScript file="controls/EditSelectOptionRef.js"/>
+		<jsScript file="controls/EditRadioGroupRef.js"/>
+		<jsScript file="controls/rs/EditRadioGroupRef.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/PrintObj.js"/>
+		<jsScript file="controls/ControlForm.js"/>
+		<jsScript file="controls/HiddenKey.js"/>
+		<jsScript file="controls/EditJSON.js"/>
+		<jsScript file="controls/EditModalDialog.js"/>
+		<jsScript file="controls/rs/EditModalDialog.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/GridColumn.js"/>
+		<jsScript file="controls/GridColumnBool.js"/>
+		<jsScript file="controls/GridColumnPhone.js"/>
+		<jsScript file="controls/GridColumnEmail.js"/>
+		<jsScript file="controls/GridColumnFloat.js"/>
+		<jsScript file="controls/GridColumnByte.js"/>
+		<jsScript file="controls/GridColumnDate.js"/>
+		<jsScript file="controls/GridColumnDateTime.js"/>
+		<jsScript file="controls/GridColumnEnum.js"/>
+		<jsScript file="controls/GridColumnRef.js"/>
+		<jsScript file="controls/GridColumnPicture.js"/>
+		<jsScript file="controls/GridCell.js"/>
+		<jsScript file="controls/GridCellHead.js"/>
+		<jsScript file="controls/GridCellHeadMark.js"/>
+		<jsScript file="controls/GridCellFoot.js"/>
+		<jsScript file="controls/GridCellPhone.js"/>
+		<jsScript file="controls/rs/GridCellPhone.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/GridCellDetailToggle.js"/>
+		<jsScript file="controls/rs/GridCellDetailToggle.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/GridHead.js"/>
+		<jsScript file="controls/GridRow.js"/>
+		<jsScript file="controls/GridFoot.js"/>
+		<jsScript file="controls/GridBody.js"/>
+		<jsScript file="controls/Grid.js"/>
+		<jsScript file="controls/rs/Grid.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/GridSearchInf.js"/>
+		<jsScript file="controls/rs/GridSearchInf.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/VariantStorage.js"/>
+		<jsScript file="controls/GridCommands.js"/>
+		<jsScript file="controls/GridCmd.js"/>
+		<jsScript file="controls/GridCmdContainer.js"/>
+		<jsScript file="controls/rs/GridCmdContainer.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/GridCmdContainerAjx.js"/>
+		<jsScript file="controls/GridCmdContainerDOC.js"/>
+		<jsScript file="controls/GridCmdInsert.js"/>
+		<jsScript file="controls/rs/GridCmdInsert.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/GridCmdEdit.js"/>
+		<jsScript file="controls/rs/GridCmdEdit.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/GridCmdCopy.js"/>
+		<jsScript file="controls/rs/GridCmdCopy.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/GridCmdDelete.js"/>
+		<jsScript file="controls/rs/GridCmdDelete.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/GridCmdColManager.js"/>
+		<jsScript file="controls/rs/GridCmdColManager.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/GridCmdPrint.js"/>
+		<jsScript file="controls/rs/GridCmdPrint.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/GridCmdRefresh.js"/>
+		<jsScript file="controls/rs/GridCmdRefresh.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/GridCmdPrintObj.js"/>
+		<jsScript file="controls/GridCmdSearch.js"/>
+		<jsScript file="controls/rs/GridCmdSearch.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/GridCmdExport.js"/>
+		<jsScript file="controls/rs/GridCmdExport.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/GridCmdAllCommands.js"/>
+		<jsScript file="controls/rs/GridCmdAllCommands.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/GridCmdDOCUnprocess.js"/>
+		<jsScript file="controls/rs/GridCmdDOCUnprocess.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/GridCmdDOCShowActs.js"/>
+		<jsScript file="controls/rs/GridCmdDOCShowActs.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/GridCmdRowUp.js"/>
+		<jsScript file="controls/rs/GridCmdRowUp.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/GridCmdRowDown.js"/>
+		<jsScript file="controls/rs/GridCmdRowDown.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/GridCmdFilter.js"/>
+		<jsScript file="controls/rs/GridCmdFilter.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/GridCmdFilterView.js"/>
+		<jsScript file="controls/rs/GridCmdFilterView.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/GridCmdFilterSave.js"/>
+		<jsScript file="controls/rs/GridCmdFilterSave.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/GridCmdFilterOpen.js"/>
+		<jsScript file="controls/rs/GridCmdFilterOpen.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/ViewGridColManager.js"/>
+		<jsScript file="controls/rs/ViewGridColManager.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/ViewGridColParam.js"/>
+		<jsScript file="controls/rs/ViewGridColParam.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/ViewGridColVisibility.js"/>
+		<jsScript file="controls/rs/ViewGridColVisibility.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/ViewGridColOrder.js"/>
+		<jsScript file="controls/rs/ViewGridColOrder.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/VariantStorageSaveView.js"/>
+		<jsScript file="controls/rs/VariantStorageSaveView.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/VariantStorageOpenView.js"/>
+		<jsScript file="controls/rs/VariantStorageOpenView.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/GridAjx.js"/>
+		<jsScript file="controls/rs/GridAjx.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/TreeAjx.js"/>
+		<jsScript file="controls/GridAjxDOCT.js"/>
+		<jsScript file="controls/GridAjxMaster.js"/>
+		<jsScript file="controls/GridCommandsAjx.js"/>
+		<jsScript file="controls/rs/GridCommandsAjx.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/GridCommandsDOC.js"/>
+		<jsScript file="controls/rs/GridCommandsDOC.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/GridPagination.js"/>
+		<jsScript file="controls/rs/GridPagination.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/GridFilter.js"/>
+		<jsScript file="controls/rs/GridFilter.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/EditPeriodDate.js"/>
+		<jsScript file="controls/rs/EditPeriodDate.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/EditPeriodDateTime.js"/>
+		<jsScript file="controls/ConstantGrid.js"/>
+		<jsScript file="controls/rs/ConstantGrid.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/ButtonOK.js"/>
+		<jsScript file="controls/rs/ButtonOK.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/ButtonSave.js"/>
+		<jsScript file="controls/rs/ButtonSave.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/ButtonCancel.js"/>
+		<jsScript file="controls/rs/ButtonCancel.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/ViewObjectAjx.js"/>
+		<jsScript file="controls/rs/ViewObjectAjx.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/ViewGridEditInlineAjx.js"/>
+		<jsScript file="controls/rs/ViewGridEditInlineAjx.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/ViewDOC.js"/>
+		<jsScript file="controls/rs/ViewDOC.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/WindowPrint.js"/>
+		<jsScript file="controls/rs/WindowPrint.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/WindowQuestion.js"/>
+		<jsScript file="controls/rs/WindowQuestion.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/WindowSearch.js"/>
+		<jsScript file="controls/rs/WindowSearch.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/WindowForm.js"/>
+		<jsScript file="controls/rs/WindowForm.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/WindowFormObject.js"/>
+		<jsScript file="controls/rs/WindowFormObject.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/WindowFormModalBS.js"/>
+		<jsScript file="controls/rs/WindowFormModalBS.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/WindowMessage.js"/>
+		<jsScript file="controls/WindowTempMessage.js"/>
+		<jsScript file="controls/GridCellHeadDOCProcessed.js"/>
+		<jsScript file="controls/GridCellHeadDOCDate.js"/>
+		<jsScript file="controls/GridCellHeadDOCNumber.js"/>
+		<jsScript file="controls/actb.js"/>
+		<jsScript file="controls/rs/actb.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/RepCommands.js"/>
+		<jsScript file="controls/rs/RepCommands.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/ViewReport.js"/>
+		<jsScript file="controls/rs/ViewReport.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/PopUpMenu.js"/>
+		<jsScript file="controls/PopOver.js"/>
+		<jsScript file="controls/PeriodSelect.js"/>
+		<jsScript file="controls/rs/PeriodSelect.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/WindowAbout.js"/>
+		<jsScript file="controls/rs/WindowAbout.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/MainMenuTree.js"/>
+		<jsScript file="controls/rs/MainMenuTree.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/BigFileUploader.js"/>
+		<jsScript file="controls/rs/BigFileUploader.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/EditInfo.js"/>
+		<!--
+		<jsScript file="controls/BreadCrum.js"/>		
+		<jsScript file="controls/rs/BreadCrum.rs_ru.js" resource="ru"/>
+		-->
+		<jsScript file="controls/ButtonEditPeriodValues.js"/>
+		<jsScript file="controls/rs/ButtonEditPeriodValues.rs_ru.js" resource="ru"/>
+		<jsScript file="controls/ButtonOrgSearch.js"/>
+		<jsScript file="controls/Captcha.js"/>
+		<jsScript file="controls/rs/Captcha.rs_ru.js" resource="ru"/>
+		<!-- **** Forms *** -->
+		<jsScript file="forms/ViewList_Form.js"/>
+		<jsScript file="forms/MainMenuConstructor_Form.js"/>
+		<jsScript file="forms/User_Form.js"/>
+		<jsScript file="forms/UserList_Form.js"/>
+		<jsScript file="forms/PostList_Form.js"/>
+		<jsScript file="forms/Post_Form.js"/>
+		<jsScript file="forms/ContactList_Form.js"/>
+		<jsScript file="forms/Contact_Form.js"/>
+		<jsScript file="forms/Firm_Form.js"/>
+		<jsScript file="forms/Bank_Form.js"/>
+		<jsScript file="forms/BankList_Form.js"/>
+		<jsScript file="forms/Firm_Form.js"/>
+		<jsScript file="forms/Studio_Form.js"/>
+		<jsScript file="forms/NotifTemplate_Form.js"/>
+		<jsScript file="forms/DocumentTemplate_Form.js"/>
+		<jsScript file="forms/SpecialistReg_Form.js"/>
+		<jsScript file="forms/Specialist_Form.js"/>
+		<jsScript file="forms/Speciality_Form.js"/>
+		<jsScript file="forms/EquipmentTypeList_Form.js"/>
+		<jsScript file="forms/SpecialistList_Form.js"/>
+		<jsScript file="forms/SpecialistPeriodSalary_Form.js"/>
+		<jsScript file="views/SpecialistPeriodSalaryDetailList_From.js"/>
+		<!-- **** Controllers && Models *** -->
+		<jsScript file="controllers/User_Controller.js"/>
+		<!-- **** Views *** -->
+		<jsScript file="views/Login_View.js"/>
+		<jsScript file="views/MainMenuConstructorList_View.js"/>
+		<jsScript file="views/MainMenuConstructor_View.js"/>
+		<jsScript file="views/ViewList_View.js"/>
+		<jsScript file="views/About_View.js"/>
+		<jsScript file="views/ConstantList_View.js"/>
+		<jsScript file="views/LoginList_View.js"/>
+		<jsScript file="views/UserList_View.js"/>
+		<jsScript file="views/UserDialog_View.js"/>
+		<jsScript file="views/UserProfile_View.js"/>
+		<jsScript file="views/TimeZoneLocale_View.js"/>
+		<jsScript file="views/LoginDeviceList_View.js"/>
+		<jsScript file="views/LoginDeviceBanList_View.js"/>
+		<jsScript file="views/Registration_View.js"/>
+		<jsScript file="views/rs_ru.js" resource="ru"/>
+		<jsScript file="views/PostList_View.js"/>
+		<jsScript file="views/PostDialog_View.js"/>
+		<jsScript file="views/ContactDialog_View.js"/>
+		<jsScript file="views/ContactList_View.js"/>
+		<jsScript file="views/EntityContactList_View.js"/>
+		<jsScript file="views/BankList_View.js"/>
+		<jsScript file="views/Bank_View.js"/>
+		<jsScript file="views/FirmDialog_View.js"/>
+		<jsScript file="views/FirmList_View.js"/>
+		<jsScript file="views/StudioDialog_View.js"/>
+		<jsScript file="views/StudioList_View.js"/>
+		<jsScript file="views/Passport_View.js"/>
+		<jsScript file="views/NotifTemplate_View.js"/>
+		<jsScript file="views/NotifTemplateList_View.js"/>
+		<jsScript file="views/SpecialistRegList_View.js"/>
+		<jsScript file="views/SpecialistRegDialog_View.js"/>
+		<jsScript file="views/DocumentTemplateList_View.js"/>
+		<jsScript file="views/DocumentTemplate_View.js"/>
+		<jsScript file="views/SpecialistDocumentOnRegisterList_View.js"/>
+		<jsScript file="views/Mgateway_View.js"/>
+		<jsScript file="views/SpecialistRegRegister_View.js"/>
+		<jsScript file="views/SpecialistDialog_View.js"/>
+		<jsScript file="views/SpecialistList_View.js"/>
+		<jsScript file="views/SpecialistWorkList_View.js"/>
+		<jsScript file="views/SpecialistDocumentList_View.js"/>
+		<jsScript file="views/SpecialistDocumentForSignList_View.js"/>
+		<jsScript file="views/EquipmentTypeList_View.js"/>
+		<jsScript file="views/ItemList_View.js"/>
+		<jsScript file="views/YClTransactionList_View.js"/>
+		<jsScript file="views/YClTransactionDocList_View.js"/>
+		<jsScript file="views/YClStaffList_View.js"/>
+		<jsScript file="views/SpecialityList_View.js"/>
+		<jsScript file="views/SpecialityDialog_View.js"/>
+		<jsScript file="views/AdminRate_View.js"/>
+		<jsScript file="views/SalaryDebetList_View.js"/>
+		<jsScript file="views/SalaryKreditList_View.js"/>
+		<jsScript file="views/SpecialistSalaryDebetList_View.js"/>
+		<jsScript file="views/SpecialistSalaryKreditList_View.js"/>
+		<jsScript file="views/SpecialistPeriodSalaryList_View.js"/>
+		<jsScript file="views/SpecialistPeriodSalaryDialog_View.js"/>
+		<jsScript file="views/SpecialistPeriodSalaryDetailList_View.js"/>
+		<jsScript file="views/SpecialistPeriodSalaryDetailForPayList_View.js"/>
+		<jsScript file="views/SpecialistPeriodSalaryDetailDialog_View.js"/>
+		<jsScript file="views/YClTransactionDocAllList_View.js"/>
+		<jsScript file="views/TemplateBatchList_View.js"/>
+		<jsScript file="views/TemplateBatchItemList_View.js"/>
+		<jsScript file="views/BankPaymentList_View.js"/>
+		<jsScript file="views/SpecialistRegTemplateBatch_View.js"/>
+		<jsScript file="views/SpecialistSalaryTemplateBatch_View.js"/>
+		<jsScript file="tmpl/App.templates.js" compressed="FALSE" standalone="FALSE"/>
+		<jsScript file="custom_controls/App_nails.js"/>
+		<jsScript file="custom_controls/ViewSectionSelect.js"/>
+		<jsScript file="custom_controls/ViewEditRef.js"/>
+		<jsScript file="custom_controls/ErrorControl.js"/>
+		<jsScript file="custom_controls/Pagination.js"/>
+		<jsScript file="custom_controls/EditFile.js"/>
+		<jsScript file="controls/rs/EditFile.rs_ru.js" resource="ru"/>
+		<jsScript file="custom_controls/UserEditRef.js"/>
+		<jsScript file="custom_controls/TimeZoneLocaleEdit.js"/>
+		<jsScript file="custom_controls/UserPhotoEdit.js"/>
+		<jsScript file="custom_controls/PostEdit.js"/>
+		<jsScript file="custom_controls/ContactEdit.js"/>
+		<jsScript file="custom_controls/BankEditRef.js"/>
+		<jsScript file="custom_controls/EditINNSelfEmployed.js"/>
+		<jsScript file="custom_controls/FirmEdit.js"/>
+		<jsScript file="custom_controls/StudioEdit.js"/>
+		<jsScript file="custom_controls/BankAccEdit.js"/>
+		<jsScript file="custom_controls/EditEmailInlineValidation.js"/>
+		<jsScript file="custom_controls/EditDateInlineValidation.js"/>
+		<jsScript file="custom_controls/PassportEdit.js"/>
+		<jsScript file="custom_controls/FIOEdit.js"/>
+		<jsScript file="custom_controls/SignEdit.js"/>
+		<jsScript file="custom_controls/Sign_View.js"/>
+		<jsScript file="custom_controls/ReportTemplateFieldGrid.js"/>
+		<jsScript file="custom_controls/ReportTemplateEditRef.js"/>
+		<jsScript file="custom_controls/DocumentTemplateFieldGrid.js"/>
+		<jsScript file="custom_controls/StudioEquipmentGrid.js"/>
+		<jsScript file="custom_controls/SpecialityEquipmentGrid.js"/>
+		<jsScript file="custom_controls/AttachmentManager.js"/>
+		<jsScript file="custom_controls/SpecialistRegGridCmdRegister.js"/>
+		<jsScript file="custom_controls/SpecialistRegBtnRegister.js"/>
+		<jsScript file="custom_controls/SpecialistRegGridCmdPrintApp.js"/>
+		<jsScript file="custom_controls/SpecialistRegBtnPrintApp.js"/>
+		<jsScript file="custom_controls/DocumentTemplateEdit.js"/>
+		<jsScript file="custom_controls/SpecialistEdit.js"/>
+		<jsScript file="custom_controls/EquipmentTypeEdit.js"/>
+		<jsScript file="custom_controls/SpecialistDocumentGridCmdSign.js"/>
+		<jsScript file="custom_controls/SpecialistDocumentBtnSign.js"/>
+		<jsScript file="custom_controls/SpecialistWorkGridCmdRate.js"/>
+		<jsScript file="custom_controls/YClStaffEdit.js"/>
+		<jsScript file="custom_controls/SpecialityEdit.js"/>
+		<jsScript file="custom_controls/SalaryDebetEdit.js"/>
+		<jsScript file="custom_controls/SalaryKreditEdit.js"/>
+		<jsScript file="custom_controls/SpecialistPeriodSalaryDetailEdit.js"/>
+		<jsScript file="custom_controls/YClStaffGridCmdApiGetAll.js"/>
+		<jsScript file="custom_controls/YClTransactionGridCmdApiGet.js"/>
+		<jsScript file="custom_controls/SpecialistPeriodSalaryDetailForPayGridCmdMakeDocs.js"/>
+		<jsScript file="custom_controls/EditPeriodMonth.js"/>
+		<jsScript file="enum_controls/Enum_data_types.js"/>
+		<jsScript file="enum_controls/EnumGridColumn_data_types.js"/>
+		<jsScript file="enum_controls/EnumGridColumn_locales.js"/>
+		<jsScript file="enum_controls/EnumGridColumn_role_types.js"/>
+		<jsScript file="enum_controls/Enum_locales.js"/>
+		<jsScript file="enum_controls/Enum_role_types.js"/>
+		<jsScript file="models/TimeZoneLocale_Model.js"/>
+		<jsScript file="models/User_Model.js"/>
+		<jsScript file="models/UserList_Model.js"/>
+		<jsScript file="models/UserDialog_Model.js"/>
+		<jsScript file="models/Login_Model.js"/>
+		<jsScript file="models/LoginList_Model.js"/>
+		<jsScript file="models/ConstantList_Model.js"/>
+		<jsScript file="models/View_Model.js"/>
+		<jsScript file="models/ViewList_Model.js"/>
+		<jsScript file="models/ViewSectionList_Model.js"/>
+		<jsScript file="models/MainMenuConstructor_Model.js"/>
+		<jsScript file="models/MainMenuConstructorList_Model.js"/>
+		<jsScript file="models/MainMenuConstructorDialog_Model.js"/>
+		<jsScript file="models/MainMenuContent_Model.js"/>
+		<jsScript file="models/VariantStorage_Model.js"/>
+		<jsScript file="models/VariantStorageList_Model.js"/>
+		<jsScript file="models/About_Model.js"/>
+		<jsScript file="views/rs_common_ru.js" resource="ru"/>
+		<jsScript file="models/UserLogin_Model.js"/>
+		<jsScript file="models/UserProfile_Model.js"/>
+		<jsScript file="models/Post_Model.js"/>
+		<jsScript file="controllers/Post_Controller.js"/>
+		<jsScript file="controllers/TimeZoneLocale_Controller.js"/>
+		<jsScript file="controllers/Constant_Controller.js"/>
+		<jsScript file="controllers/Enum_Controller.js"/>
+		<jsScript file="controllers/MainMenuConstructor_Controller.js"/>
+		<jsScript file="controllers/MainMenuContent_Controller.js"/>
+		<jsScript file="controllers/SrvStatistics_Controller.js"/>
+		<jsScript file="controllers/VariantStorage_Controller.js"/>
+		<jsScript file="controllers/View_Controller.js"/>
+		<jsScript file="controllers/About_Controller.js"/>
+		<jsScript file="custom_controls/App.enums.js"/>
+		<jsScript file="enum_controls/Enum_mail_types.js"/>
+		<jsScript file="enum_controls/EnumGridColumn_mail_types.js"/>
+		<jsScript file="enum_controls/Enum_notif_types.js"/>
+		<jsScript file="enum_controls/EnumGridColumn_notif_types.js"/>
+		<jsScript file="models/LoginDeviceList_Model.js"/>
+		<jsScript file="models/UserOperation_Model.js"/>
+		<jsScript file="models/UserOperationDialog_Model.js"/>
+		<jsScript file="controllers/UserOperation_Controller.js"/>
+		<jsScript file="models/Contact_Model.js"/>
+		<jsScript file="models/ContactList_Model.js"/>
+		<jsScript file="models/ContactDialog_Model.js"/>
+		<jsScript file="models/EntityContact_Model.js"/>
+		<jsScript file="models/EntityContactList_Model.js"/>
+		<jsScript file="controllers/Contact_Controller.js"/>
+		<jsScript file="models/Bank_Model.js"/>
+		<jsScript file="models/BankList_Model.js"/>
+		<jsScript file="controllers/EntityContact_Controller.js"/>
+		<jsScript file="controllers/Bank_Controller.js"/>
+		<jsScript file="controllers/Captcha_Controller.js"/>
+		<jsScript file="models/FirmList_Model.js"/>
+		<jsScript file="models/FirmDialog_Model.js"/>
+		<jsScript file="controllers/Firm_Controller.js"/>
+		<jsScript file="models/Studio_Model.js"/>
+		<jsScript file="controllers/Studio_Controller.js"/>
+		<jsScript file="controllers/StudioEquipment_Controller.js"/>
+		<jsScript file="models/StudioEquipment_Model.js"/>
+		<jsScript file="models/StudioDialog_Model.js"/>
+		<jsScript file="models/Specialist_Model.js"/>
+		<jsScript file="models/SpecialistList_Model.js"/>
+		<jsScript file="models/SpecialistDialog_Model.js"/>
+		<jsScript file="controllers/Specialist_Controller.js"/>
+		<jsScript file="enum_controls/Enum_specialist_status_types.js"/>
+		<jsScript file="enum_controls/EnumGridColumn_specialist_status_types.js"/>
+		<jsScript file="models/SpecialistStatus_Model.js"/>
+		<jsScript file="controllers/SpecialistStatus_Controller.js"/>
+		<jsScript file="enum_controls/Enum_notif_providers.js"/>
+		<jsScript file="enum_controls/EnumGridColumn_notif_providers.js"/>
+		<jsScript file="models/NotifTemplate_Model.js"/>
+		<jsScript file="models/NotifTemplateList_Model.js"/>
+		<jsScript file="controllers/NotifTemplate_Controller.js"/>
+		<jsScript file="models/ConfirmationStatus_Model.js"/>
+		<jsScript file="models/SpecialistRegDialog_Model.js"/>
+		<jsScript file="controllers/SpecialistReg_Controller.js"/>
+		<jsScript file="models/SpecialistReg_Model.js"/>
+		<jsScript file="controllers/ConfirmationStatus_Controller.js"/>
+		<jsScript file="controllers/ClientSearch_Controller.js"/>
+		<jsScript file="controllers/Login_Controller.js"/>
+		<jsScript file="controllers/LoginDevice_Controller.js"/>
+		<jsScript file="controllers/ReportTemplateField_Controller.js"/>
+		<jsScript file="models/ReportTemplateField_Model.js"/>
+		<jsScript file="models/DocumentTemplate_Model.js"/>
+		<jsScript file="models/DocumentTemplateList_Model.js"/>
+		<jsScript file="controllers/DocumentTemplate_Controller.js"/>
+		<jsScript file="controllers/DocumentTemplateField_Controller.js"/>
+		<jsScript file="models/DocumentTemplateField_Model.js"/>
+		<jsScript file="models/DocumentTemplateDialog_Model.js"/>
+		<jsScript file="models/Attachment_Model.js"/>
+		<jsScript file="models/AttachmentList_Model.js"/>
+		<jsScript file="controllers/Attachment_Controller.js"/>
+		<jsScript file="models/SpecialistRegList_Model.js"/>
+		<jsScript file="models/StudioList_Model.js"/>
+		<jsScript file="models/SpecialistDocument_Model.js"/>
+		<jsScript file="models/SpecialistDocumentList_Model.js"/>
+		<jsScript file="models/SpecialistDocumentOnRegister_Model.js"/>
+		<jsScript file="models/SpecialistDocumentOnRegisterList_Model.js"/>
+		<jsScript file="controllers/SpecialistDocumentOnRegister_Controller.js"/>
+		<jsScript file="models/SpecialistWork_Model.js"/>
+		<jsScript file="models/SpecialistWorkList_Model.js"/>
+		<jsScript file="controllers/SpecialistWork_Controller.js"/>
+		<jsScript file="controllers/SpecialistDocument_Controller.js"/>
+		<jsScript file="models/SpecialistDocumentForSignList_Model.js"/>
+		<jsScript file="models/EquipmentType_Model.js"/>
+		<jsScript file="controllers/EquipmentType_Controller.js"/>
+		<jsScript file="controllers/Item_Controller.js"/>
+		<jsScript file="models/Speciality_Model.js"/>
+		<jsScript file="models/Item_Model.js"/>
+		<jsScript file="controllers/Speciality_Controller.js"/>
+		<jsScript file="models/SpecialityList_Model.js"/>
+		<jsScript file="models/SpecialityDialog_Model.js"/>
+		<jsScript file="controllers/SpecialityEquipment_Controller.js"/>
+		<jsScript file="models/SpecialityEquipment_Model.js"/>
+		<jsScript file="models/YClStaff_Model.js"/>
+		<jsScript file="models/YClStaffList_Model.js"/>
+		<jsScript file="models/YClTransaction_Model.js"/>
+		<jsScript file="controllers/YClStaff_Controller.js"/>
+		<jsScript file="models/YClVisit_Model.js"/>
+		<jsScript file="models/YClTransactionDocList_Model.js"/>
+		<jsScript file="models/YClTransactionList_Model.js"/>
+		<jsScript file="controllers/YClTransaction_Controller.js"/>
+		<jsScript file="models/SpecialistWorkForRateList_Model.js"/>
+		<jsScript file="controllers/SalaryDebet_Controller.js"/>
+		<jsScript file="controllers/SalaryKredit_Controller.js"/>
+		<jsScript file="models/SalaryDebet_Model.js"/>
+		<jsScript file="models/SalaryKredit_Model.js"/>
+		<jsScript file="models/SpecialistSalaryDebet_Model.js"/>
+		<jsScript file="models/SpecialistSalaryKredit_Model.js"/>
+		<jsScript file="models/SpecialistSalaryKreditList_Model.js"/>
+		<jsScript file="controllers/SpecialistSalaryKredit_Controller.js"/>
+		<jsScript file="controllers/SpecialistSalaryDebet_Controller.js"/>
+		<jsScript file="models/SpecialistSalaryDebetList_Model.js"/>
+		<jsScript file="models/SpecialistPeriodSalary_Model.js"/>
+		<jsScript file="controllers/SpecialistPeriodSalary_Controller.js"/>
+		<jsScript file="models/SpecialistPeriodSalaryList_Model.js"/>
+		<jsScript file="models/YClTransactionDocAllList_Model.js"/>
+		<jsScript file="models/SpecialistPeriodSalaryDetail_Model.js"/>
+		<jsScript file="models/SpecialistPeriodSalaryDetailList_Model.js"/>
+		<jsScript file="controllers/SpecialistPeriodSalaryDetail_Controller.js"/>
+		<jsScript file="models/SpecialistReceipt_Model.js"/>
+		<jsScript file="controllers/SpecialistReceipt_Controller.js"/>
+		<jsScript file="controllers/QRExtractor_Controller.js"/>
+		<jsScript file="controllers/TemplateBatch_Controller.js"/>
+		<jsScript file="models/TemplateBatch_Model.js"/>
+		<jsScript file="controllers/TemplateBatchItem_Controller.js"/>
+		<jsScript file="models/TemplateBatchItem_Model.js"/>
+		<jsScript file="models/TemplateBatchItemList_Model.js"/>
+		<jsScript file="enum_controls/Enum_template_batch_types.js"/>
+		<jsScript file="enum_controls/EnumGridColumn_template_batch_types.js"/>
+		<jsScript file="models/BankPayment_Model.js"/>
+		<jsScript file="models/BankPaymentList_Model.js"/>
+		<jsScript file="controllers/BankPayment_Controller.js"/>
+		<jsScript file="models/Firm_Model.js"/>
+	</jsScripts>
+	<cssScripts>
+		<cssScript file="ext/Limitless v1.4/layout_1/LTR/default/assets/css/icons/icomoon/styles.css" compressed="TRUE" standalone="TRUE"/>
+		<cssScript file="ext/Limitless v1.4/layout_1/LTR/default/assets/css/bootstrap.css" compressed="FALSE" standalone="TRUE"/>
+		<cssScript file="ext/Limitless v1.4/layout_1/LTR/default/assets/css/core.min.css" compressed="TRUE" standalone="TRUE"/>
+		<cssScript file="ext/Limitless v1.4/layout_1/LTR/default/assets/css/components.min.css" compressed="TRUE" standalone="TRUE"/>
+		<cssScript file="ext/Limitless v1.4/layout_1/LTR/default/assets/css/colors.min.css" compressed="TRUE" standalone="TRUE"/>
+		<cssScript file="ext/Limitless v1.4/layout_1/LTR/default/assets/css/icons/fontawesome/styles.min.css" compressed="TRUE" standalone="TRUE"/>
+		<cssScript file="ext/bootstrap-datepicker/bootstrap-datepicker.standalone.min.css" compressed="TRUE" standalone="TRUE"/>
+		<cssScript file="custom-css/style.css" standalone="TRUE"/>
+		<cssScript file="custom-css/print.css" standalone="TRUE"/>
+	</cssScripts>
+</metadata>

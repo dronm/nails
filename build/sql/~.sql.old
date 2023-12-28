@@ -1,0 +1,15 @@
+-- VIEW: public.
+
+--DROP VIEW public.;
+
+CREATE OR REPLACE VIEW public. AS
+	SELECT
+		t.id
+		,t.name
+		,t.quant
+	FROM public. AS t
+	
+	
+	;
+	
+ALTER VIEW public. OWNER TO ;

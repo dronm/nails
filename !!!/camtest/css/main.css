@@ -1,0 +1,21 @@
+#waiting{	
+	position:fixed;
+	top:40%;
+	left:50%;
+	margin:0 0 0 -100px;
+	z-index:9999999;
+}
+
+#item{
+	font-size: 18px;
+}
+
+.logout{
+	margin-bottom: 10px;
+}
+.dynContent{
+	margin: 0px 10px 0px;
+}
+.page-container{
+	padding-top: 5px !important;
+}

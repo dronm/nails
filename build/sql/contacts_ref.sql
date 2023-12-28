@@ -1,0 +1,1 @@
+/home/andrey/go/osbe/repo/contact/sql/contacts_ref.sql

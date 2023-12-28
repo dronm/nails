@@ -1,0 +1,24 @@
+https://yclients.com/finances/transactions_search/781898?start_date=01.12.2023&end_date=02.12.2023&balance_is=0&supplier_id=0&type=0&master_id=0&deleted=0&client=&client_id=0&document_number=&page=&editable_length=25
+
+start_date=01.12.2023&end_date
+
+balance_is=0
+
+
+API
+Регистрация
+https://yclients.com/appstore/developers/registration
+Обмен данными с программой для автоматизации и учета
+
+
+https://developers.yclients.com/ru/?_gl=1*1dofih1*_ga*Nzg0MTY5MjY1LjE3MDE0OTg1MTE.*_ga_P2LM7D8KSM*MTcwMTU3MzAxNi4yLjEuMTcwMTU3MzQ3MC42MC4wLjA.&_ga=2.56248108.684915346.1701498511-784169265.1701498511#section/SDK
+Authorization: Bearer <partner token>
+
+
+ID 5579
+Token d82sz7b8f8tjm93twmf5
+
+Стелла
+07/12
+Сумма: 3 929 
+

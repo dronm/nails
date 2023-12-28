@@ -1,0 +1,15 @@
+Непонятка с часоми
+
+select 
+data->>'date' AS date
+,data->'record'->>'seance_length' AS len
+,data->'amount' AS amount
+,data->'visit_id' AS visit_id
+,data->'record_id' AS record_id
+from ycl_transactions
+where specialist_id is not null AND (data->>'date')::date='2023-12-07'
+order by (data->>'date')::timestamp
+
+Стелла
+07/12 по выручке 4 визита 4.75ч, у меня также 4,75
+По з/п отчету 6,25

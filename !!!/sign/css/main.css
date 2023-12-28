@@ -1,0 +1,11 @@
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#sign_cont {
+	border: 1px solid black;
+	width: 600px;
+	height: 600px;
+}
+

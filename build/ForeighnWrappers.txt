@@ -1,0 +1,22 @@
+CREATE EXTENSION postgres_fdw;
+
+DROP SERVER ms;
+CREATE SERVER ms FOREIGN DATA WRAPPER postgres_fdw OPTIONS (host '192.168.1.177', dbname 'ms', port '5432');
+GRANT USAGE ON FOREIGN SERVER ms TO nails;
+
+CREATE SCHEMA banks;
+!Доступ юзеру в схему в нашей базе!
+GRANT SELECT ON ALL TABLES IN SCHEMA banks TO nails;
+GRANT USAGE, CREATE ON SCHEMA banks TO nails;
+
+CREATE SCHEMA client_search;
+!Доступ юзеру в схему в нашей базе!
+GRANT SELECT ON ALL TABLES IN SCHEMA client_search TO nails;
+GRANT USAGE, CREATE ON SCHEMA client_search TO nails;
+
+
+#Под юзером nails
+CREATE USER MAPPING FOR nails SERVER ms OPTIONS (user 'ms', password '159753');
+IMPORT FOREIGN SCHEMA banks FROM SERVER ms INTO banks;
+IMPORT FOREIGN SCHEMA client_search FROM SERVER ms INTO client_search;
+
